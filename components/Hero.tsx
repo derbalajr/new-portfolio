@@ -13,7 +13,7 @@ const Hero = () => {
         />
         <Spotlight
           className="top-10 left-full h-[80vh] w-[50vw]"
-          fill="purple"
+          fill="lime"
         />
         <Spotlight className="top-28 left-80 h-[80vh] w-[50vw]" fill="blue" />
       </div>
@@ -23,18 +23,17 @@ const Hero = () => {
 
       <div className="flex justify-center relative my-20 z-10">
         <div className="max-w-[89wv] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
-          <h2 className="uppercase tracking-widest text-xs text-center text-blue-100 max-w-80">
-            Dynamic Web Magic with Next.js
+          <h2 className="uppercase tracking-widest text-xs text-center text-blue-100 max-w-85">
+          Blending Laravel&apos;s Elegance with Next.js&apos;s Efficiency
           </h2>
 
           <TextGenerateEffect
             className="text-center text-[40px] md:text-5xl lg:text-6xl"
-            words="Transforming Concepts into Seamless User Experiences"
+            words="Transforming Ideas into Cutting-Edge Digital Solutions"
           />
 
-          <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
-            Hi, I&apos;m Omar Derbala, a Full Stack PHP Developer based in
-            Egypt.
+          <p className="text-center md:tracking-wider mb-4 text-xs md:text-lg lg:text-xl">
+            I&apos;m Omar Derbala, an Egyptian Full Stack Developer merging tech with Pharaohs&apos; majesty.
           </p>
 
           <a href="#about">
