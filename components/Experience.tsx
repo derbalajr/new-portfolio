@@ -4,7 +4,7 @@ import { Button } from "./ui/MovingBorders";
 
 function Experience() {
   return (
-    <div className="pt-20 pb-32" id="experiences">
+    <div className="py-20" id="experiences">
       <h1 className="heading">
         My <span className="text-lime-400">work experience</span>
       </h1>
