@@ -234,14 +234,26 @@ export const workExperience = [
 export const socialMedia = [
   {
     id: 1,
-    img: "/git.svg",
+    title: "Gitlab",
+    img: "/gitlab-footer.svg",
+    link: "https://gitlab.com/derbalajr",
   },
   {
     id: 2,
-    img: "/twit.svg",
+    title: "Github",
+    img: "/git.svg",
+    link: "https://github.com/derbalajr",
   },
   {
     id: 3,
+    title: "Linkedin",
     img: "/link.svg",
+    link: "https://www.linkedin.com/in/derbalajr/",
+  },
+  {
+    id: 4,
+    title: "Upwork",
+    img: "/upwork.svg",
+    link: "https://www.upwork.com/freelancers/derbalajr",
   },
 ];
