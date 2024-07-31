@@ -1,217 +1,246 @@
 export const navItems = [
-    { name: "About", link: "#about" },
-    { name: "Projects", link: "#projects" },
-    { name: "Testimonials", link: "#testimonials" },
-    { name: "Contact", link: "#contact" },
-  ];
-  
-  export const gridItems = [
-    {
-      id: 1,
-      title: "I focus on client engagement, promoting honest exchange ",
-      description: "",
-      className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
-      imgClassName: "w-full h-full",
-      titleClassName: "justify-end",
-      img: "/b1.svg",
-      spareImg: "",
-    },
-    {
-      id: 2,
-      title: "I’m open to different time zone meetings",
-      description: "",
-      className: "lg:col-span-2 md:col-span-3 md:row-span-2",
-      imgClassName: "",
-      titleClassName: "justify-start",
-      img: "",
-      spareImg: "",
-    },
-    {
-      id: 3,
-      title: "My tech stack",
-      description: "I’m committed to advancing",
-      className: "lg:col-span-2 md:col-span-3 md:row-span-2",
-      imgClassName: "",
-      titleClassName: "justify-center",
-      img: "",
-      spareImg: "",
-    },
-    {
-      id: 4,
-      title: "Tech lover, passionate about crafting code.",
-      description: "",
-      className: "lg:col-span-2 md:col-span-3 md:row-span-1",
-      imgClassName: "",
-      titleClassName: "justify-start",
-      img: "/grid.svg",
-      spareImg: "/b4.svg",
-    },
-  
-    {
-      id: 5,
-      title: "IBM Full Stack Software Developer Professional Certificate",
-      description: "Currently Pursuing",
-      className: "md:col-span-3 md:row-span-2",
-      imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
-      titleClassName: "justify-center md:justify-start lg:justify-center",
-      img: "/b5.svg",
-      spareImg: "/grid.svg",
-    },
-    {
-      id: 6,
-      title: "How about starting a project together?",
-      description: "",
-      className: "lg:col-span-2 md:col-span-3 md:row-span-1",
-      imgClassName: "",
-      titleClassName: "justify-center md:max-w-full max-w-60 text-center",
-      img: "",
-      spareImg: "",
-    },
-  ];
-  
-  export const projects = [
-    {
-      id: 1,
-      title: "Exponile",
-      des: "Launching soon: Egypt’s top e-commerce site, boosting local brands & catering to Egyptian shoppers & merchants.",
-      img: "/exponile.svg",
-      iconLists: ["/laravel.svg", "/mysql.svg", "/react.svg", "/php.svg", "/gitlab.svg"],
-      link: "https://www.exponile.com/en/merchant-registration",
-    },
-    {
-      id: 2,
-      title: "Karrfour Mart",
-      des: "E-commerce website for selling dates, nuts, and dried fruits in Germany",
-      img: "/karfour.svg",
-      iconLists: ["/wordpress.svg", "/woocommerce.svg", "/elementor.svg", "/mysql.svg", "/php.svg"],
-      link: "https://karrfour.de/",
-    },
-    {
-      id: 3,
-      title: "Egyptian Customs Authority",
-      des: "Digital transformation for Egypt's customs: modernizing and streamlining processes for efficiency.",
-      img: "/customs.svg",
-      iconLists: ["/laravel.svg", "/mysql.svg", "/next.svg", "/php.svg", "/gitlab.svg"],
-      link: "https://gitlab.com/derbalajr",
-    },
-    {
-      id: 4,
-      title: "National Archives of Egypt",
-      des: "Egypt's digital transformation: automated archival solutions for efficient file management and reliable access to records.",
-      img: "/national.svg",
-      iconLists: ["/laravel.svg", "/mysql.svg", "/react.svg", "/php.svg", "/gitlab.svg"],
-      link: "https://gitlab.com/derbalajr",
-    },
-  ];
-  
-  export const testimonials = [
-    {
-      quote:
-        "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-      name: "Michael Johnson",
-      title: "Director of AlphaStream Technologies",
-    },
-    {
-      quote:
-        "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-      name: "Michael Johnson",
-      title: "Director of AlphaStream Technologies",
-    },
-    {
-      quote:
-        "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-      name: "Michael Johnson",
-      title: "Director of AlphaStream Technologies",
-    },
-    {
-      quote:
-        "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-      name: "Michael Johnson",
-      title: "Director of AlphaStream Technologies",
-    },
-    {
-      quote:
-        "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-      name: "Michael Johnson",
-      title: "Director of AlphaStream Technologies",
-    },
-  ];
-  
-  export const companies = [
-    {
-      id: 1,
-      name: "cloudinary",
-      img: "/cloud.svg",
-      nameImg: "/cloudName.svg",
-    },
-    {
-      id: 2,
-      name: "appwrite",
-      img: "/app.svg",
-      nameImg: "/appName.svg",
-    },
-    {
-      id: 3,
-      name: "HOSTINGER",
-      img: "/host.svg",
-      nameImg: "/hostName.svg",
-    },
-    {
-      id: 4,
-      name: "stream",
-      img: "/s.svg",
-      nameImg: "/streamName.svg",
-    },
-    {
-      id: 5,
-      name: "docker.",
-      img: "/dock.svg",
-      nameImg: "/dockerName.svg",
-    },
-  ];
-  
-  export const workExperience = [
-    {
-      id: 1,
-      title: "Frontend Engineer Intern",
-      desc: "Assisted in the development of a web-based platform using React.js, enhancing interactivity.",
-      className: "md:col-span-2",
-      thumbnail: "/exp1.svg",
-    },
-    {
-      id: 2,
-      title: "Mobile App Dev - JSM Tech",
-      desc: "Designed and developed mobile app for both iOS & Android platforms using React Native.",
-      className: "md:col-span-2", // change to md:col-span-2
-      thumbnail: "/exp2.svg",
-    },
-    {
-      id: 3,
-      title: "Freelance App Dev Project",
-      desc: "Led the dev of a mobile app for a client, from initial concept to deployment on app stores.",
-      className: "md:col-span-2", // change to md:col-span-2
-      thumbnail: "/exp3.svg",
-    },
-    {
-      id: 4,
-      title: "Lead Frontend Developer",
-      desc: "Developed and maintained user-facing features using modern frontend technologies.",
-      className: "md:col-span-2",
-      thumbnail: "/exp4.svg",
-    },
-  ];
-  
-  export const socialMedia = [
-    {
-      id: 1,
-      img: "/git.svg",
-    },
-    {
-      id: 2,
-      img: "/twit.svg",
-    },
-    {
-      id: 3,
-      img: "/link.svg",
-    },
-  ];
+  { name: "About", link: "#about" },
+  { name: "Projects", link: "#projects" },
+  { name: "Testimonials", link: "#testimonials" },
+  { name: "Contact", link: "#contact" },
+];
+
+export const gridItems = [
+  {
+    id: 1,
+    title: "I focus on client engagement, promoting honest exchange ",
+    description: "",
+    className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
+    imgClassName: "w-full h-full",
+    titleClassName: "justify-end",
+    img: "/b1.svg",
+    spareImg: "",
+  },
+  {
+    id: 2,
+    title: "I’m open to different time zone meetings",
+    description: "",
+    className: "lg:col-span-2 md:col-span-3 md:row-span-2",
+    imgClassName: "",
+    titleClassName: "justify-start",
+    img: "",
+    spareImg: "",
+  },
+  {
+    id: 3,
+    title: "My tech stack",
+    description: "I’m committed to advancing",
+    className: "lg:col-span-2 md:col-span-3 md:row-span-2",
+    imgClassName: "",
+    titleClassName: "justify-center",
+    img: "",
+    spareImg: "",
+  },
+  {
+    id: 4,
+    title: "Tech lover, passionate about crafting code.",
+    description: "",
+    className: "lg:col-span-2 md:col-span-3 md:row-span-1",
+    imgClassName: "",
+    titleClassName: "justify-start",
+    img: "/grid.svg",
+    spareImg: "/b4.svg",
+  },
+
+  {
+    id: 5,
+    title: "IBM Full Stack Software Developer Professional Certificate",
+    description: "Currently Pursuing",
+    className: "md:col-span-3 md:row-span-2",
+    imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
+    titleClassName: "justify-center md:justify-start lg:justify-center",
+    img: "/b5.svg",
+    spareImg: "/grid.svg",
+  },
+  {
+    id: 6,
+    title: "How about starting a project together?",
+    description: "",
+    className: "lg:col-span-2 md:col-span-3 md:row-span-1",
+    imgClassName: "",
+    titleClassName: "justify-center md:max-w-full max-w-60 text-center",
+    img: "",
+    spareImg: "",
+  },
+];
+
+export const projects = [
+  {
+    id: 1,
+    title: "Exponile",
+    des: "Launching soon: Egypt’s top e-commerce site, boosting local brands & catering to Egyptian shoppers & merchants.",
+    img: "/exponile.svg",
+    iconLists: [
+      "/laravel.svg",
+      "/mysql.svg",
+      "/react.svg",
+      "/php.svg",
+      "/gitlab.svg",
+    ],
+    link: "https://www.exponile.com/en/merchant-registration",
+  },
+  {
+    id: 2,
+    title: "Karrfour Mart",
+    des: "E-commerce website for selling dates, nuts, and dried fruits in Germany",
+    img: "/karfour.svg",
+    iconLists: [
+      "/wordpress.svg",
+      "/woocommerce.svg",
+      "/elementor.svg",
+      "/mysql.svg",
+      "/php.svg",
+    ],
+    link: "https://karrfour.de/",
+  },
+  {
+    id: 3,
+    title: "Egyptian Customs Authority",
+    des: "Digital transformation for Egypt's customs: modernizing and streamlining processes for efficiency.",
+    img: "/customs.svg",
+    iconLists: [
+      "/laravel.svg",
+      "/mysql.svg",
+      "/next.svg",
+      "/php.svg",
+      "/gitlab.svg",
+    ],
+    link: "https://gitlab.com/derbalajr",
+  },
+  {
+    id: 4,
+    title: "National Archives of Egypt",
+    des: "Egypt's digital transformation: automated archival solutions for efficient file management and reliable access to records.",
+    img: "/national.svg",
+    iconLists: [
+      "/laravel.svg",
+      "/mysql.svg",
+      "/react.svg",
+      "/php.svg",
+      "/gitlab.svg",
+    ],
+    link: "https://gitlab.com/derbalajr",
+  },
+];
+
+export const testimonials = [
+  {
+    quote:
+      "Omar has been an invaluable asset to our team. His deep expertise and exceptional problem-solving skills have significantly improved our projects. His dedication to writing high-quality code and his ability to integrate complex features seamlessly are truly impressive. Working with him has been a rewarding experience, and his contributions have greatly advanced our development efforts.",
+    name: "Ziad Ehab",
+    title: "Senior PHP Developer at Acme Saico",
+    img: "/ziad-ehab.png",
+  },
+  {
+    quote:
+      "The contributions of Omar to our team have been exceptional. His profound expertise and ability to tackle complex challenges have significantly advanced our projects. Consistently delivering high-quality code and integrating sophisticated features with ease, his collaboration has driven impressive progress in our development efforts.",
+    name: "Jean Pierre",
+    title: "CTO at Leadmedia.ca",
+    img: "/jean-pierre.png",
+  },
+  {
+    quote:
+      "Testing Omar’s code has always been a positive experience. His commitment to quality and thoroughness in coding resulted in fewer bugs and smoother testing phases. His ability to integrate complex features without introducing issues demonstrated his strong technical skills. Working with him has been a pleasure, and his contributions have greatly enhanced our project outcomes.",
+    name: "Abdelrahman Essam",
+    title: "Senior Quality Control at Dedalus Egypt",
+    img: "/abdelrahman-essam.png",
+  },
+  {
+    quote:
+      "Omar’s contributions as Vice Head of the Project Management team at Enactus were exceptional. His organizational skills and proactive approach played a key role in the success of our projects. His ability to manage complex tasks and coordinate effectively with the team ensured that our initiatives were executed seamlessly. His dedication and leadership were truly commendable.",
+    name: "Khaled Gamal",
+    title: "Head of Enactus Egypt",
+    img: "/khaled-gamal.png",
+  },
+  {
+    quote:
+      "Throughout our university journey, Omar demonstrated exceptional technical skills and dedication. His knack for tackling challenging problems and proactive approach made him a standout teammate. His passion for computer science and commitment to our projects significantly contributed to our collective success. Working with him was both inspiring and rewarding.",
+    name: "Ebrahim Aboulfadl",
+    title: "Back-End Developer at National Technologies",
+    img: "/ebrahim-aboulfadl.png",
+  },
+];
+
+export const companies = [
+  {
+    id: 1,
+    name: "ACME SAICO",
+    img: "/acme.png",
+    nameImg: "/cloudName.svg",
+  },
+  {
+    id: 2,
+    name: "Leadmedia",
+    img: "/leadmedia.png",
+    nameImg: "/appName.svg",
+  },
+  {
+    id: 3,
+    name: "Enactus",
+    img: "/enactus.png",
+    nameImg: "/hostName.svg",
+  },
+  {
+    id: 4,
+    name: "AOU",
+    img: "/aou.png",
+    nameImg: "/aou-name.png",
+  },
+  // {
+  //   id: 5,
+  //   name: "docker.",
+  //   img: "/dock.svg",
+  //   nameImg: "/dockerName.svg",
+  // },
+];
+
+export const workExperience = [
+  {
+    id: 1,
+    title: "Frontend Engineer Intern",
+    desc: "Assisted in the development of a web-based platform using React.js, enhancing interactivity.",
+    className: "md:col-span-2",
+    thumbnail: "/exp1.svg",
+  },
+  {
+    id: 2,
+    title: "Mobile App Dev - JSM Tech",
+    desc: "Designed and developed mobile app for both iOS & Android platforms using React Native.",
+    className: "md:col-span-2", // change to md:col-span-2
+    thumbnail: "/exp2.svg",
+  },
+  {
+    id: 3,
+    title: "Freelance App Dev Project",
+    desc: "Led the dev of a mobile app for a client, from initial concept to deployment on app stores.",
+    className: "md:col-span-2", // change to md:col-span-2
+    thumbnail: "/exp3.svg",
+  },
+  {
+    id: 4,
+    title: "Lead Frontend Developer",
+    desc: "Developed and maintained user-facing features using modern frontend technologies.",
+    className: "md:col-span-2",
+    thumbnail: "/exp4.svg",
+  },
+];
+
+export const socialMedia = [
+  {
+    id: 1,
+    img: "/git.svg",
+  },
+  {
+    id: 2,
+    img: "/twit.svg",
+  },
+  {
+    id: 3,
+    img: "/link.svg",
+  },
+];
