@@ -2,6 +2,7 @@ export const navItems = [
   { name: "About", link: "#about" },
   { name: "Projects", link: "#projects" },
   { name: "Testimonials", link: "#testimonials" },
+  { name: "Work Experience", link: "#experiences" },
   { name: "Contact", link: "#contact" },
 ];
 
@@ -202,29 +203,29 @@ export const companies = [
 export const workExperience = [
   {
     id: 1,
-    title: "Frontend Engineer Intern",
-    desc: "Assisted in the development of a web-based platform using React.js, enhancing interactivity.",
+    title: "Full Stack PHP Developer - ACME SAICO",
+    desc: "Empowering government digital transformation through PHP, Laravel, MySQL, creating impactful React UIs, and enhancing API performance.",
     className: "md:col-span-2",
     thumbnail: "/exp1.svg",
   },
   {
     id: 2,
-    title: "Mobile App Dev - JSM Tech",
-    desc: "Designed and developed mobile app for both iOS & Android platforms using React Native.",
+    title: "Web Developer - Leadmedia",
+    desc: "Creating websites for Canadian real estate brokers and providing customized solutions to meet their unique needs.",
     className: "md:col-span-2", // change to md:col-span-2
     thumbnail: "/exp2.svg",
   },
   {
     id: 3,
-    title: "Freelance App Dev Project",
-    desc: "Led the dev of a mobile app for a client, from initial concept to deployment on app stores.",
+    title: "Full Stack Developer Freelancer - Upwork",
+    desc: "Building dynamic sites with Laravel, MySQL, Next.js, and RESTful APIs, crafting bespoke solutions for diverse client needs.",
     className: "md:col-span-2", // change to md:col-span-2
     thumbnail: "/exp3.svg",
   },
   {
     id: 4,
-    title: "Lead Frontend Developer",
-    desc: "Developed and maintained user-facing features using modern frontend technologies.",
+    title: "Vice Head of PM - Enactus",
+    desc: "Led project management team, coordinating tasks and driving strategy for successful project outcomes.",
     className: "md:col-span-2",
     thumbnail: "/exp4.svg",
   },

@@ -36,7 +36,7 @@ const Hero = () => {
             I&apos;m Omar Derbala, an Egyptian Full Stack Developer merging tech with Pharaohs&apos; majesty.
           </p>
 
-          <a href="#about">
+          <a href="#projects">
             <MagicButton title="Show My Work" icon={<FaLocationArrow />} position="right" />
           </a>
         </div>
