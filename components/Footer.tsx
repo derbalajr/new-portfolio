@@ -2,6 +2,7 @@ import React from "react";
 import MagicButton from "./ui/MagicButton";
 import { FaLocationArrow } from "react-icons/fa6";
 import { socialMedia } from "@/data";
+import Image from 'next/image';
 
 const Footer = () => {
   return (
@@ -37,7 +38,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="relative group">
-                <img
+                <Image
                   src={profile.img}
                   alt={profile.title}
                   width={20}

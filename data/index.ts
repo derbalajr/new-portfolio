@@ -83,6 +83,7 @@ export const projects = [
       "/gitlab.svg",
     ],
     link: "https://www.exponile.com/en/merchant-registration",
+    background: "/bg.png",
   },
   {
     id: 2,
@@ -97,6 +98,7 @@ export const projects = [
       "/php.svg",
     ],
     link: "https://karrfour.de/",
+    background: "/bg.png",
   },
   {
     id: 3,
@@ -111,6 +113,7 @@ export const projects = [
       "/gitlab.svg",
     ],
     link: "https://gitlab.com/derbalajr",
+    background: "/bg.png",
   },
   {
     id: 4,
@@ -125,6 +128,7 @@ export const projects = [
       "/gitlab.svg",
     ],
     link: "https://gitlab.com/derbalajr",
+    background: "/bg.png",
   },
 ];
 

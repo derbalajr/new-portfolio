@@ -1,10 +1,12 @@
 import {withSentryConfig} from '@sentry/nextjs';
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    output: 'export',
     typescript: {
         ignoreBuildErrors: true,
-    }
+    },
+    images: {
+    domains: ['derbalajr.com'], // Add your domain or other domains if needed
+  },
 };
 
 export default withSentryConfig(nextConfig, {
