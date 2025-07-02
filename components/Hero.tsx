@@ -66,7 +66,7 @@ const Hero = () => {
                     </span>
                   </h1>
                   <h2 className="text-base sm:text-lg md:text-2xl lg:text-3xl font-medium text-gray-300 leading-relaxed max-w-4xl mx-auto px-4">
-                    An Egyptian Senior Full Stack Developer merging tech with Pharaohs&apos; majesty
+                    Senior Full Stack Developer crafting digital solutions
                   </h2>
                 </div>
               </div>

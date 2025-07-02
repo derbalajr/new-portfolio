@@ -63,25 +63,16 @@ const Grid = () => {
             </div>
             
             {/* Content */}
-            <div className="space-y-6 sm:space-y-8 mb-8 sm:mb-12">
+            <div className="space-y-4 sm:space-y-6 mb-8 sm:mb-12">
               <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed">
-                My journey began with a simple fascination for how technology could solve real-world problems. 
-                From building my first website during university to now architecting 
+                From building my first website to architecting 
                 <span className="primary-text font-semibold"> enterprise-level systems</span>, 
                 I&apos;ve always believed in the power of code to create meaningful change.
               </p>
               
-              <p className="text-sm sm:text-base md:text-lg text-gray-400 leading-relaxed">
-                What sets me apart is my unique blend of 
-                <span className="secondary-text font-semibold"> technical expertise and business acumen</span>. 
-                I don&apos;t just write code—I craft solutions that drive growth, streamline operations, 
-                and deliver exceptional user experiences across diverse industries.
-              </p>
-              
               <p className="text-xs sm:text-sm md:text-base text-gray-500 leading-relaxed">
-                When I&apos;m not coding, you&apos;ll find me exploring new technologies, mentoring junior developers, 
-                or contributing to open-source projects. I believe in continuous learning and sharing knowledge 
-                to help the developer community grow stronger together.
+                When I&apos;m not coding, I&apos;m exploring new technologies, mentoring developers, 
+                or contributing to open-source projects.
               </p>
             </div>
 

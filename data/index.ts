@@ -34,7 +34,7 @@ export const skillCategories = [
     id: 3,
     title: "Architecture & DevOps",
     description: "Designing robust system architectures",
-    skills: ["Microservices", "Clean Architecture", "Docker", "Kubernetes", "CI/CD", "Linux"],
+    skills: ["Microservices", "Clean Architecture", "DDD", "Docker", "Kubernetes", "CI/CD", "Linux"],
     className: "lg:col-span-2 md:col-span-3 md:row-span-2",
     color: "accent"
   },
@@ -42,7 +42,7 @@ export const skillCategories = [
     id: 4,
     title: "Current Focus",
     description: "Leading backend development at The Address Holding",
-    skills: ["CRM-ERP Systems", "Performance Optimization", "Domain-Driven Design"],
+    skills: ["CRM-ERP Systems", "Performance Optimization"],
     className: "lg:col-span-3 md:col-span-6 md:row-span-1",
     color: "primary"
   },
@@ -50,7 +50,7 @@ export const skillCategories = [
     id: 5,
     title: "Experience Level",
     description: "3+ years of professional development",
-    skills: ["Senior Backend Engineer", "Government Projects", "E-commerce Platforms"],
+    skills: ["Senior Backend Engineer", "CRM-ERP Systems", "Government Projects", "E-commerce Platforms"],
     className: "lg:col-span-2 md:col-span-3 md:row-span-1",
     color: "secondary"
   }
@@ -173,9 +173,9 @@ export const projects = [
     des: "Welhof is an e-commerce platform offering affordable, eco-friendly refurbished home appliances with a focus on quality and customer satisfaction",
     img: "/welhof-website.webp",
     iconLists: [
-      "/laravel.svg",
+      "/yii.svg",
       "/mysql.svg",
-      "/react.svg",
+      "/javascript.svg",
       "/php.svg",
       "/github.svg",
     ],
