@@ -21,7 +21,6 @@ export const BentoGrid = ({
       )}>
       {children}
     </div>
-    
   );
 };
 

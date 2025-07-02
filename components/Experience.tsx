@@ -21,12 +21,12 @@ function Experience() {
   };
 
   return (
-    <div className="py-16 md:py-20 px-4" id="experiences">
-      <div className="text-center mb-12 md:mb-16">
-        <h1 className="heading mb-4 md:mb-6 text-3xl md:text-4xl lg:text-5xl">
+    <div className="py-12 sm:py-16 md:py-20 px-4" id="experiences">
+      <div className="text-center mb-8 sm:mb-12 md:mb-16">
+        <h1 className="heading mb-4 md:mb-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
           My Professional <span className="primary-text">Journey</span>
         </h1>
-        <p className="text-gray-400 max-w-3xl mx-auto text-base md:text-lg leading-relaxed px-2">
+        <p className="text-gray-400 max-w-3xl mx-auto text-sm sm:text-base md:text-lg leading-relaxed px-2">
           From volunteer leadership to senior engineering roles, here&apos;s how I&apos;ve grown 
           through diverse experiences in tech and project management.
         </p>
@@ -34,16 +34,16 @@ function Experience() {
 
       {/* Timeline Container */}
       <div className="relative max-w-6xl mx-auto px-2 md:px-4">
-        {/* Central Timeline Line */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-green-500 via-emerald-500 to-cyan-500 rounded-full opacity-30"></div>
+        {/* Central Timeline Line - Hidden on mobile, visible on larger screens */}
+        <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-green-500 via-emerald-500 to-cyan-500 rounded-full opacity-30"></div>
         
         {/* Timeline Items */}
-        <div className="space-y-12 md:space-y-16">
+        <div className="space-y-8 sm:space-y-12 md:space-y-16">
           {workExperience.map((card, index) => (
-            <div key={card.id} className={`relative flex items-center ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
+            <div key={card.id} className={`relative flex flex-col lg:items-center ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
               
-              {/* Timeline Dot */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 md:w-6 md:h-6 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full border-2 md:border-4 border-black-100 z-10 shadow-lg animate-pulse-glow"></div>
+              {/* Timeline Dot - Hidden on mobile, visible on larger screens */}
+              <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 md:w-6 md:h-6 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full border-2 md:border-4 border-black-100 z-10 shadow-lg animate-pulse-glow"></div>
               
               {/* Content Card */}
               <div className={`w-full lg:w-5/12 ${index % 2 === 0 ? 'lg:pr-8 xl:pr-16' : 'lg:pl-8 xl:pl-16'} px-2 md:px-0`}>
@@ -52,7 +52,7 @@ function Experience() {
                   {/* Card Header */}
                   <div className="flex items-start gap-3 md:gap-6 mb-4 md:mb-6">
                     <div className="relative flex-shrink-0">
-                      <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-to-br from-green-500/20 to-emerald-500/20 border border-green-500/30 flex items-center justify-center overflow-hidden p-2 md:p-3">
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-to-br from-green-500/20 to-emerald-500/20 border border-green-500/30 flex items-center justify-center overflow-hidden p-2 md:p-3">
                         <Image
                           src={card.thumbnail}
                           alt={card.title}
@@ -62,13 +62,13 @@ function Experience() {
                         />
                       </div>
                       {/* Floating Badge */}
-                      <div className="absolute -top-1 -right-1 md:-top-2 md:-right-2 w-5 h-5 md:w-6 md:h-6 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full border-2 border-black-100 flex items-center justify-center">
+                      <div className="absolute -top-1 -right-1 md:-top-2 md:-right-2 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full border-2 border-black-100 flex items-center justify-center">
                         <span className="text-xs font-bold text-white">{workExperience.length - index}</span>
                       </div>
                     </div>
                     
                     <div className="flex-1 min-w-0">
-                      <h3 className="text-base md:text-lg lg:text-xl font-bold text-white mb-2 group-hover:primary-text transition-colors duration-300 leading-tight">
+                      <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-white mb-2 group-hover:primary-text transition-colors duration-300 leading-tight">
                         {card.title}
                       </h3>
                       <div className="flex flex-wrap gap-1.5 md:gap-2">
@@ -83,7 +83,7 @@ function Experience() {
                   </div>
                   
                   {/* Description */}
-                  <p className="text-gray-300 leading-relaxed text-sm md:text-base group-hover:text-gray-200 transition-colors duration-300">
+                  <p className="text-gray-300 leading-relaxed text-xs sm:text-sm md:text-base group-hover:text-gray-200 transition-colors duration-300">
                     {card.desc}
                   </p>
                   
@@ -92,7 +92,7 @@ function Experience() {
                 </div>
               </div>
               
-              {/* Mobile Timeline Connector */}
+              {/* Mobile Timeline Connector - Only visible on mobile */}
               <div className="lg:hidden w-full flex justify-center my-4">
                 <div className="w-8 h-1 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full"></div>
               </div>
@@ -104,17 +104,17 @@ function Experience() {
       </div>
       
       {/* Career Stats */}
-      <div className="mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-4xl mx-auto px-4">
+      <div className="mt-12 sm:mt-16 md:mt-20 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-4xl mx-auto px-4">
         <div className="text-center glass-card rounded-2xl p-4 md:p-6 hover:scale-105 transition-all duration-300">
-          <div className="text-2xl md:text-3xl font-bold primary-text mb-2">6</div>
+          <div className="text-xl sm:text-2xl md:text-3xl font-bold primary-text mb-2">6</div>
           <div className="text-xs md:text-sm text-gray-400">Career Milestones</div>
         </div>
         <div className="text-center glass-card rounded-2xl p-4 md:p-6 hover:scale-105 transition-all duration-300">
-          <div className="text-2xl md:text-3xl font-bold secondary-text mb-2">7+</div>
+          <div className="text-xl sm:text-2xl md:text-3xl font-bold secondary-text mb-2">7+</div>
           <div className="text-xs md:text-sm text-gray-400">Years Journey</div>
         </div>
         <div className="text-center glass-card rounded-2xl p-4 md:p-6 hover:scale-105 transition-all duration-300">
-          <div className="text-2xl md:text-3xl font-bold accent-text mb-2">5</div>
+          <div className="text-xl sm:text-2xl md:text-3xl font-bold accent-text mb-2">5</div>
           <div className="text-xs md:text-sm text-gray-400">Different Industries</div>
         </div>
       </div>
