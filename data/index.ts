@@ -1,8 +1,59 @@
 export const navItems = [
   { name: "About", link: "#about" },
   { name: "Projects", link: "#projects" },
-  { name: "Testimonials", link: "#testimonials" },
+  { name: "My Journey", link: "#experiences" },
   { name: "Contact", link: "#contact" },
+];
+
+export const heroData = {
+  profileImg: "/omar.webp",
+  name: "Omar Derbala",
+  tagline: "Blending Laravel's Elegance with Next.js's Efficiency",
+  title: "",
+  description: "Developing Unique Ideas into State-of-the-Art Web Solutions",
+};
+
+export const skillCategories = [
+  {
+    id: 1,
+    title: "Backend Development",
+    description: "Building scalable, high-performance systems",
+    skills: ["PHP", "Laravel", "Yii", "Node.js", "MySQL", "Redis", "RESTful APIs"],
+    className: "lg:col-span-3 md:col-span-6 md:row-span-2",
+    color: "primary"
+  },
+  {
+    id: 2,
+    title: "Frontend Technologies", 
+    description: "Creating modern, responsive user interfaces",
+    skills: ["React.js", "Next.js", "JavaScript", "HTML/CSS", "Tailwind CSS", "Bootstrap"],
+    className: "lg:col-span-2 md:col-span-3 md:row-span-2",
+    color: "secondary"
+  },
+  {
+    id: 3,
+    title: "Architecture & DevOps",
+    description: "Designing robust system architectures",
+    skills: ["Microservices", "Clean Architecture", "Docker", "Kubernetes", "CI/CD", "Linux"],
+    className: "lg:col-span-2 md:col-span-3 md:row-span-2",
+    color: "accent"
+  },
+  {
+    id: 4,
+    title: "Current Focus",
+    description: "Leading backend development at The Address Holding",
+    skills: ["CRM-ERP Systems", "Performance Optimization", "Domain-Driven Design"],
+    className: "lg:col-span-3 md:col-span-6 md:row-span-1",
+    color: "primary"
+  },
+  {
+    id: 5,
+    title: "Experience Level",
+    description: "3+ years of professional development",
+    skills: ["Senior Backend Engineer", "Government Projects", "E-commerce Platforms"],
+    className: "lg:col-span-2 md:col-span-3 md:row-span-1",
+    color: "secondary"
+  }
 ];
 
 export const gridItems = [
@@ -72,39 +123,9 @@ export const gridItems = [
 export const projects = [
   {
     id: 1,
-    title: "Exponile",
-    des: "Launching soon: Egypt’s top e-commerce site, boosting local brands & catering to Egyptian shoppers & merchants.",
-    img: "/exponile.svg",
-    iconLists: [
-      "/laravel.svg",
-      "/mysql.svg",
-      "/react.svg",
-      "/php.svg",
-      "/gitlab.svg",
-    ],
-    link: "https://www.exponile.com/en/merchant-registration",
-    background: "/bg.png",
-  },
-  {
-    id: 2,
-    title: "Karrfour Mart",
-    des: "E-commerce website for selling dates, nuts, and dried fruits in Germany",
-    img: "/karfour.svg",
-    iconLists: [
-      "/wordpress.svg",
-      "/woocommerce.svg",
-      "/elementor.svg",
-      "/mysql.svg",
-      "/php.svg",
-    ],
-    link: "https://karrfour.de/",
-    background: "/bg.png",
-  },
-  {
-    id: 3,
     title: "Egyptian Customs Authority",
     des: "Digital transformation for Egypt's customs: modernizing and streamlining processes for efficiency.",
-    img: "/customs.svg",
+    img: "/customs.webp",
     iconLists: [
       "/laravel.svg",
       "/mysql.svg",
@@ -112,22 +133,53 @@ export const projects = [
       "/php.svg",
       "/gitlab.svg",
     ],
-    link: "https://gitlab.com/derbalajr",
+    link: "https://customs.gov.eg/",
+    background: "/bg.png",
+  },
+
+  {
+    id: 2,
+    title: "Delecato",
+    des: "E-commerce website for selling dates, nuts, and dried fruits in Germany",
+    img: "/delecato.webp",
+    iconLists: [
+      "/wordpress.svg",
+      "/woocommerce.svg",
+      "/elementor.svg",
+      "/mysql.svg",
+      "/php.svg",
+    ],
+    link: "https://delecato.de/",
     background: "/bg.png",
   },
   {
-    id: 4,
-    title: "National Archives of Egypt",
-    des: "Egypt's digital transformation: automated archival solutions for efficient file management and reliable access to records.",
-    img: "/national.svg",
+    id: 3,
+    title: "The Address ERP - CRM",
+    des: "A fully customized internal CRM-ERP platform developed for The Address, a leading real estate company with over 6,000 employees.",
+    img: "/tai.webp",
     iconLists: [
       "/laravel.svg",
       "/mysql.svg",
       "/react.svg",
       "/php.svg",
-      "/gitlab.svg",
+      "/github.svg",
     ],
-    link: "https://gitlab.com/derbalajr",
+    link: "https://mytai.app/login",
+    background: "/bg.png",
+  }, 
+  {
+    id: 4,
+    title: "Welhof",
+    des: "Welhof is an e-commerce platform offering affordable, eco-friendly refurbished home appliances with a focus on quality and customer satisfaction",
+    img: "/welhof-website.webp",
+    iconLists: [
+      "/laravel.svg",
+      "/mysql.svg",
+      "/react.svg",
+      "/php.svg",
+      "/github.svg",
+    ],
+    link: "https://www.welhof.com/nl_nl/",
     background: "/bg.png",
   },
 ];
@@ -137,7 +189,7 @@ export const testimonials = [
     quote:
       "Omar has been an invaluable asset to our team. His deep expertise and exceptional problem-solving skills have significantly improved our projects. His dedication to writing high-quality code and his ability to integrate complex features seamlessly are truly impressive. Working with him has been a rewarding experience, and his contributions have greatly advanced our development efforts.",
     name: "Ziad Ehab",
-    title: "Senior PHP Developer at Acme Saico",
+    title: "Senior PHP Developer at ACME IES",
     img: "/ziad-ehab.png",
   },
   {
@@ -173,26 +225,26 @@ export const testimonials = [
 export const companies = [
   {
     id: 1,
-    name: "ACME SAICO",
-    img: "/acme.png",
+    name: "ACME IES",
+    img: "/acme.webp",
     nameImg: "/cloudName.svg",
   },
   {
     id: 2,
     name: "Leadmedia",
-    img: "/leadmedia.png",
+    img: "/leadmedia.webp",
     nameImg: "/appName.svg",
   },
   {
     id: 3,
     name: "Enactus",
-    img: "/enactus.png",
+    img: "/enactus.webp",
     nameImg: "/hostName.svg",
   },
   {
     id: 4,
     name: "AOU",
-    img: "/aou.png",
+    img: "/aou.webp",
     nameImg: "/aou-name.png",
   },
   // {
@@ -206,31 +258,57 @@ export const companies = [
 export const workExperience = [
   {
     id: 1,
-    title: "Full Stack PHP Developer - ACME SAICO",
-    desc: "Empowering government digital transformation through PHP, Laravel, MySQL, creating impactful React UIs, and enhancing API performance.",
+    title: "Backend Engineer - The Address Holding",
+    desc: "Leading backend development for large-scale CRM-ERP systems. Optimizing performance with Redis caching, MySQL query optimization, and implementing Clean Architecture principles.",
     className: "md:col-span-2",
-    thumbnail: "/exp1.svg",
+    thumbnail: "/theaddress.webp",
+    period: "01/2025 - Present",
+    type: "Full-time"
   },
   {
     id: 2,
-    title: "Web Developer - Leadmedia",
-    desc: "Creating websites for Canadian real estate brokers and providing customized solutions to meet their unique needs.",
-    className: "md:col-span-2", // change to md:col-span-2
-    thumbnail: "/exp2.svg",
+    title: "Senior Full Stack PHP Developer - Welhof",
+    desc: "Developing server-side applications using PHP, Yii, MySQL. Designing RESTful APIs and ensuring system scalability for Netherlands-based projects.",
+    className: "md:col-span-2",
+    thumbnail: "/welhof.webp",
+    period: "10/2024 - Present",
+    type: "Part-time"
   },
   {
     id: 3,
-    title: "Full Stack Developer Freelancer - Upwork",
-    desc: "Building dynamic sites with Laravel, MySQL, Next.js, and RESTful APIs, crafting bespoke solutions for diverse client needs.",
-    className: "md:col-span-2", // change to md:col-span-2
-    thumbnail: "/exp3.svg",
+    title: "Full Stack PHP Developer - ACME IES",
+    desc: "Contributed to Egyptian government digital transformation projects. Built scalable systems using Laravel, MySQL, React. Enhanced e-commerce platforms and optimized high-traffic applications.",
+    className: "md:col-span-2",
+    thumbnail: "/acme.webp",
+    period: "10/2022 - 01/2025",
+    type: "Full-time"
   },
   {
     id: 4,
-    title: "Vice Head of PM - Enactus",
-    desc: "Led project management team, coordinating tasks and driving strategy for successful project outcomes.",
+    title: "Web Developer - Leadmedia",
+    desc: "Creating custom websites for Canadian real estate brokers. Developing tailored solutions to meet unique business needs in the real estate industry.",
     className: "md:col-span-2",
-    thumbnail: "/exp4.svg",
+    thumbnail: "/leadmedia.webp",
+    period: "2022 - 2024",
+    type: "Freelance"
+  },
+  {
+    id: 5,
+    title: "Vice Head of PM - Enactus",
+    desc: "Led project management team coordination and strategic planning. Managed cross-functional teams and drove successful project outcomes in social entrepreneurship initiatives.",
+    className: "md:col-span-2",
+    thumbnail: "/enactus.webp",
+    period: "01/2019 - 05/2022",
+    type: "Volunteer"
+  },
+  {
+    id: 6,
+    title: "Computer Science Student - Arab Open University",
+    desc: "Pursuing Bachelor's degree in Computer Science with focus on software engineering, algorithms, and system design. Building strong foundation in programming fundamentals and advanced concepts.",
+    className: "md:col-span-2",
+    thumbnail: "/aou.webp",
+    period: "2018 - 2022",
+    type: "Education"
   },
 ];
 
