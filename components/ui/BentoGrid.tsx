@@ -3,12 +3,8 @@
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 import { BackgroundGradientAnimation } from "./GradientBg";
-import animationData from "@/data/confetti.json";
 import MagicButton from "./MagicButton";
 import { IoCopyOutline } from "react-icons/io5";
-import dynamic from "next/dynamic";
-
-const Lottie = dynamic(() => import("react-lottie"), { ssr: false });
 import Image from 'next/image';
 export const BentoGrid = ({
   className,
@@ -51,15 +47,6 @@ export const BentoGridItem = ({
   const rightLists = ["Next.js", "React.js", "Redux"];
 
   const [copied, setCopied] = useState(false);
-
-  const defaultOptions = {
-    loop: copied,
-    autoplay: copied,
-    animationData: animationData,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
 
   const handleCopy = () => {
     const text = "derbalajr@gmail.com";
@@ -165,12 +152,13 @@ export const BentoGridItem = ({
 
           {id === 6 && (
             <div className="mt-5 relative">
-              <div
-                className={`absolute -bottom-5 right-0 ${
-                  copied ? "block" : "block"
-                }`}>
-                <Lottie options={defaultOptions} height={200} width={100} />
-              </div>
+              {copied && (
+                <div className="absolute -bottom-5 right-0 flex items-center justify-center">
+                  <div className="text-green-400 text-2xl animate-bounce">
+                    ✅
+                  </div>
+                </div>
+              )}
 
               <MagicButton
                 title={copied ? "Email is Copied!" : "Copy my email address"}

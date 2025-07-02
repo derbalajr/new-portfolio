@@ -87,10 +87,34 @@ const nextConfig = {
             };
         }
         
+        // Prevent problematic packages from being included in server bundle
+        if (isServer) {
+            config.externals = config.externals || [];
+            // Add problematic client-only packages to externals
+            const clientOnlyPackages = [
+                'react-lottie',
+                'lottie-web'
+            ];
+            
+            // Push each package to externals
+            clientOnlyPackages.forEach(pkg => {
+                if (!config.externals.includes(pkg)) {
+                    config.externals.push(pkg);
+                }
+            });
+        }
+        
         // Optimize bundle size
         config.optimization = {
             ...config.optimization,
-            splitChunks: {
+            splitChunks: isServer ? {
+                // Disable chunk splitting for server build to prevent issues
+                chunks: 'async',
+                cacheGroups: {
+                    default: false,
+                    vendors: false,
+                },
+            } : {
                 chunks: 'all',
                 cacheGroups: {
                     default: {
