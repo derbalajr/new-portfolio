@@ -16,15 +16,19 @@ const ThemeSelector = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem('portfolio-theme') || '';
-    setCurrentTheme(savedTheme);
-    document.documentElement.className = savedTheme;
+    if (typeof window !== 'undefined') {
+      const savedTheme = localStorage.getItem('portfolio-theme') || '';
+      setCurrentTheme(savedTheme);
+      document.documentElement.className = savedTheme;
+    }
   }, []);
 
   const changeTheme = (themeClass: string) => {
     setCurrentTheme(themeClass);
-    document.documentElement.className = themeClass;
-    localStorage.setItem('portfolio-theme', themeClass);
+    if (typeof window !== 'undefined') {
+      document.documentElement.className = themeClass;
+      localStorage.setItem('portfolio-theme', themeClass);
+    }
     setIsOpen(false);
   };
 

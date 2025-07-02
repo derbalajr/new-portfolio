@@ -6,7 +6,9 @@ import { BackgroundGradientAnimation } from "./GradientBg";
 import animationData from "@/data/confetti.json";
 import MagicButton from "./MagicButton";
 import { IoCopyOutline } from "react-icons/io5";
-import Lottie from "react-lottie";
+import dynamic from "next/dynamic";
+
+const Lottie = dynamic(() => import("react-lottie"), { ssr: false });
 import Image from 'next/image';
 export const BentoGrid = ({
   className,
@@ -61,8 +63,10 @@ export const BentoGridItem = ({
 
   const handleCopy = () => {
     const text = "derbalajr@gmail.com";
-    navigator.clipboard.writeText(text);
-    setCopied(true);
+    if (typeof navigator !== 'undefined' && navigator.clipboard) {
+      navigator.clipboard.writeText(text);
+      setCopied(true);
+    }
   };
 
   return (
