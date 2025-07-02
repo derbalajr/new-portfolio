@@ -3,7 +3,6 @@
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 import { BackgroundGradientAnimation } from "./GradientBg";
-import { GlobeDemo } from "./GridGlobe";
 import animationData from "@/data/confetti.json";
 import MagicButton from "./MagicButton";
 import { IoCopyOutline } from "react-icons/io5";
@@ -148,7 +147,17 @@ export const BentoGridItem = ({
             </div>
           )}
 
-          {id === 2 && <GlobeDemo />}
+          {id === 2 && (
+            <div className="flex items-center justify-center h-full">
+              <div className="text-center p-8">
+                <div className="text-4xl mb-4">🌍</div>
+                <p className="text-lg font-semibold">Global Reach</p>
+                <p className="text-sm text-gray-400 mt-2">
+                  Building solutions for clients worldwide
+                </p>
+              </div>
+            </div>
+          )}
 
           {id === 6 && (
             <div className="mt-5 relative">
