@@ -9,19 +9,19 @@ import { useCardSpotlight } from "@/hooks/useMousePosition";
 function BrowserMockup({ src, alt, priority = false }: { src: string; alt: string; priority?: boolean }) {
   return (
     <div className="rounded-lg overflow-hidden border border-border bg-bg-secondary">
-      <div className="flex items-center gap-2 px-4 py-2.5 border-b border-border bg-bg-tertiary">
-        <div className="flex gap-1.5">
-          <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]/80" />
-          <div className="w-2.5 h-2.5 rounded-full bg-[#febc2e]/80" />
-          <div className="w-2.5 h-2.5 rounded-full bg-[#28c840]/80" />
+      <div className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 sm:py-2.5 border-b border-border bg-bg-tertiary">
+        <div className="flex gap-1 sm:gap-1.5">
+          <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-[#ff5f57]/80" />
+          <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-[#febc2e]/80" />
+          <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-[#28c840]/80" />
         </div>
-        <div className="flex-1 mx-4">
-          <div className="bg-bg/60 rounded-md px-3 py-1 text-[10px] text-text-tertiary font-mono text-center truncate">
+        <div className="flex-1 mx-2 sm:mx-4">
+          <div className="bg-bg/60 rounded-md px-2 sm:px-3 py-0.5 sm:py-1 text-[9px] sm:text-[10px] text-text-tertiary font-mono text-center truncate">
             {alt.toLowerCase().replace(/\s+/g, "-").replace(/[—]/g, "")}
           </div>
         </div>
       </div>
-      <div className="relative aspect-[16/10]">
+      <div className="relative aspect-[2/1] sm:aspect-[16/10]">
         <Image src={src} alt={alt} fill sizes="(max-width: 768px) 90vw, (max-width: 1024px) 45vw, 500px" className="object-cover object-top" priority={priority} />
       </div>
     </div>
@@ -99,14 +99,14 @@ export default function Projects() {
       >
         <CardSpotlight className="card-hover rounded-xl">
           <div className="grid lg:grid-cols-2 gap-0">
-            <div className="p-7 sm:p-9 flex flex-col justify-center order-2 lg:order-1">
+            <div className="p-5 sm:p-7 lg:p-9 flex flex-col justify-center order-2 lg:order-1">
               <div className="flex items-center gap-2 mb-4">
                 <span className="pill-accent w-fit">{featured.role}</span>
                 {"companyLogo" in featured && featured.companyLogo && (
                   <Image src={featured.companyLogo as string} alt="" width={20} height={20} className="rounded-sm invert" style={{ width: "auto", height: "auto" }} />
                 )}
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-text-primary">
+              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-text-primary">
                 {featured.title}
               </h3>
               <p className="mt-3 text-sm text-text-secondary leading-relaxed">
@@ -125,7 +125,7 @@ export default function Projects() {
                 ))}
               </div>
             </div>
-            <div className="p-5 order-1 lg:order-2">
+            <div className="p-3 sm:p-5 order-1 lg:order-2">
               {featured.image && (
                 <BrowserMockup src={featured.image} alt={featured.title} priority />
               )}
@@ -146,14 +146,14 @@ export default function Projects() {
           >
             <CardSpotlight className="card-hover rounded-xl h-full flex flex-col">
               {project.image && (
-                <div className="p-4 pb-0">
+                <div className="p-3 sm:p-4 pb-0">
                   <BrowserMockup src={project.image} alt={project.title} />
                 </div>
               )}
 
-              <div className="p-6 flex-1 flex flex-col">
+              <div className="p-4 sm:p-6 flex-1 flex flex-col">
                 <div className="flex items-start justify-between gap-3 mb-2">
-                  <h3 className="text-base font-semibold text-text-primary group-hover:text-white transition-colors leading-snug">
+                  <h3 className="text-sm sm:text-base font-semibold text-text-primary group-hover:text-white transition-colors leading-snug">
                     {project.title}
                   </h3>
                   {"link" in project && project.link && (
@@ -175,7 +175,7 @@ export default function Projects() {
                   )}
                 </div>
 
-                <p className="text-sm text-text-secondary leading-relaxed flex-1">
+                <p className="text-xs sm:text-sm text-text-secondary leading-relaxed flex-1">
                   {project.description}
                 </p>
 
