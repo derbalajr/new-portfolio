@@ -1,40 +1,63 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "./provider";
 
-const inter = Inter({ subsets: ["latin"] });
+const sans = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
+const mono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://omarderbala.com"),
   title: {
-    default: "Omar Derbala - Senior Full Stack Developer | Laravel & Next.js Expert",
-    template: "%s | Omar Derbala - Full Stack Developer"
+    default:
+      "Omar Derbala — Senior Full Stack Engineer | Laravel, Django & Next.js",
+    template: "%s | Omar Derbala",
   },
-  description: "Omar Derbala is a senior full stack developer specializing in PHP Laravel, Next.js, and React. 3+ years experience building scalable web applications, CRM-ERP systems, and e-commerce platforms. Currently at The Address Holding.",
+  description:
+    "Senior Full Stack Engineer with 4+ years of experience building enterprise ERP/CRM platforms, delivery systems, and national-scale digital transformation projects. Expert in Laravel, Django, Next.js, DDD, and scalable distributed architectures. Based in Cairo, Egypt.",
   keywords: [
     "Omar Derbala",
-    "Full Stack Developer",
-    "PHP Developer",
+    "Omar Derbala portfolio",
+    "Full Stack Engineer",
+    "Senior Full Stack Engineer",
+    "Senior Software Engineer",
     "Laravel Developer",
+    "Laravel Expert",
+    "Django Developer",
     "Next.js Developer",
     "React Developer",
+    "Python Developer",
+    "PHP Developer",
     "Backend Engineer",
-    "Web Developer",
-    "Software Engineer",
-    "CRM Development",
-    "ERP Systems",
-    "E-commerce Development",
-    "API Development",
-    "MySQL",
-    "Redis",
+    "ERP Developer",
+    "CRM Developer",
+    "Enterprise Software Engineer",
+    "Domain-Driven Design",
     "Microservices",
     "Clean Architecture",
-    "Egypt Developer"
+    "PostgreSQL",
+    "TypeScript",
+    "Docker",
+    "Kubernetes",
+    "Egypt Developer",
+    "Cairo Developer",
+    "Remote Full Stack Engineer",
+    "Hire Full Stack Developer",
+    "Flutter Developer",
+    "Multi-tenant SaaS",
   ],
-  authors: [{ name: "Omar Derbala" }],
+  authors: [{ name: "Omar Derbala", url: "https://omarderbala.com" }],
   creator: "Omar Derbala",
   publisher: "Omar Derbala",
+  category: "technology",
   robots: {
     index: true,
     follow: true,
@@ -50,32 +73,121 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://omarderbala.com",
-    title: "Omar Derbala - Senior Full Stack Developer | Laravel & Next.js Expert",
-    description: "Senior full stack developer specializing in PHP Laravel, Next.js, and React. 3+ years experience building scalable web applications and enterprise systems.",
-    siteName: "Omar Derbala Portfolio",
+    title: "Omar Derbala — Senior Full Stack Engineer",
+    description:
+      "Building enterprise systems that scale. 4+ years experience with Laravel, Django, Next.js. ERP/CRM platforms, delivery systems, government-scale projects.",
+    siteName: "Omar Derbala — Portfolio",
     images: [
       {
-        url: "/omar.webp",
+        url: "/omar-new.webp",
         width: 1200,
         height: 630,
-        alt: "Omar Derbala - Full Stack Developer",
+        alt: "Omar Derbala — Senior Full Stack Engineer specializing in Laravel, Django & Next.js",
+        type: "image/webp",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Omar Derbala - Senior Full Stack Developer",
-    description: "Senior full stack developer specializing in PHP Laravel, Next.js, and React. Building scalable web applications and enterprise systems.",
-    images: ["/omar.webp"],
-    creator: "@omarderbala",
-  },
-  verification: {
-    google: "your-google-verification-code", // Replace with actual verification code
+    title: "Omar Derbala — Senior Full Stack Engineer",
+    description:
+      "Building enterprise systems that scale — from database to deployment. Laravel, Django, Next.js expert.",
+    images: ["/omar-new.webp"],
   },
   alternates: {
     canonical: "https://omarderbala.com",
   },
-  category: "technology",
+};
+
+// JSON-LD structured data
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://omarderbala.com/#person",
+  name: "Omar Derbala",
+  givenName: "Omar",
+  familyName: "Derbala",
+  url: "https://omarderbala.com",
+  image: "https://omarderbala.com/omar-new.webp",
+  email: "derbalajr@gmail.com",
+  telephone: "+201111293179",
+  jobTitle: "Senior Full Stack Engineer",
+  worksFor: {
+    "@type": "Organization",
+    name: "The Address Holding",
+  },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Cairo",
+    addressCountry: "EG",
+  },
+  nationality: {
+    "@type": "Country",
+    name: "Egypt",
+  },
+  alumniOf: [
+    {
+      "@type": "CollegeOrUniversity",
+      name: "Arab Open University",
+      address: { "@type": "PostalAddress", addressCountry: "EG" },
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      name: "The Open University",
+      address: { "@type": "PostalAddress", addressCountry: "GB" },
+    },
+  ],
+  knowsAbout: [
+    "PHP",
+    "Laravel",
+    "Python",
+    "Django",
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Flutter",
+    "PostgreSQL",
+    "MySQL",
+    "Redis",
+    "Docker",
+    "Kubernetes",
+    "Domain-Driven Design",
+    "Clean Architecture",
+    "Microservices",
+    "Multi-tenant SaaS",
+    "ERP Systems",
+    "CRM Systems",
+  ],
+  sameAs: [
+    "https://www.linkedin.com/in/derbalajr/",
+    "https://github.com/derbalajr",
+    "https://gitlab.com/derbalajr",
+    "https://www.upwork.com/freelancers/derbalajr",
+  ],
+  description:
+    "Senior Full Stack Engineer with 4+ years of experience building enterprise ERP/CRM platforms, delivery systems, and digital transformation projects.",
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://omarderbala.com/#website",
+  name: "Omar Derbala — Senior Full Stack Engineer",
+  url: "https://omarderbala.com",
+  description:
+    "Professional portfolio of Omar Derbala, Senior Full Stack Engineer specializing in Laravel, Django, and Next.js.",
+  author: { "@id": "https://omarderbala.com/#person" },
+};
+
+const profilePageSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "@id": "https://omarderbala.com/#profilepage",
+  name: "Omar Derbala Portfolio",
+  url: "https://omarderbala.com",
+  mainEntity: { "@id": "https://omarderbala.com/#person" },
+  dateCreated: "2024-01-01",
+  dateModified: new Date().toISOString().split("T")[0],
 };
 
 export default function RootLayout({
@@ -84,93 +196,28 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className={`${sans.variable} ${mono.variable}`}>
       <head>
-        {/* Viewport for mobile responsiveness */}
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-        
-        {/* Additional SEO Meta Tags */}
-        <meta name="theme-color" content="#10b981" />
-        <meta name="color-scheme" content="dark light" />
-        
-        {/* Apple Touch Icon */}
-        <link rel="apple-touch-icon" sizes="180x180" href="/omar.webp" />
-        <link rel="icon" type="image/jpeg" sizes="32x32" href="/omar.webp" />
-        <link rel="icon" type="image/jpeg" sizes="16x16" href="/omar.webp" />
-        
-        {/* Structured Data */}
+        <meta name="theme-color" content="#09090f" />
+        <link rel="icon" type="image/webp" href="/omar-new.webp" />
+        <link rel="apple-touch-icon" href="/omar-new.webp" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Person",
-              "name": "Omar Derbala",
-              "url": "https://omarderbala.com",
-              "image": "https://omarderbala.com/omar.webp",
-              "sameAs": [
-                "https://www.linkedin.com/in/derbalajr/",
-                "https://github.com/derbalajr",
-                "https://gitlab.com/derbalajr",
-                "https://www.upwork.com/freelancers/derbalajr"
-              ],
-              "jobTitle": "Senior Full Stack Developer",
-              "worksFor": {
-                "@type": "Organization",
-                "name": "The Address Holding"
-              },
-              "alumniOf": {
-                "@type": "Organization",
-                "name": "Arab Open University"
-              },
-              "knowsAbout": [
-                "PHP",
-                "Laravel",
-                "Next.js",
-                "React",
-                "MySQL",
-                "JavaScript",
-                "Web Development",
-                "Full Stack Development",
-                "Backend Development",
-                "API Development"
-              ],
-              "description": "Senior full stack developer specializing in PHP Laravel, Next.js, and React with 3+ years of experience building scalable web applications and enterprise systems."
-            })
-          }}
-        />
-        
-        {/* Professional Work Structured Data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              "name": "Omar Derbala Portfolio",
-              "url": "https://omarderbala.com",
-              "description": "Professional portfolio of Omar Derbala, senior full stack developer specializing in Laravel, Next.js, and React development.",
-              "author": {
-                "@type": "Person",
-                "name": "Omar Derbala"
-              },
-              "potentialAction": {
-                "@type": "SearchAction",
-                "target": "https://omarderbala.com/#{search_term_string}",
-                "query-input": "required name=search_term_string"
-              }
-            })
+            __html: JSON.stringify([
+              personSchema,
+              websiteSchema,
+              profilePageSchema,
+            ]),
           }}
         />
       </head>
-      <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange>
-          {children}
-        </ThemeProvider>
+      <body
+        className="font-sans antialiased noise-overlay"
+        suppressHydrationWarning
+      >
+        <div className="aurora-bg" />
+        {children}
       </body>
     </html>
   );

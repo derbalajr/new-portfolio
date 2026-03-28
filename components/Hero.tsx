@@ -1,93 +1,195 @@
-import { FaLocationArrow } from "react-icons/fa6";
-import MagicButton from "./ui/MagicButton";
-import { Spotlight } from "./ui/Spotlight";
-import { TextGenerateEffect } from "./ui/TextGenerateEffect";
+"use client";
+
+import { useState, useEffect, useRef } from "react";
+import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { heroData } from "@/data";
+import { ArrowDown, FileText } from "lucide-react";
 import Image from "next/image";
+import { useMousePosition } from "@/hooks/useMousePosition";
 
-const Hero = () => {
+function AnimatedCounter({
+  target,
+  suffix = "",
+}: {
+  target: number;
+  suffix?: string;
+}) {
+  const count = useMotionValue(0);
+  const rounded = useTransform(count, (v) => Math.round(v));
+  const [display, setDisplay] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+  const started = useRef(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !started.current) {
+          started.current = true;
+          animate(count, target, { duration: 2, ease: "easeOut" });
+        }
+      },
+      { threshold: 0.5 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [count, target]);
+
+  useEffect(() => {
+    const unsubscribe = rounded.on("change", (v) => setDisplay(v));
+    return unsubscribe;
+  }, [rounded]);
+
   return (
-    <div className="pb-16 md:pb-20 pt-24 md:pt-36">
-      <div>
-        <Spotlight
-          className="-top-40 -left-10 md:-left-32 md:-top-20 h-screen"
-          fill="white"
-        />
-        <Spotlight className="top-10 left-full h-[80vh] w-[50vw]" fill="lime" />
-        <Spotlight className="top-28 left-80 h-[80vh] w-[50vw]" fill="blue" />
-      </div>
-      <div className="h-screen w-full dark:bg-black-100 bg-white  dark:bg-grid-white/[0.03] bg-grid-black/[0.2] flex items-center justify-center absolute top-0 left-0">
-        <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black-100 bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
-      </div>
-
-      <div className="flex justify-center relative my-16 md:my-20 z-10">
-        <div className="max-w-[95vw] sm:max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center px-4">
-                  <div className="relative mb-8 md:mb-12 group">
-  {/* Animated Ring */}
-  <div className="absolute inset-0 rounded-full animate-spin-slow">
-    <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 xl:w-64 xl:h-64 rounded-full bg-gradient-to-r from-lime-400 via-blue-500 to-purple-500 opacity-75 blur-sm"></div>
-  </div>
-  
-  {/* Main Border with Glow */}
-  <div className="absolute inset-0 rounded-full p-[4px] modern-gradient group-hover:from-purple-600 group-hover:via-lime-400 group-hover:to-blue-500 transition-all duration-500 shadow-2xl animate-pulse-glow">
-    {/* Inner glow */}
-    <div className="rounded-full w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 xl:w-64 xl:h-64 bg-gradient-to-br from-black/20 via-transparent to-black/20 backdrop-blur-sm"></div>
-  </div>
-  
-  {/* Profile Image */}
-  <Image
-    src={heroData.profileImg}
-    alt={`${heroData.name} profile`}
-    width={256}
-    height={256}
-    className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 xl:w-64 xl:h-64 rounded-full object-cover border-2 border-white/50 shadow-2xl group-hover:scale-110 transition-all duration-500 z-10"
-    priority
-  />
-  
-  {/* Floating particles */}
-  <div className="absolute inset-0 pointer-events-none">
-    <div className="absolute top-1/4 left-1/4 w-1.5 h-1.5 sm:w-2 sm:h-2 primary-bg rounded-full animate-ping opacity-75"></div>
-    <div className="absolute top-3/4 right-1/4 w-1 h-1 secondary-text rounded-full animate-pulse opacity-60"></div>
-    <div className="absolute bottom-1/4 left-3/4 w-1 h-1 sm:w-1.5 sm:h-1.5 accent-text rounded-full animate-bounce opacity-50"></div>
-  </div>
-</div>
-          <h3 className="uppercase tracking-widest text-xs sm:text-sm text-center text-blue-100 max-w-85 animate-fade-in opacity-80 hover:opacity-100 transition-opacity duration-300 mb-4 md:mb-6 px-4">
-            {heroData.tagline}
-          </h3>
-
-          <div>
-            <div className="my-4 md:my-6">
-              <div className="dark:text-white text-black">
-                <div className="text-center space-y-3 md:space-y-4">
-                  <h1 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight tracking-wide px-2">
-                    <span className="dark:text-white text-black">I&apos;m </span>
-                    <span className="primary-text glow-text">
-                      Omar Derbala
-                    </span>
-                  </h1>
-                  <h2 className="text-base sm:text-lg md:text-2xl lg:text-3xl font-medium text-gray-300 leading-relaxed max-w-4xl mx-auto px-4">
-                    Senior Full Stack Developer crafting digital solutions
-                  </h2>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <p className="text-center md:tracking-wider mb-6 md:mb-8 text-sm md:text-base lg:text-lg text-gray-400 hover:text-gray-200 transition-colors duration-300 max-w-2xl mx-auto leading-relaxed px-4">
-            {heroData.description}
-          </p>
-
-          <a href="#projects">
-            <MagicButton
-              title="Show My Work"
-              icon={<FaLocationArrow />}
-              position="right"
-            />
-          </a>
-        </div>
-      </div>
-    </div>
+    <span ref={ref}>
+      {display}
+      {suffix}
+    </span>
   );
+}
+
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.06, delayChildren: 0.1 },
+  },
 };
 
-export default Hero;
+const item = {
+  hidden: { opacity: 0, y: 16 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
+
+export default function Hero() {
+  const { pos: mousePos, active: mouseActive, handleMouseMove, handleMouseEnter, handleMouseLeave } = useMousePosition();
+
+  const nameChars = "Omar Derbala".split("");
+
+  return (
+    <section
+      onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      className="relative min-h-[100svh] flex items-center pt-16 sm:pt-20 pb-8 sm:pb-12 overflow-hidden"
+    >
+      {/* Cursor-following spotlight — desktop only */}
+      <div
+        className="pointer-events-none absolute inset-0 transition-opacity duration-500 hidden sm:block"
+        style={{
+          opacity: mouseActive ? 1 : 0,
+          background: `radial-gradient(600px circle at ${mousePos.x}px ${mousePos.y}px, rgba(99,102,241,0.07), transparent 60%)`,
+        }}
+      />
+
+      <motion.div
+        variants={container}
+        initial="hidden"
+        animate="show"
+        className="relative w-full"
+      >
+        {/* Top: Title + Name + Photo */}
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-4 sm:gap-6 items-stretch">
+          {/* Main content — 3 cols */}
+          <motion.div
+            variants={item}
+            className="md:col-span-3 flex flex-col justify-center"
+          >
+            <p className="text-accent text-xs sm:text-sm font-mono mb-4 sm:mb-6 tracking-wider uppercase">
+              {heroData.title}
+            </p>
+
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tighter leading-[1.05]">
+              <span className="text-text-primary">I&apos;m </span>
+              {nameChars.map((char, i) => (
+                <motion.span
+                  key={i}
+                  initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  transition={{
+                    delay: 0.35 + i * 0.03,
+                    type: "spring",
+                    stiffness: 150,
+                    damping: 20,
+                  }}
+                  className="inline-block gradient-text"
+                >
+                  {char === " " ? "\u00A0" : char}
+                </motion.span>
+              ))}
+            </h1>
+
+            <motion.p
+              variants={item}
+              className="mt-4 sm:mt-6 text-sm sm:text-lg text-text-secondary leading-relaxed max-w-lg"
+            >
+              {heroData.description}
+            </motion.p>
+
+            <motion.div
+              variants={item}
+              className="mt-6 sm:mt-8 flex flex-wrap gap-3"
+            >
+              <a
+                href={heroData.cta.primary.link}
+                className="btn-shine group inline-flex items-center gap-2 text-sm font-medium text-white bg-accent hover:bg-accent-hover px-5 sm:px-7 py-3 sm:py-3.5 rounded-lg transition-all duration-300 hover:shadow-glow"
+              >
+                {heroData.cta.primary.text}
+                <ArrowDown
+                  size={15}
+                  className="group-hover:translate-y-0.5 transition-transform"
+                />
+              </a>
+              <a
+                href={heroData.cta.secondary.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-medium text-text-secondary border border-border hover:border-border-hover px-5 sm:px-7 py-3 sm:py-3.5 rounded-lg hover:text-text-primary hover:bg-white/[0.02] transition-all duration-300"
+              >
+                <FileText size={15} />
+                {heroData.cta.secondary.text}
+              </a>
+            </motion.div>
+          </motion.div>
+
+          {/* Photo — 2 cols */}
+          <motion.div
+            variants={item}
+            className="md:col-span-2 card-hover rounded-2xl overflow-hidden relative min-h-[240px] sm:min-h-[320px] lg:min-h-[420px]"
+          >
+            <Image
+              src={heroData.photo}
+              alt={heroData.name}
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, 40vw"
+              className="object-contain object-bottom"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-bg-card/90 via-transparent to-transparent" />
+          </motion.div>
+        </div>
+
+        {/* Stats */}
+        <motion.div
+          variants={item}
+          className="mt-6 sm:mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4"
+        >
+          {[
+            { value: 4, suffix: "+", label: "Years Experience" },
+            { value: 20, suffix: "+", label: "Projects Shipped" },
+            { value: 3, suffix: "", label: "Platforms (Web, Mobile, Admin)" },
+            { value: 6, suffix: "", label: "Industries Covered" },
+          ].map((stat) => (
+            <div key={stat.label} className="card-hover rounded-xl p-4 sm:p-5">
+              <div className="text-xl sm:text-2xl lg:text-3xl font-bold gradient-text-accent">
+                <AnimatedCounter target={stat.value} suffix={stat.suffix} />
+              </div>
+              <div className="text-[10px] sm:text-xs text-text-tertiary mt-1 sm:mt-1.5 font-medium">
+                {stat.label}
+              </div>
+            </div>
+          ))}
+        </motion.div>
+      </motion.div>
+    </section>
+  );
+}

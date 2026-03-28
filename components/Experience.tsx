@@ -1,125 +1,97 @@
-import { workExperience } from "@/data";
-import React from "react";
-import Image from "next/image";
+"use client";
 
-function Experience() {
-  const getTypeColor = (type: string) => {
-    switch (type.toLowerCase()) {
-      case 'full-time':
-        return 'bg-green-500/20 text-green-300 border-green-500/30';
-      case 'part-time':
-        return 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30';
-      case 'freelance':
-        return 'bg-cyan-500/20 text-cyan-300 border-cyan-500/30';
-      case 'volunteer':
-        return 'bg-blue-500/20 text-blue-300 border-blue-500/30';
-      case 'education':
-        return 'bg-purple-500/20 text-purple-300 border-purple-500/30';
-      default:
-        return 'bg-gray-500/20 text-gray-300 border-gray-500/30';
-    }
-  };
+import { motion } from "framer-motion";
+import { experience } from "@/data";
+import { Briefcase } from "lucide-react";
 
+export default function Experience() {
   return (
-    <div className="py-12 sm:py-16 md:py-20 px-4" id="experiences">
-      <div className="text-center mb-8 sm:mb-12 md:mb-16">
-        <h1 className="heading mb-4 md:mb-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
-          My Professional <span className="primary-text">Journey</span>
-        </h1>
-        <p className="text-gray-400 max-w-3xl mx-auto text-sm sm:text-base md:text-lg leading-relaxed px-2">
-          From volunteer leadership to senior engineering roles, here&apos;s how I&apos;ve grown 
-          through diverse experiences in tech and project management.
-        </p>
-      </div>
+    <section id="experience" className="py-16 sm:py-20 lg:py-28">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.5 }}
+        className="flex items-center gap-3 mb-2"
+      >
+        <Briefcase size={18} className="text-accent" />
+        <span className="text-accent text-sm font-mono">Career</span>
+      </motion.div>
 
-      {/* Timeline Container */}
-      <div className="relative max-w-6xl mx-auto px-2 md:px-4">
-        {/* Central Timeline Line - Hidden on mobile, visible on larger screens */}
-        <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-green-500 via-emerald-500 to-cyan-500 rounded-full opacity-30"></div>
-        
-        {/* Timeline Items */}
-        <div className="space-y-8 sm:space-y-12 md:space-y-16">
-          {workExperience.map((card, index) => (
-            <div key={card.id} className={`relative flex flex-col lg:items-center ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
-              
-              {/* Timeline Dot - Hidden on mobile, visible on larger screens */}
-              <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 md:w-6 md:h-6 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full border-2 md:border-4 border-black-100 z-10 shadow-lg animate-pulse-glow"></div>
-              
-              {/* Content Card */}
-              <div className={`w-full lg:w-5/12 ${index % 2 === 0 ? 'lg:pr-8 xl:pr-16' : 'lg:pl-8 xl:pl-16'} px-2 md:px-0`}>
-                <div className="group glass-card rounded-2xl md:rounded-3xl p-4 md:p-6 lg:p-8 hover:scale-105 transition-all duration-500 hover:shadow-2xl hover:shadow-green-500/20 border border-green-500/20 hover:border-green-500/40">
-                  
-                  {/* Card Header */}
-                  <div className="flex items-start gap-3 md:gap-6 mb-4 md:mb-6">
-                    <div className="relative flex-shrink-0">
-                      <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-to-br from-green-500/20 to-emerald-500/20 border border-green-500/30 flex items-center justify-center overflow-hidden p-2 md:p-3">
-                        <Image
-                          src={card.thumbnail}
-                          alt={card.title}
-                          width={48}
-                          height={48}
-                          className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110 filter brightness-90 hover:brightness-110"
-                        />
-                      </div>
-                      {/* Floating Badge */}
-                      <div className="absolute -top-1 -right-1 md:-top-2 md:-right-2 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full border-2 border-black-100 flex items-center justify-center">
-                        <span className="text-xs font-bold text-white">{workExperience.length - index}</span>
-                      </div>
-                    </div>
-                    
-                    <div className="flex-1 min-w-0">
-                      <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-white mb-2 group-hover:primary-text transition-colors duration-300 leading-tight">
-                        {card.title}
-                      </h3>
-                      <div className="flex flex-wrap gap-1.5 md:gap-2">
-                        <span className="px-2 md:px-3 py-1 text-xs font-semibold bg-green-500/15 text-green-300 rounded-full border border-green-500/25">
-                          {(card as any).period}
-                        </span>
-                        <span className={`px-2 md:px-3 py-1 text-xs font-semibold rounded-full border ${getTypeColor((card as any).type)}`}>
-                          {(card as any).type}
-                        </span>
-                      </div>
-                    </div>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.5, delay: 0.05 }}
+      >
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-text-primary">
+          Work <span className="gradient-text-accent">Experience</span>
+        </h2>
+        <p className="mt-3 text-text-secondary text-sm sm:text-base">
+          4+ years building production systems across industries.
+        </p>
+      </motion.div>
+
+      <div className="mt-10 sm:mt-14 relative">
+        {/* Timeline line */}
+        <div className="absolute left-[5px] sm:left-[7px] top-3 bottom-3 w-px bg-gradient-to-b from-accent/40 via-border to-transparent" />
+
+        <div className="space-y-2">
+          {experience.map((role, i) => (
+            <motion.div
+              key={role.id}
+              initial={{ opacity: 0, x: -10 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.4, delay: i * 0.08 }}
+              className="relative pl-7 sm:pl-10 group"
+            >
+              {/* Timeline dot */}
+              <div className="absolute left-0 top-5 sm:top-6 w-[11px] h-[11px] sm:w-[15px] sm:h-[15px] rounded-full border-2 border-border bg-bg group-hover:border-accent transition-colors duration-300">
+                <div className="absolute inset-1 rounded-full bg-accent/0 group-hover:bg-accent/60 transition-colors duration-300" />
+              </div>
+
+              <div className="card-hover rounded-xl p-4 sm:p-5 lg:p-6">
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1.5 sm:gap-4">
+                  <div className="min-w-0">
+                    <h3 className="text-sm sm:text-base font-semibold text-text-primary group-hover:text-white transition-colors">
+                      {role.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-text-secondary mt-0.5">
+                      {role.company}
+                    </p>
                   </div>
-                  
-                  {/* Description */}
-                  <p className="text-gray-300 leading-relaxed text-xs sm:text-sm md:text-base group-hover:text-gray-200 transition-colors duration-300">
-                    {card.desc}
-                  </p>
-                  
-                  {/* Bottom Accent Line */}
-                  <div className="mt-4 md:mt-6 h-1 w-full bg-gradient-to-r from-green-500/0 via-green-500/50 to-green-500/0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+                    <span className="text-[10px] sm:text-xs text-text-tertiary font-mono">
+                      {role.period}
+                    </span>
+                    <span className="pill-accent text-[10px] sm:text-xs">
+                      {role.type}
+                    </span>
+                  </div>
                 </div>
+
+                <p className="mt-2 sm:mt-3 text-xs sm:text-sm text-text-secondary leading-relaxed">
+                  {role.description}
+                </p>
+
+                {role.stack.length > 0 && (
+                  <div className="mt-2 sm:mt-3 flex flex-wrap gap-x-2.5 sm:gap-x-3 gap-y-1">
+                    {role.stack.map((tech) => (
+                      <span
+                        key={tech}
+                        className="text-[10px] sm:text-[11px] font-mono text-text-tertiary"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
-              
-              {/* Mobile Timeline Connector - Only visible on mobile */}
-              <div className="lg:hidden w-full flex justify-center my-4">
-                <div className="w-8 h-1 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full"></div>
-              </div>
-            </div>
+            </motion.div>
           ))}
         </div>
-        
-
       </div>
-      
-      {/* Career Stats */}
-      <div className="mt-12 sm:mt-16 md:mt-20 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-4xl mx-auto px-4">
-        <div className="text-center glass-card rounded-2xl p-4 md:p-6 hover:scale-105 transition-all duration-300">
-          <div className="text-xl sm:text-2xl md:text-3xl font-bold primary-text mb-2">6</div>
-          <div className="text-xs md:text-sm text-gray-400">Career Milestones</div>
-        </div>
-        <div className="text-center glass-card rounded-2xl p-4 md:p-6 hover:scale-105 transition-all duration-300">
-          <div className="text-xl sm:text-2xl md:text-3xl font-bold secondary-text mb-2">7+</div>
-          <div className="text-xs md:text-sm text-gray-400">Years Journey</div>
-        </div>
-        <div className="text-center glass-card rounded-2xl p-4 md:p-6 hover:scale-105 transition-all duration-300">
-          <div className="text-xl sm:text-2xl md:text-3xl font-bold accent-text mb-2">5</div>
-          <div className="text-xs md:text-sm text-gray-400">Different Industries</div>
-        </div>
-      </div>
-    </div>
+    </section>
   );
 }
-
-export default Experience;

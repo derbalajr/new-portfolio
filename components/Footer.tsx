@@ -1,59 +1,67 @@
-import React from "react";
-import MagicButton from "./ui/MagicButton";
-import { FaLocationArrow } from "react-icons/fa6";
-import { socialMedia } from "@/data";
-import Image from 'next/image';
+"use client";
 
-const Footer = () => {
+import { motion } from "framer-motion";
+import { socialLinks } from "@/data";
+import { Mail, ArrowUpRight } from "lucide-react";
+
+export default function Footer() {
   return (
-    <footer className="w-full pb-8 md:pb-10 mb-[80px] md:mb-4 px-4" id="contact">
-      <div className="flex flex-col items-center glass-card rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-12 section-glow">
-        <h1 className="heading lg:max-w-[45vw] mb-4 md:mb-6 text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-center px-2">
-          Ready to turn your ideas into <span className="primary-text">reality</span>?
-        </h1>
+    <footer id="contact" className="py-16 sm:py-20 lg:py-28 border-t border-border">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="relative">
+          <div className="absolute -top-32 left-0 w-[300px] sm:w-[400px] h-[200px] sm:h-[300px] bg-accent/5 blur-[100px] rounded-full pointer-events-none" />
 
-        <p className="text-gray-300 md:mt-4 my-4 md:my-5 text-center max-w-2xl leading-relaxed text-sm md:text-base px-2">
-          Let&apos;s collaborate and build something amazing together. I&apos;m here to help bring your vision to life with cutting-edge technology and creative solutions.
-        </p>
-        <a href="mailto:derbalajr@gmail.com">
-          <MagicButton
-            title="Let's get in touch"
-            icon={<FaLocationArrow />}
-            position="right"
-          />
-        </a>
-      </div>
-      <div className="flex mt-12 md:mt-16 lg:mt-20 md:flex-row flex-col justify-between items-center gap-4 md:gap-6 pt-6 md:pt-8 border-t border-white/10">
-        <p className="text-sm md:text-base md:font-normal font-light text-gray-400 text-center md:text-left">
-          Copyright © {new Date().getFullYear()} Omar Derbala
-        </p>
-        <div className="flex items-center gap-4 md:gap-6">
-          {socialMedia.map((profile) => (
-            <div
-              key={profile.id}
-              className="w-10 h-10 md:w-12 md:h-12 cursor-pointer flex justify-center items-center glass-card rounded-xl border border-white/10 hover:border-lime-400/50 transition-all duration-300 hover:scale-110 animate-pulse-glow">
-              <a
-                href={profile.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="relative group">
-                <Image
-                  src={profile.img}
-                  alt={profile.title}
-                  width={24}
-                  height={24}
-                  className="transition-transform duration-300 group-hover:scale-110 w-5 h-5 md:w-6 md:h-6"
-                />
-                <span className="absolute bottom-full mb-2 md:mb-3 left-1/2 transform -translate-x-1/2 w-max px-2 md:px-3 py-1 md:py-2 text-xs md:text-sm text-white bg-black/80 backdrop-blur-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-lime-400/30">
-                  {profile.title}
-                </span>
-              </a>
+          <div className="relative">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-text-primary">
+              Let&apos;s build something{" "}
+              <span className="gradient-text-accent">together</span>
+            </h2>
+            <p className="mt-3 sm:mt-4 text-text-secondary text-sm sm:text-base leading-relaxed max-w-md">
+              Available for full-time roles, contract work, and consulting on
+              enterprise systems. Based in Cairo, Egypt — open to remote.
+            </p>
+
+            <a
+              href="mailto:derbalajr@gmail.com"
+              className="btn-shine mt-6 sm:mt-8 inline-flex items-center gap-2 text-sm font-medium text-white bg-accent hover:bg-accent-hover px-6 sm:px-7 py-3 sm:py-3.5 rounded-lg transition-all duration-200 hover:shadow-glow"
+            >
+              <Mail size={16} />
+              derbalajr@gmail.com
+            </a>
+
+            {/* Social links with proper touch targets */}
+            <div className="mt-6 sm:mt-8 flex items-center gap-1 sm:gap-2 -ml-3">
+              {socialLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-1.5 text-sm text-text-tertiary hover:text-text-primary transition-colors duration-200 px-3 py-2.5 rounded-lg"
+                >
+                  {link.name}
+                  <ArrowUpRight
+                    size={12}
+                    className="opacity-0 group-hover:opacity-100 transition-opacity"
+                  />
+                </a>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
+      </motion.div>
+
+      <div className="mt-12 sm:mt-20 pt-6 sm:pt-8 border-t border-border flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+        <p className="text-xs text-text-tertiary">
+          &copy; {new Date().getFullYear()} Omar Derbala
+        </p>
+        <p className="text-xs text-text-tertiary">Cairo, Egypt</p>
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}
