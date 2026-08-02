@@ -157,12 +157,17 @@ export const projects: Project[] = [
   {
     num: "02",
     name: "Akaza Travel",
-    subject: "Hotel & tour booking platform",
+    subject: "Hotel, tour & transfer booking",
     role: "Principal Engineer · Giantrex",
     period: "Feb 2026 — Present",
     description:
-      "Hotelbeds powers hotel search and booking, with rates and cancellation terms captured at the moment of booking so a later supplier change can't alter a confirmed reservation. Payments run through Stripe and PayPal behind one gateway interface, with exact integer arithmetic on every multi-currency amount.",
-    impact: ["Hotelbeds integration", "Stripe + PayPal", "EN / DE / FR"],
+      "Three bookable products behind one basket: hotels through the Hotelbeds bedbank, guided tours with their own availability calendar, blackout dates and per-guest-type pricing, and airport transfers priced by route and vehicle class. Rates and cancellation terms are captured at the moment of booking, so a later supplier change can't alter a confirmed reservation. Payments run through Stripe and PayPal behind one gateway interface, with exact integer arithmetic on every multi-currency amount. Around that sits a promo engine with targeted campaigns, generated codes, eligibility rules and redemption reporting, plus customer records with leads and notes, templated notifications, PDF vouchers and revenue reporting — the whole platform in English, German and French.",
+    impact: [
+      "Hotels, tours & transfers",
+      "Hotelbeds bedbank",
+      "Stripe + PayPal",
+      "EN / DE / FR",
+    ],
     stack: [
       "Laravel 12",
       "PostgreSQL",
@@ -172,6 +177,7 @@ export const projects: Project[] = [
       "React 19",
       "Three.js",
       "Stripe",
+      "Hotelbeds",
     ],
     link: "https://akazatravel.com/",
     linkLabel: "akazatravel.com",
