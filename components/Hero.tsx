@@ -1,4 +1,5 @@
 import Image from "next/image";
+import HeroCanvas from "./HeroCanvas";
 import { heroData } from "@/data";
 
 export default function Hero() {
@@ -7,6 +8,7 @@ export default function Hero() {
       id="top"
       className="relative flex min-h-screen items-center overflow-hidden pt-[120px]"
     >
+      <HeroCanvas />
       <div
         aria-hidden
         className="pointer-events-none absolute -top-[20%] left-[46%] h-[900px] w-[900px] rounded-full bg-[radial-gradient(circle,rgba(76,111,255,0.22)_0%,transparent_62%)] blur-[30px]"
