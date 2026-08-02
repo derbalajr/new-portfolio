@@ -22,7 +22,7 @@ export default function Contact() {
               <h2 className="mt-[22px] font-display text-[clamp(38px,5vw,68px)] font-bold leading-none tracking-[-0.045em] text-txt">
                 {contact.heading.map((line) => (
                   <span key={line} className="block">
-                    {line}
+                    {line}{" "}
                   </span>
                 ))}
               </h2>

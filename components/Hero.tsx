@@ -32,9 +32,12 @@ export default function Hero() {
             </div>
 
             <h1 className="mt-[30px] font-display text-[clamp(48px,6.4vw,96px)] font-bold leading-[0.98] tracking-[-0.045em] text-txt">
+              {/* The trailing space keeps the accessible name and any text
+                  extraction readable — block spans alone concatenate into
+                  "I build thesystems companies". It collapses visually. */}
               {heroData.headline.map((line) => (
                 <span key={line} className="block">
-                  {line}
+                  {line}{" "}
                 </span>
               ))}
               <span className="sweep-text">{heroData.headlineAccent}</span>
