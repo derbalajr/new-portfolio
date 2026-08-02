@@ -273,6 +273,33 @@ The homepage title drops from 61 to under 60 characters.
 10. Each case study is 400–800 words of visible text.
 11. **User has read and approved every case study page before merge.**
 
+## Parallel work — mobile-first rewrite
+
+A separate session is rewriting the mobile presentation on branch
+`mobile-first-rewrite`, also cut from `main`. Both branches touch shared files,
+so this work is sequenced to keep the collision surface small.
+
+**Files both branches touch:**
+
+| File | Mobile branch | This branch | Risk |
+|---|---|---|---|
+| `app/layout.tsx` | `viewport` export, font weights, removes a `<head>` meta | `metadata` object, JSON-LD constants | Low — different regions |
+| `app/page.tsx` | mounts `<MobileCta />` | mounts one `<JsonLd />` | Low — one line each |
+| `components/Projects.tsx` | substantial rewrite | wraps the card title in a link | **High** |
+| `data/index.ts` | explicitly unchanged | adds `slug` field | None |
+
+**Rules for this branch:**
+
+1. **`components/Projects.tsx` is touched last**, in its own task, and only to
+   turn the card title into a link. If `mobile-first-rewrite` has merged by
+   then, rebase onto it first. If it has not, that one task is the only thing
+   to redo after the mobile branch lands.
+2. **Homepage JSON-LD goes through a `components/JsonLd.tsx` component**, so
+   `app/page.tsx` gains one import and one element rather than a block of
+   inline script markup. Cheaper to merge.
+3. **No other component file is modified by this branch.** All new content
+   lives in new files under `app/work/`, `data/case-studies/` and `lib/`.
+
 ## Out of scope
 
 - Backlink acquisition, directory submissions, Wikidata — off-site work the
