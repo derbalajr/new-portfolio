@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Mail, MessageCircle } from "lucide-react";
 import { contact } from "@/data";
 
 /**
@@ -41,13 +42,29 @@ export default function MobileCta() {
           : "pointer-events-none translate-y-full opacity-0"
       }`}
     >
-      <a
-        href={`mailto:${contact.email}`}
-        tabIndex={shown ? undefined : -1}
-        className="flex min-h-[48px] items-center justify-center gap-2.5 rounded-[14px] bg-accent px-5 text-[15px] font-semibold text-white shadow-[0_10px_32px_rgba(76,111,255,0.32)]"
-      >
-        Let&rsquo;s talk <span aria-hidden>→</span>
-      </a>
+      {/* WhatsApp carries the filled treatment: on a phone it is the action
+          most likely to actually complete, since mailto: opens nothing at all
+          where no mail client is configured. */}
+      <div className="grid grid-cols-2 gap-2.5">
+        <a
+          href={`mailto:${contact.email}`}
+          tabIndex={shown ? undefined : -1}
+          className="flex min-h-[48px] items-center justify-center gap-2 rounded-[14px] border border-line-2 bg-[rgba(233,240,250,0.04)] px-4 text-[15px] font-semibold text-txt"
+        >
+          <Mail size={17} aria-hidden className="flex-none" />
+          Email
+        </a>
+        <a
+          href={contact.whatsapp.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          tabIndex={shown ? undefined : -1}
+          className="flex min-h-[48px] items-center justify-center gap-2 rounded-[14px] bg-accent px-4 text-[15px] font-semibold text-white shadow-[0_10px_32px_rgba(76,111,255,0.32)]"
+        >
+          <MessageCircle size={17} aria-hidden className="flex-none" />
+          WhatsApp
+        </a>
+      </div>
     </div>
   );
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Mail, MessageCircle, Menu, X } from "lucide-react";
 import { navItems, contact } from "@/data";
 
 export default function Nav() {
@@ -178,11 +178,22 @@ export default function Nav() {
 
           <div className="flex-none border-t border-line pb-6 pl-[max(1.25rem,env(safe-area-inset-left))] pr-[max(1.25rem,env(safe-area-inset-right))] pt-5">
             <a
+              href={contact.whatsapp.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={close}
+              className="flex min-h-[52px] items-center justify-center gap-2.5 rounded-xl bg-accent px-5 text-[15px] font-semibold text-white"
+            >
+              <MessageCircle size={18} aria-hidden className="flex-none" />
+              WhatsApp
+            </a>
+            <a
               href={`mailto:${contact.email}`}
               onClick={close}
-              className="flex min-h-[52px] items-center justify-center rounded-xl bg-accent px-5 text-[15px] font-semibold text-white"
+              className="mt-2.5 flex min-h-[52px] items-center justify-center gap-2.5 rounded-xl border border-line-2 px-5 text-[15px] font-semibold text-txt"
             >
-              Let&rsquo;s talk
+              <Mail size={18} aria-hidden className="flex-none" />
+              Email
             </a>
             <div className="mt-3 flex flex-wrap gap-2">
               {contact.socials.map((s) => (

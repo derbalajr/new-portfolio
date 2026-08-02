@@ -1,3 +1,4 @@
+import { MessageCircle } from "lucide-react";
 import { contact } from "@/data";
 
 export default function Contact() {
@@ -43,6 +44,25 @@ export default function Contact() {
                 <span aria-hidden className="flex-none">
                   →
                 </span>
+              </a>
+
+              {/* A peer of the email, not a social profile. On a phone this is
+                  the highest-intent channel on the page — it opens a
+                  conversation, where mailto: opens nothing at all if no mail
+                  client is configured. */}
+              <a
+                href={contact.whatsapp.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 flex w-full items-center gap-3 rounded-2xl border border-line-2 bg-[rgba(233,240,250,0.03)] px-5 py-4 font-display text-[15px] font-semibold tracking-[-0.02em] text-txt transition hover:border-teal hover:bg-[rgba(36,216,196,0.08)] md:mt-4 md:inline-flex md:w-auto md:px-[26px] md:text-[17px]"
+              >
+                <MessageCircle
+                  size={18}
+                  aria-hidden
+                  className="flex-none text-teal"
+                />
+                <span className="truncate">{contact.whatsapp.display}</span>
+                <span className="sr-only">on WhatsApp</span>
               </a>
 
               <div className="mt-6 grid grid-cols-2 gap-2.5 text-sm font-medium md:mt-[30px] md:flex md:flex-wrap">
