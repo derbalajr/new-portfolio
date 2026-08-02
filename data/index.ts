@@ -21,12 +21,21 @@ export type Project = {
   image?: string;
   /** CSS object-position for the screenshot. */
   fit: string;
-  /** Large type shown on the card's plate, under the screenshot. */
-  plateTitle: string;
-  /** Mono caption on the plate. */
-  shot: string;
+  /** Shown behind a screenshot while it decodes. Screenshot cards only. */
+  plateTitle?: string;
+  /** Mono caption under plateTitle. Screenshot cards only. */
+  shot?: string;
+  /**
+   * The media surface for a project with no shareable screenshot: an index of
+   * what the project is, plus a note saying why there's no picture. Every card
+   * keeps the same footprint, so the grid stays regular.
+   */
+  plate?: {
+    entries: { name: string; detail: string }[];
+    note: string;
+  };
   span: 1 | 2;
-  ratio: "21/9" | "16/10" | "24/5";
+  ratio: "21/9" | "16/10";
 };
 
 export type SkillGroup = {
@@ -238,10 +247,21 @@ export const projects: Project[] = [
     ],
     stack: ["Laravel", "PHP", "Node.js", "MySQL", "IBM Cloud Paks"],
     fit: "center top",
-    plateTitle: "Two national systems",
-    shot: "Internal government systems",
+    plate: {
+      entries: [
+        {
+          name: "National Archives",
+          detail: "Public records · role-based access",
+        },
+        {
+          name: "National Silos",
+          detail: "Grain logistics · IBM Cloud Paks",
+        },
+      ],
+      note: "No public screenshot — internal systems",
+    },
     span: 1,
-    ratio: "24/5",
+    ratio: "16/10",
   },
   {
     num: "06",

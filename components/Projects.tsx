@@ -8,10 +8,19 @@ const SPAN: Record<1 | 2, string> = {
   2: "xl:col-span-2",
 };
 
+// Every card in a two-up row shares one media band, so the headings below it
+// land on the same line. Only the full-width lead card differs.
 const RATIO: Record<string, string> = {
   "21/9": "aspect-[21/9]",
   "16/10": "aspect-[16/10]",
-  "24/5": "aspect-[24/5]",
+};
+
+// A plate is real content, not a cropped photo, so it only takes the fixed
+// ratio at xl — where cards sit two-up and have a neighbour to line up with.
+// Below that the grid is one column and the plate sizes to its own text.
+const RATIO_XL: Record<string, string> = {
+  "21/9": "xl:aspect-[21/9]",
+  "16/10": "xl:aspect-[16/10]",
 };
 
 export default function Projects() {
@@ -41,28 +50,52 @@ export default function Projects() {
                 covers the plate once decoded; where none does, the plate is
                 what ships. */}
             <div
-              className={`relative overflow-hidden bg-[linear-gradient(140deg,#101825,#0a1020)] ${RATIO[p.ratio]}`}
+              className={`relative overflow-hidden bg-[linear-gradient(140deg,#101825,#0a1020)] ${
+                p.plate ? RATIO_XL[p.ratio] : RATIO[p.ratio]
+              }`}
             >
               <div
                 aria-hidden
                 className="shot absolute inset-0 bg-[repeating-linear-gradient(135deg,rgba(233,240,250,0.05)_0_1px,transparent_1px_11px)]"
               />
-              {/* On plate-only cards the title is visible, so it has to clear
-                  the number badge — in the artifact the two collide. Cards with
-                  a screenshot hide the plate entirely, so they keep the
-                  original padding. */}
-              <div
-                className={`absolute inset-0 flex flex-col justify-center gap-3 py-7 pr-8 ${
-                  p.image ? "pl-8" : "pl-[76px]"
-                }`}
-              >
-                <div className="font-display text-[clamp(22px,2.4vw,32px)] font-bold leading-[1.1] tracking-[-0.03em] text-[rgba(233,240,250,0.9)]">
-                  {p.plateTitle}
+              {p.plate ? (
+                // No screenshot exists, so the plate is the finished surface:
+                // an index of the two systems, and a line saying why there's
+                // no picture. Discretion is the point, not a missing asset.
+                <div className="relative flex h-full flex-col px-8 pb-7 pt-[70px]">
+                  <div className="flex flex-1 flex-col justify-center gap-5">
+                    {p.plate.entries.map((entry, i) => (
+                      <div
+                        key={entry.name}
+                        className={i > 0 ? "border-t border-line pt-5" : ""}
+                      >
+                        <div className="font-display text-[clamp(20px,2vw,26px)] font-semibold tracking-[-0.025em] text-txt">
+                          {entry.name}
+                        </div>
+                        <div className="mt-2 font-mono text-[12.5px] tracking-[0.04em] text-dim-2">
+                          {entry.detail}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  {/* mt-8 keeps the note off the last entry where the plate
+                      sizes to its content; at xl the flex-1 above pushes it to
+                      the bottom edge instead. */}
+                  <div className="mt-8 font-mono text-[11.5px] uppercase tracking-[0.08em] text-dim-2">
+                    {p.plate.note}
+                  </div>
                 </div>
-                <div className="font-mono text-[11.5px] uppercase tracking-[0.08em] text-dim-2">
-                  {p.shot}
+              ) : (
+                // Seen only while the screenshot decodes.
+                <div className="absolute inset-0 flex flex-col justify-center gap-3 px-8 py-7">
+                  <div className="font-display text-[clamp(22px,2.4vw,32px)] font-bold leading-[1.1] tracking-[-0.03em] text-[rgba(233,240,250,0.9)]">
+                    {p.plateTitle}
+                  </div>
+                  <div className="font-mono text-[11.5px] uppercase tracking-[0.08em] text-dim-2">
+                    {p.shot}
+                  </div>
                 </div>
-              </div>
+              )}
 
               {p.image && (
                 <>
@@ -101,7 +134,9 @@ export default function Projects() {
               )}
             </div>
 
-            <div className="flex flex-col gap-[18px] px-7 pb-[30px] pt-7">
+            {/* flex-1 so the body fills the row-stretched card; without it the
+                footer's mt-auto has no slack to absorb. */}
+            <div className="flex flex-1 flex-col gap-[18px] px-7 pb-[30px] pt-7">
               <div>
                 <div className="flex flex-wrap items-baseline justify-between gap-4">
                   <h3 className="font-display text-[23px] font-semibold tracking-[-0.025em] text-txt">
@@ -134,7 +169,9 @@ export default function Projects() {
                 ))}
               </div>
 
-              <div className="chip-row flex flex-wrap gap-[7px] border-t border-line pt-4">
+              {/* Pinned to the card's baseline so the rule lands on the same
+                  line in every card, however long the copy above runs. */}
+              <div className="chip-row mt-auto flex flex-wrap gap-[7px] border-t border-line pt-4">
                 {p.stack.map((tech) => (
                   <span
                     key={tech}
