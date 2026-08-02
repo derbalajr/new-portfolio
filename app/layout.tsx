@@ -24,14 +24,13 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://omarderbala.com"),
+  metadataBase: new URL("https://derbalajr.com"),
   title: {
-    default:
-      "Omar Derbala — Senior Full Stack Engineer | Laravel, Django & Next.js",
+    default: "Omar Derbala — Senior Full Stack Engineer | Laravel & Next.js",
     template: "%s | Omar Derbala",
   },
   description:
-    "Senior Full Stack Engineer with 4+ years of experience building enterprise ERP/CRM platforms, delivery systems, and national-scale digital transformation projects. Expert in Laravel, Django, Next.js, DDD, and scalable distributed architectures. Based in Cairo, Egypt.",
+    "Senior full stack engineer building enterprise ERP, CRM and booking platforms in Laravel, PostgreSQL and Next.js. Top Rated on Upwork.",
   keywords: [
     "Omar Derbala",
     "Omar Derbala portfolio",
@@ -40,22 +39,20 @@ export const metadata: Metadata = {
     "Senior Software Engineer",
     "Laravel Developer",
     "Laravel Expert",
-    "Django Developer",
     "Next.js Developer",
     "React Developer",
-    "Python Developer",
     "PHP Developer",
     "Backend Engineer",
     "ERP Developer",
     "CRM Developer",
     "Enterprise Software Engineer",
     "Domain-Driven Design",
-    "Microservices",
     "Clean Architecture",
+    "Microservices",
     "PostgreSQL",
     "TypeScript",
     "Docker",
-    "Kubernetes",
+    "Shopify App Developer",
     "Egypt Developer",
     "Cairo Developer",
     "Remote Full Stack Engineer",
@@ -63,7 +60,7 @@ export const metadata: Metadata = {
     "Flutter Developer",
     "Multi-tenant SaaS",
   ],
-  authors: [{ name: "Omar Derbala", url: "https://omarderbala.com" }],
+  authors: [{ name: "Omar Derbala", url: "https://derbalajr.com" }],
   creator: "Omar Derbala",
   publisher: "Omar Derbala",
   category: "technology",
@@ -81,17 +78,17 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://omarderbala.com",
+    url: "https://derbalajr.com",
     title: "Omar Derbala — Senior Full Stack Engineer",
     description:
-      "Building enterprise systems that scale. 4+ years experience with Laravel, Django, Next.js. ERP/CRM platforms, delivery systems, government-scale projects.",
+      "Enterprise ERP, CRM and booking platforms in Laravel, PostgreSQL and Next.js. Currently on a multi-tenant ERP used by 6,000+ employees.",
     siteName: "Omar Derbala — Portfolio",
     images: [
       {
         url: "/omar-new.webp",
         width: 1200,
         height: 630,
-        alt: "Omar Derbala — Senior Full Stack Engineer specializing in Laravel, Django & Next.js",
+        alt: "Omar Derbala — Senior Full Stack Engineer specializing in Laravel and Next.js",
         type: "image/webp",
       },
     ],
@@ -100,11 +97,11 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Omar Derbala — Senior Full Stack Engineer",
     description:
-      "Building enterprise systems that scale — from database to deployment. Laravel, Django, Next.js expert.",
+      "I build the systems companies run on. Laravel and PostgreSQL on the backend, React and Next.js on the front.",
     images: ["/omar-new.webp"],
   },
   alternates: {
-    canonical: "https://omarderbala.com",
+    canonical: "https://derbalajr.com",
   },
 };
 
@@ -112,18 +109,18 @@ export const metadata: Metadata = {
 const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
-  "@id": "https://omarderbala.com/#person",
+  "@id": "https://derbalajr.com/#person",
   name: "Omar Derbala",
   givenName: "Omar",
   familyName: "Derbala",
-  url: "https://omarderbala.com",
-  image: "https://omarderbala.com/omar-new.webp",
+  url: "https://derbalajr.com",
+  image: "https://derbalajr.com/omar-new.webp",
   email: "derbalajr@gmail.com",
   telephone: "+201111293179",
   jobTitle: "Senior Full Stack Engineer",
   worksFor: {
     "@type": "Organization",
-    name: "The Address Holding",
+    name: "The Address Investments",
   },
   address: {
     "@type": "PostalAddress",
@@ -149,23 +146,23 @@ const personSchema = {
   knowsAbout: [
     "PHP",
     "Laravel",
-    "Python",
-    "Django",
     "Next.js",
     "React",
     "TypeScript",
+    "Node.js",
     "Flutter",
     "PostgreSQL",
     "MySQL",
     "Redis",
     "Docker",
-    "Kubernetes",
     "Domain-Driven Design",
     "Clean Architecture",
     "Microservices",
     "Multi-tenant SaaS",
     "ERP Systems",
     "CRM Systems",
+    "Shopify",
+    "Stripe",
   ],
   sameAs: [
     "https://www.linkedin.com/in/derbalajr/",
@@ -174,29 +171,29 @@ const personSchema = {
     "https://www.upwork.com/freelancers/derbalajr",
   ],
   description:
-    "Senior Full Stack Engineer with 4+ years of experience building enterprise ERP/CRM platforms, delivery systems, and digital transformation projects.",
+    "Senior Full Stack Engineer with four years of experience building enterprise ERP/CRM platforms, booking systems and national digital transformation projects.",
 };
 
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "@id": "https://omarderbala.com/#website",
+  "@id": "https://derbalajr.com/#website",
   name: "Omar Derbala — Senior Full Stack Engineer",
-  url: "https://omarderbala.com",
+  url: "https://derbalajr.com",
   description:
-    "Professional portfolio of Omar Derbala, Senior Full Stack Engineer specializing in Laravel, Django, and Next.js.",
-  author: { "@id": "https://omarderbala.com/#person" },
+    "Portfolio of Omar Derbala, Senior Full Stack Engineer specializing in Laravel, PostgreSQL and Next.js.",
+  author: { "@id": "https://derbalajr.com/#person" },
 };
 
 const profilePageSchema = {
   "@context": "https://schema.org",
   "@type": "ProfilePage",
-  "@id": "https://omarderbala.com/#profilepage",
+  "@id": "https://derbalajr.com/#profilepage",
   name: "Omar Derbala Portfolio",
-  url: "https://omarderbala.com",
-  mainEntity: { "@id": "https://omarderbala.com/#person" },
+  url: "https://derbalajr.com",
+  mainEntity: { "@id": "https://derbalajr.com/#person" },
   dateCreated: "2024-01-01",
-  dateModified: new Date().toISOString().split("T")[0],
+  dateModified: "2026-08-02",
 };
 
 export default function RootLayout({

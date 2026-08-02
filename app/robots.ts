@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: "https://omarderbala.com/sitemap.xml",
+    sitemap: "https://derbalajr.com/sitemap.xml",
   };
 }
