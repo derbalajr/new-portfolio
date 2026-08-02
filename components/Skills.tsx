@@ -12,7 +12,7 @@ export default function Skills() {
       <div className="font-mono text-xs uppercase tracking-[0.16em] text-accent-soft">
         03 / Capabilities
       </div>
-      <h2 className="mb-[52px] mt-[18px] font-display text-[clamp(36px,4.2vw,60px)] font-bold leading-[1.02] tracking-[-0.04em] text-txt">
+      <h2 className="mb-8 mt-3 font-display text-[clamp(28px,7.5vw,36px)] font-bold leading-[1.06] tracking-[-0.035em] text-txt md:mb-[52px] md:mt-[18px] md:text-[clamp(36px,4.2vw,60px)] md:leading-[1.02] md:tracking-[-0.04em]">
         What I work with
       </h2>
 
@@ -20,7 +20,7 @@ export default function Skills() {
         {skills.map((group) => (
           <div
             key={group.num}
-            className={`card-lift rounded-[24px] border border-line bg-panel px-[26px] pb-[30px] pt-7 ${SPAN[group.span]}`}
+            className={`card-lift rounded-[20px] border border-line bg-panel px-5 pb-6 pt-5 md:rounded-[24px] md:px-[26px] md:pb-[30px] md:pt-7 ${SPAN[group.span]}`}
           >
             <div className="flex items-center justify-between gap-3">
               <div className="font-display text-lg font-semibold tracking-[-0.015em] text-txt">
