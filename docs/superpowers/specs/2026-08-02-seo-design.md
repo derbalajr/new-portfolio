@@ -275,7 +275,9 @@ The homepage title drops from 61 to under 60 characters.
 
 ## Parallel work — mobile-first rewrite
 
-A separate session is rewriting the mobile presentation on branch
+The mobile-first rewrite referenced below has since merged into `main`; this
+section is kept as the record of why the work was sequenced as it was. A
+separate session was rewriting the mobile presentation on branch
 `mobile-first-rewrite`, also cut from `main`. Both branches touch shared files,
 so this work is sequenced to keep the collision surface small.
 
