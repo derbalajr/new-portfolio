@@ -137,7 +137,7 @@ export default function Projects() {
                 footer's mt-auto has no slack to absorb. */}
             <div className="flex flex-1 flex-col gap-4 px-5 pb-6 pt-5 md:gap-[18px] md:px-7 md:pb-[30px] md:pt-7">
               <div>
-                <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 md:gap-y-4">
                   <h3 className="font-display text-[20px] font-semibold tracking-[-0.025em] text-txt md:text-[23px]">
                     {p.name}
                   </h3>
