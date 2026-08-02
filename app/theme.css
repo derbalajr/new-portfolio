@@ -74,6 +74,43 @@
   );
 }
 
+/* Same fade as .marquee-mask, but only from 720px up. Below that the
+   References track is a scroll container, and masking would fade the leading
+   card's edge in a way that reads as clipped rather than intentional. */
+@media (min-width: 720px) {
+  .marquee-mask-md {
+    -webkit-mask-image: linear-gradient(
+      90deg,
+      transparent,
+      #000 8%,
+      #000 92%,
+      transparent
+    );
+    mask-image: linear-gradient(
+      90deg,
+      transparent,
+      #000 8%,
+      #000 92%,
+      transparent
+    );
+  }
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Below 720px the References track is swiped, not driven. Leaving the
+   animation on would fight the user's scroll. */
+@media (max-width: 719.98px) {
+  .marquee-track-slow {
+    animation: none;
+  }
+}
+
 .hero-grid-overlay {
   background-image: linear-gradient(
       rgba(233, 240, 250, 0.028) 1px,
@@ -106,23 +143,36 @@
   transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
     border-color 0.35s ease, background-color 0.35s ease;
 }
-.card-lift:hover {
-  transform: translateY(-6px);
-  border-color: rgba(233, 240, 250, 0.18);
-  background-color: #101825;
-}
 .shot {
   transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.5s ease;
-}
-.card-lift:hover .shot {
-  transform: scale(1.05);
-  filter: saturate(1.1);
 }
 .chip-row > span {
   transition: border-color 0.3s ease, color 0.3s ease;
 }
-.card-lift:hover .chip-row > span {
-  border-color: rgba(233, 240, 250, 0.18);
+
+/* Touch devices synthesise :hover on first tap and latch it until the user
+   taps elsewhere, so a tapped card would stay lifted. Gate every hover
+   effect on a real pointer and give touch a press state instead. */
+@media (hover: hover) and (pointer: fine) {
+  .card-lift:hover {
+    transform: translateY(-6px);
+    border-color: rgba(233, 240, 250, 0.18);
+    background-color: #101825;
+  }
+  .card-lift:hover .shot {
+    transform: scale(1.05);
+    filter: saturate(1.1);
+  }
+  .card-lift:hover .chip-row > span {
+    border-color: rgba(233, 240, 250, 0.18);
+  }
+}
+
+@media (hover: none) {
+  .card-lift:active {
+    border-color: rgba(233, 240, 250, 0.18);
+    background-color: #101825;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -153,6 +203,14 @@
       animation: rise linear both;
       animation-timeline: view();
       animation-range: entry 0% cover 20%;
+    }
+
+    /* Sections run several screens tall on a phone, so `cover 20%` resolves
+       far below the fold and the rise finishes before it is ever seen. */
+    @media (max-width: 719.98px) {
+      .reveal {
+        animation-range: entry 0% entry 60%;
+      }
     }
     .rule-grow {
       animation: grow-line linear both;

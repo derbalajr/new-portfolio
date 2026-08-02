@@ -10,6 +10,9 @@
     background: #05070c;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* iOS Safari inflates text in landscape without this. */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -21,7 +24,22 @@
   body {
     @apply bg-bg font-sans text-txt;
     text-wrap: pretty;
-    overflow-x: hidden;
+    /* clip, not hidden: `overflow: hidden` makes body a scroll container,
+       which silently breaks the position: sticky column in About. */
+    overflow-x: clip;
+    /* Landscape notch handling in one place. Fixed elements ignore body
+       padding, so Nav and MobileCta carry their own. */
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+
+  a,
+  button,
+  summary,
+  [role="button"] {
+    /* Kills the 300ms synthetic-click delay and the grey tap flash. */
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
   }
 
   ::selection {

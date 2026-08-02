@@ -1,10 +1,12 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, Manrope, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
+// Weight 400 is omitted: every font-display usage in the codebase pairs with
+// font-medium, font-semibold or font-bold, so 400 was a file nobody rendered.
 const display = Space_Grotesk({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["500", "600", "700"],
   variable: "--font-display",
   display: "swap",
 });
@@ -103,6 +105,16 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://derbalajr.com",
   },
+};
+
+// viewportFit: "cover" is what makes env(safe-area-inset-*) resolve to
+// non-zero values on notched devices. Without it the insets are always 0 and
+// every safe-area rule in this codebase is a no-op.
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#05070c",
 };
 
 // JSON-LD structured data
@@ -209,7 +221,6 @@ export default function RootLayout({
       className={`${display.variable} ${sans.variable} ${mono.variable}`}
     >
       <head>
-        <meta name="theme-color" content="#05070c" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <script
