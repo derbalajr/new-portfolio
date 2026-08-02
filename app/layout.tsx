@@ -1,15 +1,24 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Space_Grotesk, Manrope, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const sans = Inter({
+const display = Space_Grotesk({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-display",
+  display: "swap",
+});
+
+const sans = Manrope({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-sans",
   display: "swap",
 });
 
 const mono = JetBrains_Mono({
   subsets: ["latin"],
+  weight: ["400", "500"],
   variable: "--font-mono",
   display: "swap",
 });
@@ -196,10 +205,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${sans.variable} ${mono.variable}`}>
+    <html
+      lang="en"
+      className={`${display.variable} ${sans.variable} ${mono.variable}`}
+    >
       <head>
-        <meta name="theme-color" content="#09090f" />
-        <link rel="icon" type="image/webp" href="/omar-new.webp" />
+        <meta name="theme-color" content="#05070c" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" href="/omar-new.webp" />
         <script
           type="application/ld+json"
@@ -212,13 +224,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body
-        className="font-sans antialiased noise-overlay"
-        suppressHydrationWarning
-      >
-        <div className="aurora-bg" />
-        {children}
-      </body>
+      <body suppressHydrationWarning>{children}</body>
     </html>
   );
 }

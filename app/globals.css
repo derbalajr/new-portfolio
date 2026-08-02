@@ -1,3 +1,5 @@
+@import "./theme.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,207 +7,44 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    background: #05070c;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
-  body {
-    @apply bg-bg text-text-primary;
-  }
-
-  ::selection {
-    background-color: rgba(99, 102, 241, 0.3);
-  }
-}
-
-@layer utilities {
-  /* Grain noise overlay — adds tactile depth */
-  .noise-overlay::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    pointer-events: none;
-    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-    opacity: 0.5;
-    will-change: opacity;
-  }
-
-  /* Aurora background */
-  .aurora-bg {
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    overflow: hidden;
-    pointer-events: none;
-  }
-
-  .aurora-bg::after {
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(
-        ellipse 40% 30% at 20% 20%,
-        rgba(99, 102, 241, 0.08),
-        transparent
-      ),
-      radial-gradient(
-        ellipse 35% 25% at 75% 30%,
-        rgba(34, 211, 238, 0.05),
-        transparent
-      ),
-      radial-gradient(
-        ellipse 45% 35% at 50% 70%,
-        rgba(139, 92, 246, 0.04),
-        transparent
-      );
-    animation: aurora-drift 25s ease-in-out infinite alternate;
-    will-change: transform;
-  }
-
-  @keyframes aurora-drift {
-    0% { transform: translate(0, 0) rotate(0deg); }
-    33% { transform: translate(2%, -1%) rotate(1deg); }
-    66% { transform: translate(-1%, 2%) rotate(-1deg); }
-    100% { transform: translate(1%, -2%) rotate(0.5deg); }
-  }
-
-  /* Gradient text */
-  .gradient-text {
-    background: linear-gradient(135deg, #e2e8f0 0%, #6366f1 50%, #22d3ee 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .gradient-text-accent {
-    background: linear-gradient(135deg, #6366f1 0%, #22d3ee 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  /* Card with gradient border on hover */
-  .card-hover {
-    @apply rounded-xl transition-all duration-300;
-    background: #10101a;
-    border: 1px solid rgba(255, 255, 255, 0.04);
-  }
-
-  .card-hover:hover {
-    border-color: transparent;
-    background: linear-gradient(#10101a, #10101a) padding-box,
-      linear-gradient(135deg, rgba(99, 102, 241, 0.35), rgba(34, 211, 238, 0.2), rgba(99, 102, 241, 0.35)) border-box;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), 0 12px 40px rgba(0, 0, 0, 0.2);
-  }
-
-  /* Pills */
-  .pill {
-    @apply text-xs px-3 py-1.5 rounded-full border border-border bg-bg-secondary text-text-secondary transition-all duration-200;
-  }
-
-  .pill:hover {
-    border-color: rgba(99, 102, 241, 0.3);
-    background: rgba(99, 102, 241, 0.08);
-    box-shadow: 0 0 12px rgba(99, 102, 241, 0.08);
-    color: #e2e8f0;
-  }
-
-  .pill-accent {
-    @apply text-xs px-3 py-1.5 rounded-full border border-accent/20 bg-accent-muted text-accent-hover font-mono;
-  }
-
-  /* Dot pattern */
-  .dot-pattern {
-    background-image: radial-gradient(
-      rgba(255, 255, 255, 0.05) 1px,
-      transparent 1px
-    );
-    background-size: 24px 24px;
-  }
-
-  /* Button shine sweep on hover */
-  .btn-shine {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .btn-shine::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 60%;
-    height: 100%;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(255, 255, 255, 0.12),
-      transparent
-    );
-    transition: left 0.5s ease;
-  }
-
-  .btn-shine:hover::before {
-    left: 120%;
-  }
-
-  /* Nav link animated underline */
-  .nav-link {
-    position: relative;
-  }
-
-  .nav-link::after {
-    content: "";
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0;
-    height: 1.5px;
-    background: #6366f1;
-    transition: width 0.3s ease;
-  }
-
-  .nav-link:hover::after {
-    width: 100%;
-  }
-
-  /* Hide scrollbar for horizontal scroll areas */
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-
-  /* Reduced motion */
   @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
+    html {
+      scroll-behavior: auto;
     }
   }
 
-  /* Scrollbar */
+  body {
+    @apply bg-bg font-sans text-txt;
+    text-wrap: pretty;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: rgba(76, 111, 255, 0.35);
+  }
+
+  :focus-visible {
+    outline: 2px solid #4c6fff;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
   ::-webkit-scrollbar {
-    width: 6px;
+    width: 10px;
   }
-
   ::-webkit-scrollbar-track {
-    background: #09090f;
+    background: #05070c;
   }
-
   ::-webkit-scrollbar-thumb {
-    background: #2a2a44;
-    border-radius: 3px;
+    background: #1b2536;
+    border-radius: 99px;
   }
-
   ::-webkit-scrollbar-thumb:hover {
-    background: #3a3a58;
+    background: #27334a;
   }
 }
