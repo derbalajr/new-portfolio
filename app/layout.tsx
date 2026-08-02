@@ -85,10 +85,10 @@ export const metadata: Metadata = {
     siteName: "Omar Derbala — Portfolio",
     images: [
       {
-        url: "/omar-new.webp",
+        url: "/og.webp",
         width: 1200,
         height: 630,
-        alt: "Omar Derbala — Senior Full Stack Engineer specializing in Laravel and Next.js",
+        alt: "Omar Derbala — Senior Full Stack Engineer. Laravel, PostgreSQL, Next.js.",
         type: "image/webp",
       },
     ],
@@ -98,7 +98,7 @@ export const metadata: Metadata = {
     title: "Omar Derbala — Senior Full Stack Engineer",
     description:
       "I build the systems companies run on. Laravel and PostgreSQL on the backend, React and Next.js on the front.",
-    images: ["/omar-new.webp"],
+    images: ["/og.webp"],
   },
   alternates: {
     canonical: "https://derbalajr.com",
@@ -114,7 +114,9 @@ const personSchema = {
   givenName: "Omar",
   familyName: "Derbala",
   url: "https://derbalajr.com",
-  image: "https://derbalajr.com/omar-new.webp",
+  // Person.image is the portrait, not the share card — schema.org wants an
+  // image of the person here.
+  image: "https://derbalajr.com/omar.webp",
   email: "derbalajr@gmail.com",
   telephone: "+201111293179",
   jobTitle: "Senior Full Stack Engineer",
@@ -209,7 +211,7 @@ export default function RootLayout({
       <head>
         <meta name="theme-color" content="#05070c" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" href="/omar-new.webp" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
