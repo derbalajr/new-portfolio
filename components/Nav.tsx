@@ -1,7 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Mail, MessageCircle, Menu, X } from "lucide-react";
+import { Mail, Menu, X } from "lucide-react";
+import WhatsAppIcon from "./icons/WhatsAppIcon";
 import { navItems, contact } from "@/data";
 
 export default function Nav() {
@@ -178,13 +179,13 @@ export default function Nav() {
 
           <div className="flex-none border-t border-line pb-6 pl-[max(1.25rem,env(safe-area-inset-left))] pr-[max(1.25rem,env(safe-area-inset-right))] pt-5">
             <a
-              href={contact.whatsapp.url}
+              href={contact.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
               onClick={close}
               className="flex min-h-[52px] items-center justify-center gap-2.5 rounded-xl bg-accent px-5 text-[15px] font-semibold text-white"
             >
-              <MessageCircle size={18} aria-hidden className="flex-none" />
+              <WhatsAppIcon size={18} className="flex-none" />
               WhatsApp
             </a>
             <a

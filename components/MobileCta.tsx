@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Mail, MessageCircle } from "lucide-react";
+import { Mail } from "lucide-react";
+import WhatsAppIcon from "./icons/WhatsAppIcon";
 import { contact } from "@/data";
 
 /**
@@ -55,13 +56,13 @@ export default function MobileCta() {
           Email
         </a>
         <a
-          href={contact.whatsapp.url}
+          href={contact.whatsapp}
           target="_blank"
           rel="noopener noreferrer"
           tabIndex={shown ? undefined : -1}
           className="flex min-h-[48px] items-center justify-center gap-2 rounded-[14px] bg-accent px-4 text-[15px] font-semibold text-white shadow-[0_10px_32px_rgba(76,111,255,0.32)]"
         >
-          <MessageCircle size={17} aria-hidden className="flex-none" />
+          <WhatsAppIcon size={17} className="flex-none" />
           WhatsApp
         </a>
       </div>

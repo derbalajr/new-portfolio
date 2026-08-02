@@ -1,4 +1,4 @@
-import { MessageCircle } from "lucide-react";
+import WhatsAppIcon from "./icons/WhatsAppIcon";
 import { contact } from "@/data";
 
 export default function Contact() {
@@ -36,34 +36,36 @@ export default function Contact() {
               {/* Full-width with a truncating address on mobile. As an
                   inline-flex at 17px this was one long address away from
                   overflowing a body that now clips horizontally. */}
-              <a
-                href={`mailto:${contact.email}`}
-                className="mt-7 flex w-full items-center justify-between gap-3 rounded-2xl bg-accent px-5 py-4 font-display text-[15px] font-semibold tracking-[-0.02em] text-white shadow-[0_14px_44px_rgba(76,111,255,0.4)] transition hover:bg-accent-soft hover:shadow-[0_18px_56px_rgba(76,111,255,0.58)] md:mt-9 md:inline-flex md:w-auto md:justify-start md:gap-3.5 md:px-[30px] md:py-[17px] md:text-[clamp(17px,1.8vw,22px)]"
-              >
-                <span className="truncate">{contact.email}</span>
-                <span aria-hidden className="flex-none">
-                  →
-                </span>
-              </a>
+              {/* Two channels on one row. items-stretch is what holds them to
+                  the same height: the labels are set at different sizes to
+                  carry the hierarchy, so matching padding alone could never
+                  line them up. The email shows an address because that is what
+                  it is; WhatsApp shows an action, because a raw phone number
+                  is something to copy rather than something to press. */}
+              <div className="mt-7 flex flex-col gap-3 md:mt-9 md:flex-row md:items-stretch md:gap-3.5">
+                <a
+                  href={`mailto:${contact.email}`}
+                  className="flex w-full items-center justify-between gap-3 rounded-2xl bg-accent px-5 py-4 font-display text-[15px] font-semibold tracking-[-0.02em] text-white shadow-[0_14px_44px_rgba(76,111,255,0.4)] transition hover:bg-accent-soft hover:shadow-[0_18px_56px_rgba(76,111,255,0.58)] md:w-auto md:justify-start md:gap-3.5 md:px-[30px] md:py-[17px] md:text-[clamp(17px,1.8vw,22px)]"
+                >
+                  <span className="truncate">{contact.email}</span>
+                  <span aria-hidden className="flex-none">
+                    →
+                  </span>
+                </a>
 
-              {/* A peer of the email, not a social profile. On a phone this is
-                  the highest-intent channel on the page — it opens a
-                  conversation, where mailto: opens nothing at all if no mail
-                  client is configured. */}
-              <a
-                href={contact.whatsapp.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-3 flex w-full items-center gap-3 rounded-2xl border border-line-2 bg-[rgba(233,240,250,0.03)] px-5 py-4 font-display text-[15px] font-semibold tracking-[-0.02em] text-txt transition hover:border-teal hover:bg-[rgba(36,216,196,0.08)] md:mt-4 md:inline-flex md:w-auto md:px-[26px] md:text-[17px]"
-              >
-                <MessageCircle
-                  size={18}
-                  aria-hidden
-                  className="flex-none text-teal"
-                />
-                <span className="truncate">{contact.whatsapp.display}</span>
-                <span className="sr-only">on WhatsApp</span>
-              </a>
+                {/* Teal, not WhatsApp green: teal already means "reachable
+                    now" on this page — the hero's online dot, the Upwork
+                    kicker — which is exactly what this channel is. */}
+                <a
+                  href={contact.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex w-full items-center justify-center gap-3 rounded-2xl border border-line-2 bg-[rgba(233,240,250,0.03)] px-5 py-4 font-display text-[15px] font-semibold tracking-[-0.02em] text-txt transition hover:border-teal hover:bg-[rgba(36,216,196,0.08)] md:w-auto md:px-[26px] md:py-[17px] md:text-[18px]"
+                >
+                  <WhatsAppIcon size={20} className="flex-none text-teal" />
+                  WhatsApp me
+                </a>
+              </div>
 
               <div className="mt-6 grid grid-cols-2 gap-2.5 text-sm font-medium md:mt-[30px] md:flex md:flex-wrap">
                 {contact.socials.map((s) => (

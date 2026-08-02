@@ -485,12 +485,10 @@ export const contact = {
   blurb:
     "Available for senior backend and full-stack roles, and for contract work on enterprise systems.",
   email: "derbalajr@gmail.com",
-  whatsapp: {
-    // wa.me takes the number in international format with no plus, spaces or
-    // dashes. `display` is the human-readable form and never goes in the URL.
-    display: "+20 111 129 3179",
-    url: "https://wa.me/201111293179",
-  },
+  // wa.me takes the number in international format with no plus, spaces or
+  // dashes. The number is never shown — the link reads as an action, not an
+  // address — but it is on the Person schema's telephone field in app/layout.tsx.
+  whatsapp: "https://wa.me/201111293179",
   socials: [
     { name: "GitHub", url: "https://github.com/derbalajr" },
     { name: "GitLab", url: "https://gitlab.com/derbalajr" },
