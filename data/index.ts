@@ -195,7 +195,7 @@ export const projects: Project[] = [
     role: "Sole Backend Engineer · Giantrex",
     period: "Nov 2025 — Present",
     description:
-      "A multi-sided logistics platform for Egyptian merchants, serving vendors, delivery agents, warehouse staff and customers. Parcels move vendor to warehouse to customer across an eleven-state lifecycle, with QR-verified custody at every handover and OTP confirmation on delivery. Underneath it, a credit/debit ledger reconciles cash-on-delivery collections, shipping fees and order subtotals into vendor wallets, settled as payouts or collections. I built the backend, the admin and customer portal, the Flutter app for vendors and agents, and a Shopify app that pulls merchant orders straight in.",
+      "A multi-sided logistics platform for Egyptian merchants, serving vendors, delivery agents, warehouse staff and customers. Parcels move vendor to warehouse to customer across an eleven-state lifecycle, with QR-verified custody at every handover and OTP confirmation on delivery. Underneath it, a credit/debit ledger reconciles cash-on-delivery collections, shipping fees and order subtotals into vendor wallets, settled as payouts or collections. I built the backend, the admin and customer portal, the Flutter app for vendors and agents, and a Shopify app, now published on the Shopify App Store, that pulls merchant orders straight in.",
     impact: [
       "Vendor, agent, warehouse & customer",
       "Cash-on-delivery reconciliation",
