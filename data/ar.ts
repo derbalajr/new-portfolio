@@ -163,6 +163,10 @@ export const projects: Project[] = [
       "Shopify",
       "Leaflet",
     ],
+    article: {
+      title: "Cash on delivery is a ledger problem",
+      url: "https://dev.to/derbalajr/cash-on-delivery-is-a-ledger-problem-3oec",
+    },
     link: "https://rahwan.co/",
     linkLabel: "rahwan.co",
     image: "/rahwan.webp",
@@ -557,6 +561,7 @@ export const contact = {
     { name: "GitLab", url: "https://gitlab.com/derbalajr" },
     { name: "LinkedIn", url: "https://www.linkedin.com/in/derbalajr/" },
     { name: "Upwork", url: "https://www.upwork.com/freelancers/derbalajr" },
+    { name: "DEV", url: "https://dev.to/derbalajr" },
   ],
   upwork: {
     kicker: "حالة Upwork",
@@ -589,6 +594,7 @@ export const ui = {
   },
   readMore: "اقرأ المزيد",
   showLess: "عرض أقل",
+  readArticle: "اقرأ المقال (بالإنجليزية)",
   newTab: "(يفتح في علامة تبويب جديدة)",
   notFound: {
     title: "هذه الصفحة غير موجودة",

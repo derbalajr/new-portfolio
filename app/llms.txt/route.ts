@@ -12,12 +12,18 @@ export function GET() {
   const projects = c.projects
     .map((p) => {
       const link = p.link ? ` — ${p.link}` : "";
-      return `### ${p.name}${link}\n${p.subject}. ${p.role}, ${p.period}.\n\n${p.description}\n\nStack: ${p.stack.join(", ")}.`;
+      const article = p.article ? `\n\nWrite-up: [${p.article.title}](${p.article.url})` : "";
+      return `### ${p.name}${link}\n${p.subject}. ${p.role}, ${p.period}.\n\n${p.description}\n\nStack: ${p.stack.join(", ")}.${article}`;
     })
     .join("\n\n");
 
   const roles = c.roles
     .map((r) => `- **${r.title}**, ${r.company} (${r.period}). ${r.description}`)
+    .join("\n");
+
+  const writing = c.projects
+    .filter((p) => p.article)
+    .map((p) => `- [${p.article!.title}](${p.article!.url}), about ${p.name}`)
     .join("\n");
 
   const skills = c.skills
@@ -59,6 +65,10 @@ ${roles}
 ## Skills
 
 ${skills}
+
+## Writing
+
+${writing}
 `;
 
   return new Response(body, {

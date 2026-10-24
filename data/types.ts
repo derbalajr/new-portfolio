@@ -34,6 +34,8 @@ export type Project = {
   };
   span: 1 | 2;
   ratio: "21/9" | "16/10";
+  /** A write-up about the project, linked from its card. */
+  article?: { title: string; url: string };
   /** Set on products shipped under Giantrex; the venture section lists them. */
   venture?: "Giantrex";
 };

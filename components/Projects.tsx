@@ -171,6 +171,21 @@ export default function Projects({
                 {p.description}
               </ExpandableText>
 
+              {p.article && (
+                <a
+                  href={p.article.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="-mt-1 inline-flex min-h-[44px] items-center gap-2 self-start text-[14px] font-semibold text-accent-soft underline decoration-[rgba(125,149,255,0.5)] underline-offset-4 transition-colors hover:text-txt hover:decoration-current md:min-h-0"
+                >
+                  {/* bdi keeps the English title one run inside Arabic text,
+                      so the colon and arrow stay put. */}
+                  {ui.readArticle}: <bdi lang="en">{p.article.title}</bdi>{" "}
+                  <span aria-hidden className="dir-flip">↗</span>
+                  <span className="sr-only"> {ui.newTab}</span>
+                </a>
+              )}
+
               <div className="flex flex-wrap gap-2">
                 {p.impact.map((item) => (
                   <span

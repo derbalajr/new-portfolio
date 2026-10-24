@@ -248,6 +248,7 @@ const personSchema = {
     "https://github.com/derbalajr",
     "https://gitlab.com/derbalajr",
     "https://www.upwork.com/freelancers/derbalajr",
+    "https://dev.to/derbalajr",
   ],
   // description is filled in per language by RootShell.
 };
@@ -315,6 +316,17 @@ export function RootShell({
           ? { producer: { "@id": "https://giantrex.net/#organization" } }
           : {}),
         keywords: p.stack.join(", "),
+        ...(p.article
+          ? {
+              subjectOf: {
+                "@type": "TechArticle",
+                headline: p.article.title,
+                url: p.article.url,
+                author: { "@id": `${SITE_URL}/#person` },
+                inLanguage: "en",
+              },
+            }
+          : {}),
         inLanguage: locale,
       },
     })),
