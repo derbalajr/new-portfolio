@@ -13,7 +13,7 @@ import { resolve } from "node:path";
 
 const photo =
   "data:image/webp;base64," +
-  readFileSync(resolve("../../../public/omar-derbala-portrait.webp")).toString("base64");
+  readFileSync(resolve("../../../public/omar-derbala-headshot.webp")).toString("base64");
 const template = readFileSync("./card.html", "utf8");
 
 const cards = [

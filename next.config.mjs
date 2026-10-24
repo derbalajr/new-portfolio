@@ -19,8 +19,9 @@ const nextConfig = {
   // Person.image and links shared with the old card don't 404.
   async redirects() {
     return [
-      { source: "/omar.webp", destination: "/omar-derbala-portrait.webp", permanent: true },
-      { source: "/omar-derbala.webp", destination: "/omar-derbala-portrait.webp", permanent: true },
+      { source: "/omar.webp", destination: "/omar-derbala-headshot.webp", permanent: true },
+      { source: "/omar-derbala.webp", destination: "/omar-derbala-headshot.webp", permanent: true },
+      { source: "/omar-derbala-portrait.webp", destination: "/omar-derbala-headshot.webp", permanent: true },
       { source: "/og.webp", destination: "/og.jpg", permanent: true },
     ];
   },
