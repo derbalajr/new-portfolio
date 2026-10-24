@@ -28,14 +28,18 @@ const mono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://derbalajr.com"),
   title: {
-    default: "Omar Derbala — Senior Full Stack Engineer | Laravel & Next.js",
+    default: "Omar Derbala — Founder & CTO of Giantrex | Senior Full Stack Engineer",
     template: "%s | Omar Derbala",
   },
   description:
-    "Senior full stack engineer building enterprise ERP, CRM and booking platforms in Laravel, PostgreSQL and Next.js. Top Rated on Upwork.",
+    "Founder and CTO of Giantrex. Senior full stack engineer building enterprise ERP, CRM, booking and commerce platforms in Laravel, PostgreSQL and Next.js. Top Rated on Upwork.",
   keywords: [
     "Omar Derbala",
     "Omar Derbala portfolio",
+    "Giantrex",
+    "Giantrex founder",
+    "Giantrex CTO",
+    "CTO",
     "Full Stack Engineer",
     "Senior Full Stack Engineer",
     "Senior Software Engineer",
@@ -81,23 +85,23 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://derbalajr.com",
-    title: "Omar Derbala — Senior Full Stack Engineer",
+    title: "Omar Derbala — Founder & CTO of Giantrex",
     description:
-      "Enterprise ERP, CRM and booking platforms in Laravel, PostgreSQL and Next.js. Currently on a multi-tenant ERP used by 6,000+ employees.",
+      "Founder and CTO of Giantrex, and a senior full stack engineer. Enterprise ERP, CRM, booking and commerce platforms in Laravel, PostgreSQL and Next.js.",
     siteName: "Omar Derbala — Portfolio",
     images: [
       {
         url: "/og.webp",
         width: 1200,
         height: 630,
-        alt: "Omar Derbala — Senior Full Stack Engineer. Laravel, PostgreSQL, Next.js.",
+        alt: "Omar Derbala — Founder & CTO, Giantrex. Senior Full Stack Engineer.",
         type: "image/webp",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Omar Derbala — Senior Full Stack Engineer",
+    title: "Omar Derbala — Founder & CTO of Giantrex",
     description:
       "I build the systems companies run on. Laravel and PostgreSQL on the backend, React and Next.js on the front.",
     images: ["/og.webp"],
@@ -131,11 +135,14 @@ const personSchema = {
   image: "https://derbalajr.com/omar.webp",
   email: "derbalajr@gmail.com",
   telephone: "+201111293179",
-  jobTitle: "Senior Full Stack Engineer",
-  worksFor: {
-    "@type": "Organization",
-    name: "The Address Investments",
-  },
+  jobTitle: ["Founder & CTO", "Senior Full Stack Engineer"],
+  worksFor: [
+    { "@id": "https://giantrex.net/#organization" },
+    {
+      "@type": "Organization",
+      name: "The Address Investments",
+    },
+  ],
   address: {
     "@type": "PostalAddress",
     addressLocality: "Cairo",
@@ -185,17 +192,29 @@ const personSchema = {
     "https://www.upwork.com/freelancers/derbalajr",
   ],
   description:
-    "Senior Full Stack Engineer with four years of experience building enterprise ERP/CRM platforms, booking systems and national digital transformation projects.",
+    "Founder and CTO of Giantrex. Senior Full Stack Engineer with four years of experience building enterprise ERP/CRM platforms, booking systems and national digital transformation projects.",
+};
+
+// Ties the person to the company they founded, so search engines can connect
+// derbalajr.com and giantrex.net.
+const giantrexSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://giantrex.net/#organization",
+  name: "Giantrex",
+  url: "https://giantrex.net/",
+  description: "Software, AI and XR simulations.",
+  founder: { "@id": "https://derbalajr.com/#person" },
 };
 
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "@id": "https://derbalajr.com/#website",
-  name: "Omar Derbala — Senior Full Stack Engineer",
+  name: "Omar Derbala — Founder & CTO of Giantrex",
   url: "https://derbalajr.com",
   description:
-    "Portfolio of Omar Derbala, Senior Full Stack Engineer specializing in Laravel, PostgreSQL and Next.js.",
+    "Portfolio of Omar Derbala, founder and CTO of Giantrex and a senior full stack engineer specializing in Laravel, PostgreSQL and Next.js.",
   author: { "@id": "https://derbalajr.com/#person" },
 };
 
@@ -207,7 +226,7 @@ const profilePageSchema = {
   url: "https://derbalajr.com",
   mainEntity: { "@id": "https://derbalajr.com/#person" },
   dateCreated: "2024-01-01",
-  dateModified: "2026-08-02",
+  dateModified: "2026-10-24",
 };
 
 export default function RootLayout({
@@ -228,6 +247,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify([
               personSchema,
+              giantrexSchema,
               websiteSchema,
               profilePageSchema,
             ]),

@@ -34,7 +34,7 @@ export default function Testimonials() {
     >
       <div className="mx-auto max-w-[1400px] px-5 md:px-10">
         <div className="font-mono text-xs uppercase tracking-[0.16em] text-accent-soft">
-          05 / References
+          06 / References
         </div>
         <h2 className="mb-8 mt-3 font-display text-[clamp(28px,7.5vw,36px)] font-bold leading-[1.06] tracking-[-0.035em] text-txt md:mb-[52px] md:mt-[18px] md:text-[clamp(36px,4.2vw,60px)] md:leading-[1.02] md:tracking-[-0.04em]">
           People I&rsquo;ve built for

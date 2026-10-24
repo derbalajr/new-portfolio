@@ -36,6 +36,8 @@ export type Project = {
   };
   span: 1 | 2;
   ratio: "21/9" | "16/10";
+  /** Set on products shipped under Giantrex; the venture section lists them. */
+  venture?: "Giantrex";
 };
 
 export type SkillGroup = {
@@ -50,6 +52,8 @@ export type Role = {
   type: string;
   title: string;
   company: string;
+  /** Makes the company name a link. */
+  url?: string;
   description: string;
   stack: string[];
 };
@@ -62,6 +66,7 @@ export type Testimonial = {
 };
 
 export const navItems: NavItem[] = [
+  { name: "Giantrex", link: "#giantrex" },
   { name: "Work", link: "#work" },
   { name: "Stack", link: "#stack" },
   { name: "Experience", link: "#path" },
@@ -69,11 +74,11 @@ export const navItems: NavItem[] = [
 ];
 
 export const heroData = {
-  badge: "Senior Full Stack Engineer · Cairo · Remote",
+  badge: "Founder & CTO at Giantrex · Cairo",
   headline: ["I build the", "systems companies"],
   headlineAccent: "run on.",
   tagline:
-    "Laravel and PostgreSQL on the backend, React and Next.js on the front. Currently on a multi-tenant ERP used by 6,000+ employees.",
+    "Founder and CTO of Giantrex, and a senior full stack engineer. Laravel and PostgreSQL on the backend, React and Next.js on the front — the same stack behind a multi-tenant ERP used by 6,000+ employees.",
   proof: ["★ Top Rated on Upwork", "100% Job Success", "4+ yrs in production"],
   portrait: {
     src: "/omar.webp",
@@ -111,7 +116,7 @@ export const about = {
   kicker: "01 / About",
   lead: "Four years building Laravel systems that businesses actually depend on — ERPs, CRMs, booking platforms, marketplaces.",
   body: [
-    "Most of my week goes to a multi-tenant ERP/CRM used by 6,000+ employees, where I work on both the Laravel backend and the Next.js front end rather than throwing an API over the wall. The rest goes to Giantrex, a games and VR studio where I own backend architecture for the software products, and to selected Upwork contracts.",
+    "I founded Giantrex and run it as CTO. It builds software, AI and XR simulations, and I own the architecture of every software product it ships. Alongside it I'm a senior engineer on a multi-tenant ERP/CRM used by 6,000+ employees, working across the Laravel backend and the Next.js front end rather than throwing an API over the wall, and I take selected Upwork contracts.",
     "The work I'm proudest of tends to be the unglamorous kind: money arithmetic that can't drift, supplier integrations that hold up when the supplier changes something, sync between two systems that disagree about the truth.",
   ],
 };
@@ -122,6 +127,32 @@ export const stats: Stat[] = [
   { value: "3", display: "3", label: "National gov. systems" },
   { value: "100%", display: "100%", label: "Upwork job success" },
 ];
+
+// The products it has shipped are not listed here: the section reads them off
+// `projects` by their `venture` field, so a new card shows up in both places.
+export const giantrex = {
+  kicker: "02 / Venture",
+  role: "Founder & CTO",
+  logo: {
+    src: "/giantrex-lockup.png",
+    width: 837,
+    height: 129,
+  },
+  // The company's own line, from giantrex.net.
+  tagline: "Software, AI and XR simulations.",
+  body: "I started Giantrex to build software that has to hold up in production: booking engines, logistics platforms, commerce integrations. As CTO I set the technical direction, pick the stack and design the architecture of every software product, then write the hardest parts myself.",
+  practices: [
+    {
+      name: "Software, AI & automation",
+      detail: "Platforms, apps, AI agents and automation",
+    },
+    {
+      name: "XR, simulation & training",
+      detail: "Training programs, simulations and immersive environments",
+    },
+  ],
+  link: { href: "https://giantrex.net/", label: "giantrex.net" },
+};
 
 export const projects: Project[] = [
   {
@@ -158,7 +189,7 @@ export const projects: Project[] = [
     num: "02",
     name: "Akaza Travel",
     subject: "Hotel, tour & transfer booking",
-    role: "Principal Engineer · Giantrex",
+    role: "CTO & Principal Engineer · Giantrex",
     period: "Feb 2026 — Present",
     description:
       "Three bookable products behind one basket: hotels through the Hotelbeds bedbank, guided tours with their own availability calendar, blackout dates and per-guest-type pricing, and airport transfers priced by route and vehicle class. Rates and cancellation terms are captured at the moment of booking, so a later supplier change can't alter a confirmed reservation. Payments run through Stripe and PayPal behind one gateway interface, with exact integer arithmetic on every multi-currency amount. Around that sits a promo engine with targeted campaigns, generated codes, eligibility rules and redemption reporting, plus customer records with leads and notes, templated notifications, PDF vouchers and revenue reporting — the whole platform in English, German and French.",
@@ -187,12 +218,13 @@ export const projects: Project[] = [
     shot: "Live product",
     span: 1,
     ratio: "16/10",
+    venture: "Giantrex",
   },
   {
     num: "03",
     name: "Rahwan",
     subject: "Delivery & inventory platform",
-    role: "Sole Backend Engineer · Giantrex",
+    role: "CTO & Sole Backend Engineer · Giantrex",
     period: "Nov 2025 — Present",
     description:
       "A multi-sided logistics platform for Egyptian merchants, serving vendors, delivery agents, warehouse staff and customers. Parcels move vendor to warehouse to customer across an eleven-state lifecycle, with QR-verified custody at every handover and OTP confirmation on delivery. Underneath it, a credit/debit ledger reconciles cash-on-delivery collections, shipping fees and order subtotals into vendor wallets, settled as payouts or collections. I built the backend, the admin and customer portal, the Flutter app for vendors and agents, and a Shopify app, now published on the Shopify App Store, that pulls merchant orders straight in.",
@@ -219,12 +251,13 @@ export const projects: Project[] = [
     shot: "Live product",
     span: 1,
     ratio: "16/10",
+    venture: "Giantrex",
   },
   {
     num: "04",
     name: "Rahwan Shipping",
     subject: "Shopify app for last-mile delivery",
-    role: "Sole Engineer · Giantrex",
+    role: "CTO & Sole Engineer · Giantrex",
     period: "2026 — Present",
     description:
       "A Shopify app that turns a local courier into a shipping option at checkout. Live rates come from the Carrier Service API, orders forward to the courier automatically, and as the parcel moves the app writes fulfillments and delivery events back to Shopify, so the order reads Fulfilled and the customer gets tracking. Built with least-privilege scopes, all three GDPR compliance webhooks, a webhook-health monitor that warns merchants if orders stop arriving, and a retry worker with backoff.",
@@ -250,9 +283,44 @@ export const projects: Project[] = [
     shot: "Shopify App Store",
     span: 1,
     ratio: "16/10",
+    venture: "Giantrex",
   },
   {
     num: "05",
+    name: "REFAQ",
+    subject: "Bilingual shop for a marble design house",
+    role: "Sole Engineer",
+    period: "Oct 2026 — Present",
+    description:
+      "Showroom and shop for a Cairo house that carves furniture and objects in natural stone, in English and Arabic with a full right-to-left layout. Each piece comes in sizes and stones, and every combination carries its own price, stock and lead time. Visitors build an order and submit it as guests: the server reprices every line, saves the order once however often the button is pressed, issues a reference number and hands it to WhatsApp for the team to confirm. Behind it sits an admin for products, variants, stones and images, an order inbox with CSV export, printable QR tags for expo pieces, email alerts and daily summaries, and invite-only admin accounts. It runs on Cloudflare Workers, D1 and R2 for close to nothing a month, and shipped in time for the La Marchée design fair.",
+    impact: [
+      "English / Arabic, full RTL",
+      "Per-variant pricing & stock",
+      "QR tags for expo pieces",
+      "Cloudflare Workers + D1",
+    ],
+    stack: [
+      "React Router 8",
+      "TypeScript",
+      "Cloudflare Workers",
+      "D1",
+      "Drizzle",
+      "R2",
+      "Better Auth",
+      "Tailwind CSS",
+      "Playwright",
+    ],
+    link: "https://refaqeg.com/en",
+    linkLabel: "refaqeg.com",
+    image: "/refaq.webp",
+    fit: "center top",
+    plateTitle: "Carved for a lifetime",
+    shot: "refaqeg.com — live",
+    span: 1,
+    ratio: "16/10",
+  },
+  {
+    num: "06",
     name: "Egyptian Customs Authority",
     subject: "National customs modernisation",
     role: "Full Stack Engineer · ACME IES",
@@ -271,7 +339,7 @@ export const projects: Project[] = [
     ratio: "16/10",
   },
   {
-    num: "06",
+    num: "07",
     name: "Egyptian Government Digital Transformation",
     subject: "National Archives & National Silos",
     role: "Full Stack Engineer · ACME IES",
@@ -302,7 +370,7 @@ export const projects: Project[] = [
     ratio: "16/10",
   },
   {
-    num: "07",
+    num: "08",
     name: "Welhof",
     subject: "Refurbished appliance e-commerce",
     role: "Backend Engineer · TSR Ventures",
@@ -323,7 +391,7 @@ export const projects: Project[] = [
     ratio: "16/10",
   },
   {
-    num: "08",
+    num: "09",
     name: "Delecato",
     subject: "Premium food e-commerce",
     role: "Full Stack Engineer",
@@ -341,7 +409,7 @@ export const projects: Project[] = [
     linkLabel: "delecato.de",
     image: "/delecato.webp",
     fit: "center top",
-    plateTitle: "Datteln & Nüsse aus dem Orient",
+    plateTitle: "Der Orient direkt vor deiner Tür",
     shot: "delecato.de — live",
     span: 1,
     ratio: "16/10",
@@ -419,6 +487,24 @@ export const skills: SkillGroup[] = [
 
 export const roles: Role[] = [
   {
+    period: "Nov 2025 — Present",
+    type: "Founder · Remote",
+    title: "Founder & CTO",
+    company: "Giantrex",
+    url: "https://giantrex.net/",
+    description:
+      "Founded Giantrex, a studio building software, AI and XR simulations. As CTO I set the technical direction and architect every software product it ships — Akaza Travel, Rahwan and the Rahwan Shipping app on the Shopify App Store.",
+    stack: [
+      "Laravel",
+      "PostgreSQL",
+      "Octane",
+      "Next.js",
+      "React Router",
+      "Flutter",
+      "Shopify",
+    ],
+  },
+  {
     period: "Jan 2025 — Present",
     type: "Full-time · Onsite",
     title: "Senior Software Engineer",
@@ -433,22 +519,6 @@ export const roles: Role[] = [
       "Octane",
       "Next.js",
       "React",
-    ],
-  },
-  {
-    period: "Nov 2025 — Present",
-    type: "Part-time · Remote",
-    title: "Partner, Software Engineering",
-    company: "Giantrex",
-    description:
-      "Games and VR studio expanding into software products. I own backend architecture across the software line — Akaza Travel and Rahwan.",
-    stack: [
-      "Laravel",
-      "PostgreSQL",
-      "Octane",
-      "Next.js",
-      "Flutter",
-      "Shopify",
     ],
   },
   {
@@ -511,7 +581,7 @@ export const testimonials: Testimonial[] = [
 ];
 
 export const contact = {
-  kicker: "06 / Contact",
+  kicker: "07 / Contact",
   heading: ["Let's build the", "hard part together"],
   blurb:
     "Available for senior backend and full-stack roles, and for contract work on enterprise systems.",
@@ -540,5 +610,6 @@ export const contact = {
 
 export const footer = {
   left: "© 2026 Omar Derbala — derbalajr.com",
+  venture: { label: "Founder & CTO, Giantrex", url: "https://giantrex.net/" },
   right: "Cairo, Egypt · GMT+3",
 };

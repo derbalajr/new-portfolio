@@ -4,7 +4,7 @@ export default function Experience() {
   return (
     <section id="path" className="reveal pt-[88px] md:pt-[130px]">
       <div className="font-mono text-xs uppercase tracking-[0.16em] text-accent-soft">
-        04 / Trajectory
+        05 / Trajectory
       </div>
       <h2 className="mb-8 mt-3 font-display text-[clamp(28px,7.5vw,36px)] font-bold leading-[1.06] tracking-[-0.035em] text-txt md:mb-[52px] md:mt-[18px] md:text-[clamp(36px,4.2vw,60px)] md:leading-[1.02] md:tracking-[-0.04em]">
         Where the work happened
@@ -42,7 +42,19 @@ export default function Experience() {
                 {role.title}
               </div>
               <div className="mt-1.5 text-[14.5px] font-medium text-accent-soft">
-                {role.company}
+                {role.url ? (
+                  <a
+                    href={role.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block py-1 underline decoration-[rgba(125,149,255,0.7)] underline-offset-4 transition-colors hover:text-txt hover:decoration-current"
+                  >
+                    {role.company} <span aria-hidden>↗</span>
+                    <span className="sr-only"> (opens in new tab)</span>
+                  </a>
+                ) : (
+                  role.company
+                )}
               </div>
               <p className="mt-3 max-w-[620px] text-[15px] leading-[1.65] text-dim md:text-[15.5px] md:leading-[1.62]">
                 {role.description}

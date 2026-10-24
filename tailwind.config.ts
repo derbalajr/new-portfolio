@@ -27,6 +27,10 @@ const config: Config = {
         dim: { DEFAULT: "#8d9aad", "2": "#5d6979" },
         accent: { DEFAULT: "#4c6fff", soft: "#7d95ff" },
         teal: "#24d8c4",
+        // Giantrex brand orange. Used only in the Giantrex section.
+        // soft is the text tint: the base orange drops under 4.5:1 over its
+        // own glow.
+        grex: { DEFAULT: "#e54e20", soft: "#ff7a4d" },
       },
       fontFamily: {
         display: ["var(--font-display)", "system-ui", "sans-serif"],

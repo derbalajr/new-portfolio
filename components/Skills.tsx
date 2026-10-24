@@ -10,7 +10,7 @@ export default function Skills() {
   return (
     <section id="stack" className="reveal pt-[88px] md:pt-[130px]">
       <div className="font-mono text-xs uppercase tracking-[0.16em] text-accent-soft">
-        03 / Capabilities
+        04 / Capabilities
       </div>
       <h2 className="mb-8 mt-3 font-display text-[clamp(28px,7.5vw,36px)] font-bold leading-[1.06] tracking-[-0.035em] text-txt md:mb-[52px] md:mt-[18px] md:text-[clamp(36px,4.2vw,60px)] md:leading-[1.02] md:tracking-[-0.04em]">
         What I work with

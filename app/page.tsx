@@ -2,6 +2,7 @@ import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import Ticker from "@/components/Ticker";
 import About from "@/components/About";
+import Giantrex from "@/components/Giantrex";
 import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
 import Experience from "@/components/Experience";
@@ -16,10 +17,11 @@ export default function Home() {
       <Nav />
       <Hero />
       <Ticker />
-      {/* About, Work, Stack and Path share one padded container. References and
+      {/* About, Giantrex, Work, Stack and Path share one padded container. References and
           Contact sit outside it — they bleed to the viewport edge. */}
       <main className="relative z-[1] mx-auto max-w-[1400px] px-5 md:px-10">
         <About />
+        <Giantrex />
         <Projects />
         <Skills />
         <Experience />

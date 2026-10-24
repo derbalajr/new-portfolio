@@ -17,7 +17,7 @@ The CV and LinkedIn are backend-anchored. That's deliberate — don't "fix" the 
 | No Kubernetes | zero artifacts in ten repos; interview landmine |
 | No Unity, WordPress, jQuery, Bootstrap | drags a senior profile into junior searches |
 | Company is **The Address Investments** | not "Holding" |
-| Giantrex = **Partner, Software Engineering** | not co-founder; studio predates you by a year |
+| Giantrex = **Founder & CTO** | your call, Oct 2026 — supersedes "Partner, Software Engineering"; linked to giantrex.net |
 | Akaza ranks **above** Rahwan | bigger system: 339 commits vs 224, 801 vs 489 classes |
 | The Address DB is **PostgreSQL** | not MySQL — verified in `.env` and all phpunit configs |
 
@@ -57,8 +57,8 @@ ERPs, CRMs, booking platforms, marketplaces.
 
 Most of my week goes to a multi-tenant ERP/CRM used by 6,000+ employees, where I work
 on both the Laravel backend and the Next.js front end rather than throwing an API over
-the wall. The rest goes to Giantrex, a games and VR studio where I own backend
-architecture for the software products, and to selected Upwork contracts.
+the wall. I founded Giantrex and run it as CTO; it builds software, AI and XR
+simulations. Superseded Oct 2026 — the live copy is in `data/index.ts`.
 
 The work I'm proudest of tends to be the unglamorous kind: money arithmetic that can't
 drift, supplier integrations that hold up when the supplier changes something, sync
@@ -83,7 +83,7 @@ front end.
 **Image:** `/the_address.webp` (existing)
 
 ### 2. Akaza Travel — Hotel & Tour Booking Platform
-`Principal Engineer · Giantrex` · Feb 2026 – Present
+`CTO & Principal Engineer · Giantrex` · Feb 2026 – Present
 
 ```
 Booking platform for hotels, tours and airport transfers. Hotelbeds powers hotel search
@@ -97,7 +97,7 @@ multi-currency amount.
 **Image:** `/akaza.webp` (existing)
 
 ### 3. Rahwan Shipping — Shopify Delivery App
-`Sole Backend Engineer · Giantrex` · Nov 2025 – Present
+`CTO & Sole Backend Engineer · Giantrex` · Nov 2025 – Present
 
 ```
 A published Shopify app bringing last-mile delivery to Egyptian merchants. Live checkout
@@ -194,7 +194,7 @@ Removed from the old site: `Django` `Python` `Kubernetes` `Anthropic API` `Gemin
 | Role | Company | Period |
 |---|---|---|
 | Senior Software Engineer | The Address Investments | Jan 2025 – Present · Full-time |
-| Partner, Software Engineering | Giantrex | Nov 2025 – Present · Part-time |
+| Founder & CTO | Giantrex | Nov 2025 – Present · Founder |
 | Freelance Software Engineer | Upwork · *Top Rated, 100% JSS* | 2022 – Present |
 | Full Stack PHP Developer | ACME IES | Jun 2022 – Jan 2025 · Full-time |
 | B.Sc. Computer Science (Dual Degree) | Arab Open University · The Open University (UK) | 2018 – 2022 |
@@ -239,7 +239,7 @@ Description  Senior full stack engineer building enterprise ERP, CRM and booking
 
 ## Still unconfirmed
 
-- **Giantrex start date** — `Nov 2025` is inferred from repo activity, never confirmed.
+- **Giantrex start date** — `Nov 2025` is inferred from repo activity, never confirmed. Now shown as the founding date.
 - **Leadmedia dates** — `2022 – 2024` from the old site; bare years look vague.
 - **Leadmedia.ca vs leadmedia.co** — the old site says `.ca`, you wrote `.co`.
 - **Akaza / Rahwan public URLs** — a live link is worth more than any screenshot.

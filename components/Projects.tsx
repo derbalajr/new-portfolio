@@ -34,14 +34,14 @@ export default function Projects() {
       <div className="flex flex-wrap items-end justify-between gap-4 md:gap-10">
         <div>
           <div className="font-mono text-xs uppercase tracking-[0.16em] text-accent-soft">
-            02 / Selected work
+            03 / Selected work
           </div>
           <h2 className="mt-3 font-display text-[clamp(28px,7.5vw,36px)] font-bold leading-[1.06] tracking-[-0.035em] text-txt md:mt-[18px] md:text-[clamp(36px,4.2vw,60px)] md:leading-[1.02] md:tracking-[-0.04em]">
             Systems in production
           </h2>
         </div>
         <p className="max-w-[400px] text-[15px] leading-[1.62] text-dim md:text-base">
-          Seven platforms across enterprise, government, travel and commerce.
+          Nine platforms across enterprise, government, travel, logistics and commerce.
         </p>
       </div>
 
@@ -49,11 +49,14 @@ export default function Projects() {
         {projects.map((p) => (
           <article
             key={p.num}
+            id={`project-${p.num}`}
             // relative is what lets the external link — which lives in the
             // card body below — re-anchor to this card's top-right corner at
             // md. The article and the media band share a top edge, so it
             // lands exactly where it used to sit.
-            className={`card-lift relative flex flex-col overflow-hidden rounded-[26px] border border-line bg-panel ${SPAN[p.span]}`}
+            // scroll-mt clears the fixed header when the Giantrex section
+            // links straight to a card.
+            className={`card-lift relative flex scroll-mt-[84px] flex-col md:scroll-mt-[96px] overflow-hidden rounded-[26px] border border-line bg-panel ${SPAN[p.span]}`}
           >
             {/* The plate is always in the DOM. Where a screenshot exists it
                 covers the plate once decoded; where none does, the plate is
