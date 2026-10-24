@@ -1,6 +1,7 @@
 // English copy. data/ar.ts mirrors every export here; data/index.ts checks
 // that the two stay the same shape.
 
+import { SITE_URL } from "./site";
 import type { NavItem, Stat, Project, SkillGroup, Role, Testimonial } from "./types";
 
 export const navItems: NavItem[] = [
@@ -12,17 +13,17 @@ export const navItems: NavItem[] = [
 ];
 
 export const heroData = {
-  badge: "Founder & CTO at Giantrex · Cairo",
+  badge: "Omar Derbala · Founder & CTO at Giantrex",
   headline: ["I build the", "systems companies"],
   headlineAccent: "run on.",
   tagline:
     "Founder and CTO of Giantrex, and a senior software engineer. I design and build the platforms businesses run on, from the data model to the interface, in whatever stack the problem calls for.",
   proof: ["★ Top Rated on Upwork", "100% Job Success", "4+ yrs in production"],
   portrait: {
-    src: "/omar.webp",
-    width: 1200,
-    height: 1608,
-    alt: "Omar Derbala",
+    src: "/omar-derbala.webp",
+    width: 1024,
+    height: 1024,
+    alt: "Omar Derbala, founder and CTO of Giantrex",
     caption: "Omar Derbala",
     status: "online",
   },
@@ -608,7 +609,7 @@ export const ui = {
 };
 
 export const meta = {
-  url: "https://derbalajr.com",
+  url: SITE_URL,
   ogLocale: "en_US",
   title: "Omar Derbala — Founder & CTO of Giantrex | Senior Full Stack Engineer",
   description:
@@ -616,7 +617,8 @@ export const meta = {
   ogTitle: "Omar Derbala — Founder & CTO of Giantrex",
   ogDescription:
     "Founder and CTO of Giantrex, and a senior software engineer. Enterprise ERP, CRM, booking and commerce platforms.",
-  ogAlt: "Omar Derbala — Founder & CTO, Giantrex. Senior Full Stack Engineer.",
+  ogImage: "/og.jpg",
+  ogAlt: "Omar Derbala — Founder & CTO, Giantrex · Software Engineer",
   twitterDescription:
     "I build the systems companies run on, from the data model to the interface.",
   siteName: "Omar Derbala — Portfolio",

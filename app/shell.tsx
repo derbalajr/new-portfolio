@@ -6,7 +6,7 @@ import {
   Alexandria,
   IBM_Plex_Sans_Arabic,
 } from "next/font/google";
-import { getContent, dir, type Locale } from "@/data";
+import { getContent, dir, SITE_URL, type Locale } from "@/data";
 import "./globals.css";
 
 // The shell both root layouts render: app/(en)/layout.tsx for / and
@@ -66,7 +66,7 @@ const sansAr = IBM_Plex_Sans_Arabic({
 export function buildMetadata(locale: Locale): Metadata {
   const m = getContent(locale).meta;
   return {
-    metadataBase: new URL("https://derbalajr.com"),
+    metadataBase: new URL(SITE_URL),
     title: {
       default: m.title,
       template: "%s | Omar Derbala",
@@ -105,7 +105,7 @@ export function buildMetadata(locale: Locale): Metadata {
       "Flutter Developer",
       "Multi-tenant SaaS",
     ],
-    authors: [{ name: "Omar Derbala", url: "https://derbalajr.com" }],
+    authors: [{ name: "Omar Derbala", url: SITE_URL }],
     creator: "Omar Derbala",
     publisher: "Omar Derbala",
     category: "technology",
@@ -130,11 +130,11 @@ export function buildMetadata(locale: Locale): Metadata {
       siteName: m.siteName,
       images: [
         {
-          url: "/og.webp",
+          url: m.ogImage,
           width: 1200,
           height: 630,
           alt: m.ogAlt,
-          type: "image/webp",
+          type: "image/jpeg",
         },
       ],
     },
@@ -142,14 +142,14 @@ export function buildMetadata(locale: Locale): Metadata {
       card: "summary_large_image",
       title: m.ogTitle,
       description: m.twitterDescription,
-      images: ["/og.webp"],
+      images: [m.ogImage],
     },
     alternates: {
       canonical: m.url,
       languages: {
-        en: "https://derbalajr.com",
-        ar: "https://derbalajr.com/ar",
-        "x-default": "https://derbalajr.com",
+        en: SITE_URL,
+        ar: `${SITE_URL}/ar`,
+        "x-default": SITE_URL,
       },
     },
   };
@@ -169,18 +169,31 @@ export const viewport: Viewport = {
 const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
-  "@id": "https://derbalajr.com/#person",
+  "@id": `${SITE_URL}/#person`,
   name: "Omar Derbala",
   alternateName: "عمر دربالة",
   givenName: "Omar",
   familyName: "Derbala",
-  url: "https://derbalajr.com",
+  url: SITE_URL,
   // Person.image is the portrait, not the share card — schema.org wants an
   // image of the person here.
-  image: "https://derbalajr.com/omar.webp",
+  image: `${SITE_URL}/omar-derbala.webp`,
   email: "derbalajr@gmail.com",
   telephone: "+201111293179",
   jobTitle: ["Founder & CTO", "Senior Full Stack Engineer"],
+  hasOccupation: [
+    {
+      "@type": "Occupation",
+      name: "Chief Technology Officer",
+      occupationLocation: { "@type": "City", name: "Cairo" },
+    },
+    {
+      "@type": "Occupation",
+      name: "Senior Software Engineer",
+      occupationLocation: { "@type": "City", name: "Cairo" },
+    },
+  ],
+  knowsLanguage: ["en", "ar"],
   worksFor: [
     { "@id": "https://giantrex.net/#organization" },
     {
@@ -248,27 +261,27 @@ const giantrexSchema = {
   name: "Giantrex",
   url: "https://giantrex.net/",
   description: "Software, AI and XR simulations.",
-  founder: { "@id": "https://derbalajr.com/#person" },
+  founder: { "@id": `${SITE_URL}/#person` },
 };
 
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "@id": "https://derbalajr.com/#website",
+  "@id": `${SITE_URL}/#website`,
   name: "Omar Derbala — Founder & CTO of Giantrex",
-  url: "https://derbalajr.com",
+  url: SITE_URL,
   description:
     "Portfolio of Omar Derbala, founder and CTO of Giantrex and a senior full stack engineer specializing in Laravel, PostgreSQL and Next.js.",
-  author: { "@id": "https://derbalajr.com/#person" },
+  author: { "@id": `${SITE_URL}/#person` },
 };
 
 const profilePageSchema = {
   "@context": "https://schema.org",
   "@type": "ProfilePage",
-  "@id": "https://derbalajr.com/#profilepage",
+  "@id": `${SITE_URL}/#profilepage`,
   name: "Omar Derbala Portfolio",
-  url: "https://derbalajr.com",
-  mainEntity: { "@id": "https://derbalajr.com/#person" },
+  url: SITE_URL,
+  mainEntity: { "@id": `${SITE_URL}/#person` },
   dateCreated: "2024-01-01",
   dateModified: "2026-10-24",
 };
@@ -280,7 +293,32 @@ export function RootShell({
   locale: Locale;
   children: React.ReactNode;
 }>) {
-  const m = getContent(locale).meta;
+  const c = getContent(locale);
+  const m = c.meta;
+  // Each shipped product as a work the person made: gives search and answer
+  // engines the person → project → URL links that the page shows visually.
+  const works = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": `${m.url}/#work`,
+    name: c.work.heading,
+    itemListElement: c.projects.map((p, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      item: {
+        "@type": "CreativeWork",
+        name: p.name,
+        description: p.description,
+        ...(p.link ? { url: p.link } : {}),
+        creator: { "@id": `${SITE_URL}/#person` },
+        ...(p.venture
+          ? { producer: { "@id": "https://giantrex.net/#organization" } }
+          : {}),
+        keywords: p.stack.join(", "),
+        inLanguage: locale,
+      },
+    })),
+  };
   // The person and organisation are the same entities in both languages, so
   // they keep their ids; the website and profile page are per language.
   const schemas = [
@@ -301,6 +339,7 @@ export function RootShell({
       url: m.url,
       inLanguage: locale,
     },
+    works,
   ];
 
   return (
@@ -310,8 +349,17 @@ export function RootShell({
       className={`${display.variable} ${sans.variable} ${mono.variable} ${displayAr.variable} ${sansAr.variable}`}
     >
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
+        {/* Google shows the favicon beside results and wants a multiple of
+            48px: the .ico carries 48, the PNGs cover high-density tabs. */}
+        <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+        <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        {/* rel="me" ties this site and the profiles together as one identity
+            (the same set as Person.sameAs). */}
+        {personSchema.sameAs.map((href) => (
+          <link key={href} rel="me" href={href} />
+        ))}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas) }}

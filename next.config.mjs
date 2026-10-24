@@ -15,6 +15,14 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ["lucide-react"],
   },
+  // Renamed assets keep answering at their old URLs, so earlier crawls of
+  // Person.image and links shared with the old card don't 404.
+  async redirects() {
+    return [
+      { source: "/omar.webp", destination: "/omar-derbala.webp", permanent: true },
+      { source: "/og.webp", destination: "/og.jpg", permanent: true },
+    ];
+  },
   async headers() {
     return [
       {

@@ -1,0 +1,60 @@
+<!doctype html>
+<!--
+  The OD mark, the same tile as the nav logo. Rendered by icon.mjs at 512px;
+  ?variant=maskable insets the letters into Android's 80% safe zone, and
+  ?variant=small draws heavier, larger letters that survive 16–48px.
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=block"
+    />
+    <style>
+      * { margin: 0; padding: 0; }
+      html, body { width: 512px; height: 512px; background: transparent; }
+      .tile {
+        width: 512px;
+        height: 512px;
+        border-radius: 116px;
+        background: linear-gradient(140deg, #5a7bff 0%, #4c6fff 38%, #2b3fd6 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+      /* A soft top light so the tile reads as an object, not a flat swatch. */
+      .tile::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(420px 260px at 30% 0%, rgba(255, 255, 255, 0.22), transparent 70%);
+      }
+      .mark {
+        position: relative;
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        font-size: 236px;
+        letter-spacing: -0.05em;
+        color: #fff;
+        line-height: 1;
+        transform: translateY(-6px);
+      }
+      /* iOS and Android round and mask the icon themselves. */
+      body.square .tile,
+      body.maskable .tile { border-radius: 0; }
+      body.maskable .mark { font-size: 176px; }
+      body.small .tile { border-radius: 96px; }
+      body.small .mark { font-size: 290px; letter-spacing: -0.07em; }
+    </style>
+  </head>
+  <body>
+    <div class="tile"><span class="mark">OD</span></div>
+    <script>
+      const v = new URLSearchParams(location.search).get("variant");
+      if (v) document.body.classList.add(v);
+    </script>
+  </body>
+</html>

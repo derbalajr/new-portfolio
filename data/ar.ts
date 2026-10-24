@@ -3,6 +3,7 @@
 // script, as they are written in Egyptian tech writing, and digits stay
 // Western.
 
+import { SITE_URL } from "./site";
 import type { NavItem, Stat, Project, SkillGroup, Role, Testimonial } from "./types";
 
 export const navItems: NavItem[] = [
@@ -14,17 +15,17 @@ export const navItems: NavItem[] = [
 ];
 
 export const heroData = {
-  badge: "مؤسس Giantrex ومديرها التقني · القاهرة",
+  badge: "عمر دربالة · مؤسس Giantrex ومديرها التقني",
   headline: ["أبني الأنظمة", "التي تُدار بها"],
   headlineAccent: "الشركات.",
   tagline:
     "مؤسس Giantrex ومديرها التقني، ومهندس برمجيات أول. أصمّم وأبني المنصات التي تُدار بها الأعمال، من نموذج البيانات حتى الواجهة، بأي تقنية تتطلبها المشكلة.",
   proof: ["★ Top Rated على Upwork", "نسبة نجاح 100%", "أكثر من 4 سنوات في بيئة الإنتاج"],
   portrait: {
-    src: "/omar.webp",
-    width: 1200,
-    height: 1608,
-    alt: "عمر دربالة",
+    src: "/omar-derbala.webp",
+    width: 1024,
+    height: 1024,
+    alt: "عمر دربالة، مؤسس Giantrex ومديرها التقني",
     caption: "عمر دربالة",
     status: "متصل",
   },
@@ -597,7 +598,7 @@ export const ui = {
 };
 
 export const meta = {
-  url: "https://derbalajr.com/ar",
+  url: `${SITE_URL}/ar`,
   ogLocale: "ar_EG",
   title: "عمر دربالة — مؤسس Giantrex ومديرها التقني | مهندس برمجيات أول",
   description:
@@ -605,7 +606,8 @@ export const meta = {
   ogTitle: "عمر دربالة — مؤسس Giantrex ومديرها التقني",
   ogDescription:
     "مؤسس Giantrex ومديرها التقني، ومهندس برمجيات أول. منصات ERP وCRM والحجز والتجارة الإلكترونية للمؤسسات.",
-  ogAlt: "عمر دربالة — المؤسس والمدير التقني لـ Giantrex. مهندس Full Stack أول.",
+  ogImage: "/og-ar.jpg",
+  ogAlt: "عمر دربالة — مؤسس Giantrex ومديرها التقني · مهندس برمجيات",
   twitterDescription:
     "أبني الأنظمة التي تُدار بها الشركات، من نموذج البيانات حتى الواجهة.",
   siteName: "عمر دربالة — معرض الأعمال",

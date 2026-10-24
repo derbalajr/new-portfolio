@@ -1,7 +1,8 @@
 import type { MetadataRoute } from "next";
+import { SITE_URL } from "@/data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://derbalajr.com";
+  const baseUrl = SITE_URL;
   // Each language lists the other as an alternate, so search engines treat
   // them as one page in two languages rather than duplicates.
   const languages = {

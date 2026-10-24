@@ -7,6 +7,7 @@ import * as ar from "./ar";
 import type { Locale } from "./types";
 
 export * from "./types";
+export { SITE_URL } from "./site";
 
 export type Content = typeof en;
 
