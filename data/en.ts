@@ -20,9 +20,9 @@ export const heroData = {
     "Founder and CTO of Giantrex, and a senior software engineer. I design and build the platforms businesses run on, from the data model to the interface, in whatever stack the problem calls for.",
   proof: ["★ Top Rated on Upwork", "100% Job Success", "4+ yrs in production"],
   portrait: {
-    src: "/omar-derbala.webp",
-    width: 1024,
-    height: 1024,
+    src: "/omar-derbala-portrait.webp",
+    width: 1200,
+    height: 1607,
     alt: "Omar Derbala, founder and CTO of Giantrex",
     caption: "Omar Derbala",
     status: "online",

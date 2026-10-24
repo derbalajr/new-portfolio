@@ -22,7 +22,7 @@ node icon.mjs   # favicon.ico, icon-192/512, icon-maskable-512, apple-touch-icon
   and some Telegram clients to a square; LinkedIn and X show it whole.
 - JPEG, not WebP: LinkedIn and some chat apps still reject WebP previews,
   and WhatsApp drops preview images over roughly 300 KB.
-- The photo is `public/omar-derbala.webp`, the same as the hero and
+- The photo is `public/omar-derbala-portrait.webp`, the same as the hero and
   `Person.image` in the JSON-LD.
 
 Chat apps cache previews per URL. After changing the card, re-scrape with the

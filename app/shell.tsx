@@ -177,7 +177,7 @@ const personSchema = {
   url: SITE_URL,
   // Person.image is the portrait, not the share card — schema.org wants an
   // image of the person here.
-  image: `${SITE_URL}/omar-derbala.webp`,
+  image: `${SITE_URL}/omar-derbala-portrait.webp`,
   email: "derbalajr@gmail.com",
   telephone: "+201111293179",
   jobTitle: ["Founder & CTO", "Senior Full Stack Engineer"],

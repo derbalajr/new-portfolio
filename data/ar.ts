@@ -22,9 +22,9 @@ export const heroData = {
     "مؤسس Giantrex ومديرها التقني، ومهندس برمجيات أول. أصمّم وأبني المنصات التي تُدار بها الأعمال، من نموذج البيانات حتى الواجهة، بأي تقنية تتطلبها المشكلة.",
   proof: ["★ Top Rated على Upwork", "نسبة نجاح 100%", "أكثر من 4 سنوات في بيئة الإنتاج"],
   portrait: {
-    src: "/omar-derbala.webp",
-    width: 1024,
-    height: 1024,
+    src: "/omar-derbala-portrait.webp",
+    width: 1200,
+    height: 1607,
     alt: "عمر دربالة، مؤسس Giantrex ومديرها التقني",
     caption: "عمر دربالة",
     status: "متصل",
