@@ -3,9 +3,19 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Mail, Menu, X } from "lucide-react";
 import WhatsAppIcon from "./icons/WhatsAppIcon";
-import { navItems, contact } from "@/data";
+import type { Content, NavItem } from "@/data";
 
-export default function Nav() {
+export default function Nav({
+  items: navItems,
+  ui,
+  contact,
+}: {
+  items: NavItem[];
+  ui: Content["ui"];
+  contact: Content["contact"];
+}) {
+  const t = ui.nav;
+
   const [open, setOpen] = useState(false);
   const sheetRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
@@ -102,7 +112,7 @@ export default function Nav() {
               OD
             </span>
             <span className="font-display text-[15.5px] font-semibold tracking-[-0.01em]">
-              Omar Derbala
+              {t.brand}
             </span>
           </a>
 
@@ -116,25 +126,45 @@ export default function Nav() {
                 {item.name}
               </a>
             ))}
+            {/* A plain link, not a client-side route: the two languages are
+                separate root layouts, so switching is a full document load. */}
+            <a
+              href={t.switchHref}
+              lang={t.switchLang}
+              hrefLang={t.switchLang}
+              className="ms-1.5 rounded-[10px] px-3.5 py-2.5 font-semibold text-txt transition-colors hover:bg-[rgba(233,240,250,0.06)]"
+            >
+              {t.switchLabel}
+            </a>
             <a
               href={`mailto:${contact.email}`}
-              className="ml-2.5 rounded-xl bg-accent px-5 py-[11px] font-semibold text-white shadow-[0_8px_26px_rgba(76,111,255,0.3)] transition hover:bg-accent-soft hover:shadow-[0_10px_34px_rgba(76,111,255,0.45)]"
+              className="ms-2.5 rounded-xl bg-accent px-5 py-[11px] font-semibold text-white shadow-[0_8px_26px_rgba(76,111,255,0.3)] transition hover:bg-accent-soft hover:shadow-[0_10px_34px_rgba(76,111,255,0.45)]"
             >
-              Let&rsquo;s talk
+              {t.talk}
             </a>
           </nav>
 
+          <div className="flex items-center gap-2 lg:hidden">
+          <a
+            href={t.switchHref}
+            lang={t.switchLang}
+            hrefLang={t.switchLang}
+            className="inline-flex min-h-[44px] items-center rounded-[10px] border border-line-2 px-3.5 text-[13.5px] font-semibold text-txt transition-colors hover:bg-[rgba(233,240,250,0.06)]"
+          >
+            {t.switchLabel}
+          </a>
           <button
             ref={triggerRef}
             type="button"
             onClick={() => setOpen(true)}
             aria-expanded={open}
             aria-controls="mobile-nav"
-            aria-label="Open menu"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-line-2 text-txt lg:hidden"
+            aria-label={t.openMenu}
+            className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-line-2 text-txt"
           >
             <Menu size={20} />
           </button>
+          </div>
         </div>
       </header>
 
@@ -144,7 +174,7 @@ export default function Nav() {
           id="mobile-nav"
           role="dialog"
           aria-modal="true"
-          aria-label="Site menu"
+          aria-label={t.siteMenu}
           className="fixed inset-0 z-50 flex h-[100svh] flex-col bg-bg pb-[env(safe-area-inset-bottom)] pt-[env(safe-area-inset-top)] lg:hidden"
         >
           <div className="flex h-[60px] flex-none items-center justify-end pl-[max(1.25rem,env(safe-area-inset-left))] pr-[max(1.25rem,env(safe-area-inset-right))]">
@@ -152,7 +182,7 @@ export default function Nav() {
               ref={closeRef}
               type="button"
               onClick={close}
-              aria-label="Close menu"
+              aria-label={t.closeMenu}
               className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-line-2 text-txt"
             >
               <X size={20} />
@@ -186,7 +216,7 @@ export default function Nav() {
               className="flex min-h-[52px] items-center justify-center gap-2.5 rounded-xl bg-accent px-5 text-[15px] font-semibold text-white"
             >
               <WhatsAppIcon size={18} className="flex-none" />
-              WhatsApp
+              {contact.whatsappLabel}
             </a>
             <a
               href={`mailto:${contact.email}`}
@@ -194,7 +224,7 @@ export default function Nav() {
               className="mt-2.5 flex min-h-[52px] items-center justify-center gap-2.5 rounded-xl border border-line-2 px-5 text-[15px] font-semibold text-txt"
             >
               <Mail size={18} aria-hidden className="flex-none" />
-              Email
+              {contact.emailLabel}
             </a>
             <div className="mt-3 flex flex-wrap gap-2">
               {contact.socials.map((s) => (

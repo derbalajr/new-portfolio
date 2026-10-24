@@ -216,7 +216,11 @@
       animation: grow-line linear both;
       animation-timeline: view();
       animation-range: entry 10% cover 26%;
+      /* start, so the rule grows from the reading edge in Arabic too. */
       transform-origin: left;
+    }
+    [dir="rtl"] .rule-grow {
+      transform-origin: right;
     }
   }
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { about, stats, type Stat } from "@/data";
+import type { Content, Stat } from "@/data";
 import { useCountUp } from "@/hooks/useCountUp";
 
 function StatCard({ stat }: { stat: Stat }) {
@@ -21,7 +21,13 @@ function StatCard({ stat }: { stat: Stat }) {
   );
 }
 
-export default function About() {
+export default function About({
+  about,
+  stats,
+}: {
+  about: Content["about"];
+  stats: Stat[];
+}) {
   return (
     <section className="reveal pt-[88px] md:pt-[130px]">
       <div className="grid grid-cols-1 items-start gap-8 xl:grid-cols-[260px_minmax(0,1fr)] xl:gap-16">
@@ -31,7 +37,7 @@ export default function About() {
           </div>
           <div
             aria-hidden
-            className="rule-grow mt-[18px] h-px bg-[linear-gradient(90deg,#4c6fff,transparent)]"
+            className="rule-grow mt-[18px] h-px bg-[linear-gradient(90deg,#4c6fff,transparent)] rtl:bg-[linear-gradient(270deg,#4c6fff,transparent)]"
           />
         </div>
 

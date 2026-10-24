@@ -1,22 +1,30 @@
-import { roles } from "@/data";
+import type { Content, Role } from "@/data";
 
-export default function Experience() {
+export default function Experience({
+  section,
+  roles,
+  ui,
+}: {
+  section: Content["experience"];
+  roles: Role[];
+  ui: Content["ui"];
+}) {
   return (
     <section id="path" className="reveal pt-[88px] md:pt-[130px]">
       <div className="font-mono text-xs uppercase tracking-[0.16em] text-accent-soft">
-        05 / Trajectory
+        {section.kicker}
       </div>
       <h2 className="mb-8 mt-3 font-display text-[clamp(28px,7.5vw,36px)] font-bold leading-[1.06] tracking-[-0.035em] text-txt md:mb-[52px] md:mt-[18px] md:text-[clamp(36px,4.2vw,60px)] md:leading-[1.02] md:tracking-[-0.04em]">
-        Where the work happened
+        {section.heading}
       </h2>
 
       {/* The rail indent plus the card's own padding consumed 90px of a 393px
           screen. On mobile the card padding goes and a rule separates roles
           instead, which buys the description back ~68px of measure. */}
-      <div className="relative flex flex-col gap-2 pl-[22px] md:pl-[34px]">
+      <div className="relative flex flex-col gap-2 ps-[22px] md:ps-[34px]">
         <div
           aria-hidden
-          className="absolute bottom-2 left-[5px] top-2 w-px bg-[linear-gradient(180deg,#4c6fff,rgba(76,111,255,0.08))]"
+          className="absolute bottom-2 start-[5px] top-2 w-px bg-[linear-gradient(180deg,#4c6fff,rgba(76,111,255,0.08))]"
         />
         {roles.map((role) => (
           <div
@@ -25,7 +33,7 @@ export default function Experience() {
           >
             <div
               aria-hidden
-              className="absolute -left-[22px] top-[26px] h-[11px] w-[11px] rounded-full border-2 border-accent bg-bg shadow-[0_0_0_4px_rgba(76,111,255,0.14)] md:-left-[34px] md:top-[34px]"
+              className="absolute -start-[22px] top-[26px] h-[11px] w-[11px] rounded-full border-2 border-accent bg-bg shadow-[0_0_0_4px_rgba(76,111,255,0.14)] md:-start-[34px] md:top-[34px]"
             />
             {/* Period and type share a line on mobile; they stack again at xl
                 where the timeline splits into columns. */}
@@ -49,8 +57,8 @@ export default function Experience() {
                     rel="noopener noreferrer"
                     className="inline-block py-1 underline decoration-[rgba(125,149,255,0.7)] underline-offset-4 transition-colors hover:text-txt hover:decoration-current"
                   >
-                    {role.company} <span aria-hidden>↗</span>
-                    <span className="sr-only"> (opens in new tab)</span>
+                    {role.company} <span aria-hidden className="dir-flip">↗</span>
+                    <span className="sr-only"> {ui.newTab}</span>
                   </a>
                 ) : (
                   role.company

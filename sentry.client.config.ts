@@ -27,8 +27,25 @@ Sentry.init({
       blockAllMedia: true,
     }),
     Sentry.feedbackIntegration({
-      // Additional SDK configuration goes in here, for example:
       colorScheme: "dark",
+      // The widget injects its own copy, so /ar needs it in Arabic.
+      ...(typeof document !== "undefined" &&
+      document.documentElement.lang === "ar"
+        ? {
+            triggerLabel: "الإبلاغ عن مشكلة",
+            formTitle: "الإبلاغ عن مشكلة",
+            nameLabel: "الاسم",
+            namePlaceholder: "اسمك",
+            emailLabel: "البريد الإلكتروني",
+            emailPlaceholder: "you@example.com",
+            messageLabel: "الوصف",
+            messagePlaceholder: "ما المشكلة؟ وما الذي توقعت حدوثه؟",
+            isRequiredLabel: "(مطلوب)",
+            submitButtonLabel: "إرسال",
+            cancelButtonLabel: "إلغاء",
+            successMessageText: "شكرًا على بلاغك!",
+          }
+        : {}),
     }),
   ],
 });

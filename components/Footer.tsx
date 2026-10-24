@@ -1,6 +1,12 @@
-import { footer } from "@/data";
+import type { Content } from "@/data";
 
-export default function Footer() {
+export default function Footer({
+  footer,
+  ui,
+}: {
+  footer: Content["footer"];
+  ui: Content["ui"];
+}) {
   return (
     <footer className="mt-[110px] border-t border-line">
       {/* The sticky CTA overlays the bottom of the viewport below lg, so the
@@ -13,8 +19,8 @@ export default function Footer() {
           rel="noopener noreferrer"
           className="py-1.5 text-dim transition-colors hover:text-txt"
         >
-          {footer.venture.label} <span aria-hidden>↗</span>
-          <span className="sr-only"> (opens in new tab)</span>
+          {footer.venture.label} <span aria-hidden className="dir-flip">↗</span>
+          <span className="sr-only"> {ui.newTab}</span>
         </a>
         <div>{footer.right}</div>
       </div>

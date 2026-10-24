@@ -11,9 +11,11 @@ import { useState } from "react";
 export default function ExpandableText({
   id,
   children,
+  labels,
 }: {
   id: string;
   children: React.ReactNode;
+  labels: { more: string; less: string };
 }) {
   const [open, setOpen] = useState(false);
 
@@ -34,7 +36,7 @@ export default function ExpandableText({
         aria-controls={id}
         className="inline-flex min-h-[44px] items-center gap-1.5 text-[14px] font-semibold text-accent-soft md:hidden"
       >
-        {open ? "Show less" : "Read more"}
+        {open ? labels.less : labels.more}
         <span
           aria-hidden
           className={`inline-block leading-none ${open ? "rotate-180" : ""}`}

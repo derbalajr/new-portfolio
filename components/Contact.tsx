@@ -1,7 +1,7 @@
 import WhatsAppIcon from "./icons/WhatsAppIcon";
-import { contact } from "@/data";
+import type { Content } from "@/data";
 
-export default function Contact() {
+export default function Contact({ contact }: { contact: Content["contact"] }) {
   return (
     <section id="contact" className="reveal pt-[88px] md:pt-[130px]">
       <div className="mx-auto max-w-[1400px] px-5 md:px-10">
@@ -10,11 +10,11 @@ export default function Contact() {
               GPU cost on a phone. */}
           <div
             aria-hidden
-            className="absolute -right-[80px] -top-[120px] h-[360px] w-[360px] rounded-full bg-[radial-gradient(circle,rgba(76,111,255,0.34)_0%,transparent_62%)] blur-[14px] md:-right-[120px] md:-top-[180px] md:h-[620px] md:w-[620px] md:blur-[20px]"
+            className="absolute -end-[80px] -top-[120px] h-[360px] w-[360px] rounded-full bg-[radial-gradient(circle,rgba(76,111,255,0.34)_0%,transparent_62%)] blur-[14px] md:-end-[120px] md:-top-[180px] md:h-[620px] md:w-[620px] md:blur-[20px]"
           />
           <div
             aria-hidden
-            className="absolute -bottom-[140px] -left-12 h-[320px] w-[320px] rounded-full bg-[radial-gradient(circle,rgba(36,216,196,0.16)_0%,transparent_64%)] blur-[16px] md:-bottom-[220px] md:-left-20 md:h-[520px] md:w-[520px] md:blur-[24px]"
+            className="absolute -bottom-[140px] -start-12 h-[320px] w-[320px] rounded-full bg-[radial-gradient(circle,rgba(36,216,196,0.16)_0%,transparent_64%)] blur-[16px] md:-bottom-[220px] md:-start-20 md:h-[520px] md:w-[520px] md:blur-[24px]"
           />
 
           <div className="relative grid grid-cols-1 gap-8 px-5 pb-9 pt-8 md:gap-9 md:px-11 md:pb-16 md:pt-[60px] xl:grid-cols-[minmax(0,1fr)_320px] xl:gap-14 xl:px-[60px] xl:pb-20 xl:pt-[76px]">
@@ -48,7 +48,7 @@ export default function Contact() {
                   className="flex w-full items-center justify-between gap-3 rounded-2xl bg-accent px-5 py-4 font-display text-[15px] font-semibold tracking-[-0.02em] text-white shadow-[0_14px_44px_rgba(76,111,255,0.4)] transition hover:bg-accent-soft hover:shadow-[0_18px_56px_rgba(76,111,255,0.58)] md:w-auto md:justify-start md:gap-3.5 md:px-[30px] md:py-[17px] md:text-[clamp(17px,1.8vw,22px)]"
                 >
                   <span className="truncate">{contact.email}</span>
-                  <span aria-hidden className="flex-none">
+                  <span aria-hidden className="dir-flip flex-none">
                     →
                   </span>
                 </a>
@@ -63,7 +63,7 @@ export default function Contact() {
                   className="flex w-full items-center justify-center gap-3 rounded-2xl border border-line-2 bg-[rgba(233,240,250,0.03)] px-5 py-4 font-display text-[15px] font-semibold tracking-[-0.02em] text-txt transition hover:border-teal hover:bg-[rgba(36,216,196,0.08)] md:w-auto md:px-[26px] md:py-[17px] md:text-[18px]"
                 >
                   <WhatsAppIcon size={20} className="flex-none text-teal" />
-                  WhatsApp me
+                  {contact.whatsappCta}
                 </a>
               </div>
 
@@ -76,7 +76,7 @@ export default function Contact() {
                     rel="noopener noreferrer"
                     className="flex min-h-[48px] items-center justify-center rounded-xl border border-line-2 bg-[rgba(233,240,250,0.03)] px-4 text-txt transition hover:bg-[rgba(233,240,250,0.1)] md:min-h-0 md:px-[18px] md:py-[11px]"
                   >
-                    {s.name} <span aria-hidden>↗</span>
+                    {s.name} <span aria-hidden className="dir-flip">↗</span>
                   </a>
                 ))}
               </div>

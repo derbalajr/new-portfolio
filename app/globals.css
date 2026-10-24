@@ -5,6 +5,23 @@
 @tailwind utilities;
 
 @layer base {
+  /* next/font follows each Latin face with a metric-matched Arial fallback,
+     and Arial has Arabic glyphs — so in a Latin-first stack Arabic text never
+     reaches the Arabic face. Arabic pages therefore lead with the Arabic
+     face. Its files cover only Arabic code points, so Latin words in an
+     Arabic sentence still fall through to Space Grotesk / Manrope. */
+  html {
+    --ff-display: var(--font-display), system-ui, sans-serif;
+    --ff-sans: var(--font-sans), system-ui, sans-serif;
+    --ff-mono: var(--font-mono), monospace;
+  }
+  html[lang="ar"] {
+    --ff-display: var(--font-display-ar), var(--font-display), system-ui,
+      sans-serif;
+    --ff-sans: var(--font-sans-ar), var(--font-sans), system-ui, sans-serif;
+    --ff-mono: var(--font-sans-ar), var(--font-mono), monospace;
+  }
+
   html {
     scroll-behavior: smooth;
     background: #05070c;
@@ -42,8 +59,39 @@
     -webkit-tap-highlight-color: transparent;
   }
 
+  /* Arabic is a joined script: any letter-spacing pulls the connections
+     apart, so the tracking set throughout the Latin design is cancelled.
+     The tight display leading also clips Arabic marks above and below the
+     line, so headings and body copy get room to breathe. */
+  [lang="ar"] * {
+    letter-spacing: 0 !important;
+  }
+  /* The language switch on English pages is the one Arabic word there. */
+  html[lang="en"] [lang="ar"] {
+    font-family: var(--font-sans-ar), var(--ff-sans);
+  }
+  /* Arabic has no case; uppercase would only shout the Latin words in it. */
+  [lang="ar"] .uppercase {
+    text-transform: none;
+  }
+  [lang="ar"] :is(h1, h2) {
+    line-height: 1.3 !important;
+  }
+  [lang="ar"] :is(h3, blockquote) {
+    line-height: 1.5 !important;
+  }
+  [lang="ar"] p {
+    line-height: 1.85 !important;
+  }
+
   ::selection {
     background: rgba(76, 111, 255, 0.35);
+  }
+
+  /* Arrows that point along the reading direction (→ ↗) mirror in RTL. */
+  [dir="rtl"] .dir-flip {
+    display: inline-block;
+    transform: scaleX(-1);
   }
 
   :focus-visible {

@@ -1,8 +1,9 @@
-import { ticker } from "@/data";
-
-export default function Ticker() {
+export default function Ticker({ items: ticker }: { items: string[] }) {
   return (
-    <div className="marquee marquee-mask relative overflow-hidden border-y border-line bg-bg-2 py-4 md:py-5">
+    <div
+      // The drift keyframe translates by -50%, which only loops in LTR flow.
+      dir="ltr"
+      className="marquee marquee-mask relative overflow-hidden border-y border-line bg-bg-2 py-4 md:py-5">
       {/* Doubled so the drift keyframe's -50% translation loops seamlessly.
           The second half is decorative, so it's hidden from assistive tech. */}
       <div className="marquee-track flex w-max items-center gap-8 font-mono text-[13px] tracking-[0.04em] text-dim-2 md:gap-14 md:text-sm">

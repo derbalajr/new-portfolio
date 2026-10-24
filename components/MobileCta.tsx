@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { Mail } from "lucide-react";
 import WhatsAppIcon from "./icons/WhatsAppIcon";
-import { contact } from "@/data";
+import type { Content } from "@/data";
 
 /**
  * Primary action pinned inside the thumb zone. Visible once the hero has
@@ -11,7 +11,11 @@ import { contact } from "@/data";
  * very section it points at. Hidden from `lg` up, where the header CTA takes
  * over.
  */
-export default function MobileCta() {
+export default function MobileCta({
+  contact,
+}: {
+  contact: Content["contact"];
+}) {
   const [heroOut, setHeroOut] = useState(false);
   const [contactIn, setContactIn] = useState(false);
 
@@ -53,7 +57,7 @@ export default function MobileCta() {
           className="flex min-h-[48px] items-center justify-center gap-2 rounded-[14px] border border-line-2 bg-[rgba(233,240,250,0.04)] px-4 text-[15px] font-semibold text-txt"
         >
           <Mail size={17} aria-hidden className="flex-none" />
-          Email
+          {contact.emailLabel}
         </a>
         <a
           href={contact.whatsapp}
@@ -63,7 +67,7 @@ export default function MobileCta() {
           className="flex min-h-[48px] items-center justify-center gap-2 rounded-[14px] bg-accent px-4 text-[15px] font-semibold text-white shadow-[0_10px_32px_rgba(76,111,255,0.32)]"
         >
           <WhatsAppIcon size={17} className="flex-none" />
-          WhatsApp
+          {contact.whatsappLabel}
         </a>
       </div>
     </div>

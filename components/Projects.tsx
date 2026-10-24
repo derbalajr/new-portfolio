@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { projects } from "@/data";
+import type { Content, Project } from "@/data";
 import ExpandableText from "./ExpandableText";
 
 // Tailwind can't build class names from variables, so span and ratio go
@@ -28,20 +28,28 @@ const RATIO_XL: Record<string, string> = {
   "16/10": "xl:aspect-[16/10]",
 };
 
-export default function Projects() {
+export default function Projects({
+  work,
+  projects,
+  ui,
+}: {
+  work: Content["work"];
+  projects: Project[];
+  ui: Content["ui"];
+}) {
   return (
     <section id="work" className="reveal pt-[88px] md:pt-[130px]">
       <div className="flex flex-wrap items-end justify-between gap-4 md:gap-10">
         <div>
           <div className="font-mono text-xs uppercase tracking-[0.16em] text-accent-soft">
-            03 / Selected work
+            {work.kicker}
           </div>
           <h2 className="mt-3 font-display text-[clamp(28px,7.5vw,36px)] font-bold leading-[1.06] tracking-[-0.035em] text-txt md:mt-[18px] md:text-[clamp(36px,4.2vw,60px)] md:leading-[1.02] md:tracking-[-0.04em]">
-            Systems in production
+            {work.heading}
           </h2>
         </div>
         <p className="max-w-[400px] text-[15px] leading-[1.62] text-dim md:text-base">
-          Nine platforms across enterprise, government, travel, logistics and commerce.
+          {work.blurb}
         </p>
       </div>
 
@@ -81,7 +89,7 @@ export default function Projects() {
                         key={entry.name}
                         className={i > 0 ? "border-t border-line pt-5" : ""}
                       >
-                        <div className="font-display text-[clamp(20px,2vw,26px)] font-semibold tracking-[-0.025em] text-txt">
+                        <div className="font-display text-[clamp(20px,2vw,26px)] font-semibold tracking-[-0.025em] text-txt rtl:leading-[1.35]">
                           {entry.name}
                         </div>
                         <div className="mt-2 font-mono text-[12.5px] tracking-[0.04em] text-dim-2">
@@ -100,7 +108,7 @@ export default function Projects() {
               ) : (
                 // Seen only while the screenshot decodes.
                 <div className="absolute inset-0 flex flex-col justify-center gap-3 px-8 py-7">
-                  <div className="font-display text-[clamp(22px,2.4vw,32px)] font-bold leading-[1.1] tracking-[-0.03em] text-[rgba(233,240,250,0.9)]">
+                  <div className="font-display text-[clamp(22px,2.4vw,32px)] font-bold leading-[1.1] tracking-[-0.03em] rtl:leading-[1.35] text-[rgba(233,240,250,0.9)]">
                     {p.plateTitle}
                   </div>
                   <div className="font-mono text-[11.5px] uppercase tracking-[0.08em] text-dim-2">
@@ -130,7 +138,7 @@ export default function Projects() {
                 </>
               )}
 
-              <div className="absolute left-[18px] top-[18px] rounded-full border border-line-2 bg-bg/[0.66] px-[13px] py-[7px] font-mono text-[11.5px] tracking-[0.06em] text-dim backdrop-blur-[8px]">
+              <div className="absolute start-[18px] top-[18px] rounded-full border border-line-2 bg-bg/[0.66] px-[13px] py-[7px] font-mono text-[11.5px] tracking-[0.06em] text-dim backdrop-blur-[8px]">
                 {p.num}
               </div>
 
@@ -156,7 +164,10 @@ export default function Projects() {
                 </div>
               </div>
 
-              <ExpandableText id={`project-desc-${p.num}`}>
+              <ExpandableText
+                id={`project-desc-${p.num}`}
+                labels={{ more: ui.readMore, less: ui.showLess }}
+              >
                 {p.description}
               </ExpandableText>
 
@@ -194,9 +205,10 @@ export default function Projects() {
                   href={p.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl border border-line-2 bg-[rgba(233,240,250,0.03)] px-4 font-mono text-[12.5px] text-txt transition md:absolute md:right-4 md:top-4 md:min-h-0 md:rounded-full md:border-line-2 md:bg-bg/[0.72] md:px-[15px] md:py-[9px] md:text-[11.5px] md:backdrop-blur-[8px] md:hover:border-accent md:hover:bg-accent md:hover:text-white"
+                  className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl border border-line-2 bg-[rgba(233,240,250,0.03)] px-4 font-mono text-[12.5px] text-txt transition md:absolute md:end-4 md:top-4 md:min-h-0 md:rounded-full md:border-line-2 md:bg-bg/[0.72] md:px-[15px] md:py-[9px] md:text-[11.5px] md:backdrop-blur-[8px] md:hover:border-accent md:hover:bg-accent md:hover:text-white"
                 >
-                  {p.linkLabel} <span aria-hidden>↗</span>
+                  {p.linkLabel} <span aria-hidden className="dir-flip">↗</span>
+                  <span className="sr-only"> {ui.newTab}</span>
                 </a>
               )}
             </div>

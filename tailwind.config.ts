@@ -33,9 +33,11 @@ const config: Config = {
         grex: { DEFAULT: "#e54e20", soft: "#ff7a4d" },
       },
       fontFamily: {
-        display: ["var(--font-display)", "system-ui", "sans-serif"],
-        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
-        mono: ["var(--font-mono)", "monospace"],
+        // The stacks are per language — see the --ff-* variables in
+        // app/globals.css.
+        display: ["var(--ff-display)"],
+        sans: ["var(--ff-sans)"],
+        mono: ["var(--ff-mono)"],
       },
       keyframes: {
         "pulse-dot": {

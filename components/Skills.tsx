@@ -1,4 +1,4 @@
-import { skills } from "@/data";
+import type { Content, SkillGroup } from "@/data";
 
 const SPAN: Record<2 | 3 | 4, string> = {
   2: "xl:col-span-2",
@@ -6,14 +6,20 @@ const SPAN: Record<2 | 3 | 4, string> = {
   4: "xl:col-span-4",
 };
 
-export default function Skills() {
+export default function Skills({
+  section,
+  skills,
+}: {
+  section: Content["skillsSection"];
+  skills: SkillGroup[];
+}) {
   return (
     <section id="stack" className="reveal pt-[88px] md:pt-[130px]">
       <div className="font-mono text-xs uppercase tracking-[0.16em] text-accent-soft">
-        04 / Capabilities
+        {section.kicker}
       </div>
       <h2 className="mb-8 mt-3 font-display text-[clamp(28px,7.5vw,36px)] font-bold leading-[1.06] tracking-[-0.035em] text-txt md:mb-[52px] md:mt-[18px] md:text-[clamp(36px,4.2vw,60px)] md:leading-[1.02] md:tracking-[-0.04em]">
-        What I work with
+        {section.heading}
       </h2>
 
       <div className="grid grid-cols-1 gap-[18px] md:grid-cols-2 xl:grid-cols-6">

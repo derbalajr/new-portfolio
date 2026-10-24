@@ -1,10 +1,18 @@
 import Image from "next/image";
-import { giantrex, projects } from "@/data";
+import type { Content, Project } from "@/data";
 
 // The one section that speaks for a company rather than for me, so it takes
 // Giantrex's own orange instead of the site's blue. Nothing else on the page
 // uses it.
-export default function Giantrex() {
+export default function Giantrex({
+  giantrex,
+  projects,
+  ui,
+}: {
+  giantrex: Content["giantrex"];
+  projects: Project[];
+  ui: Content["ui"];
+}) {
   const shipped = projects.filter((p) => p.venture === "Giantrex");
 
   return (
@@ -16,7 +24,7 @@ export default function Giantrex() {
       <div className="relative mt-6 overflow-hidden rounded-[26px] border border-line bg-panel md:mt-8">
         <div
           aria-hidden
-          className="pointer-events-none absolute -left-[160px] -top-[200px] h-[520px] w-[520px] rounded-full bg-[radial-gradient(circle,rgba(229,78,32,0.16)_0%,transparent_64%)]"
+          className="pointer-events-none absolute -start-[160px] -top-[200px] h-[520px] w-[520px] rounded-full bg-[radial-gradient(circle,rgba(229,78,32,0.16)_0%,transparent_64%)]"
         />
 
         <div className="relative grid grid-cols-1 xl:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
@@ -49,14 +57,14 @@ export default function Giantrex() {
               rel="noopener noreferrer"
               className="mt-8 inline-flex min-h-[48px] w-full items-center justify-center gap-2.5 rounded-[14px] bg-grex px-[26px] py-[14px] text-[15px] font-semibold text-bg transition hover:bg-[#ff6a3d] md:w-auto"
             >
-              Visit {giantrex.link.label} <span aria-hidden>↗</span>
-              <span className="sr-only"> (opens in new tab)</span>
+              {giantrex.visit} {giantrex.link.label} <span aria-hidden className="dir-flip">↗</span>
+              <span className="sr-only"> {ui.newTab}</span>
             </a>
           </div>
 
-          <div className="flex flex-col border-t border-line px-5 py-8 md:px-10 md:py-11 xl:border-l xl:border-t-0">
+          <div className="flex flex-col border-t border-line px-5 py-8 md:px-10 md:py-11 xl:border-s xl:border-t-0">
             <h3 className="font-mono text-[11.5px] uppercase tracking-[0.08em] text-dim">
-              What we build
+              {giantrex.practicesHeading}
             </h3>
             <ul className="mt-5 flex flex-col">
               {giantrex.practices.map((practice, i) => (
@@ -75,7 +83,7 @@ export default function Giantrex() {
             </ul>
 
             <h3 className="mt-10 font-mono text-[11.5px] uppercase tracking-[0.08em] text-dim">
-              Shipped under Giantrex
+              {giantrex.shippedHeading}
             </h3>
             {/* Each row jumps to the project's card in Selected work. */}
             <ul className="mt-3 flex flex-col">

@@ -97,7 +97,10 @@ export default function HeroCanvas() {
         camera.aspect = w / h;
         camera.updateProjectionMatrix();
         const wide = w > 900;
-        group.position.set(wide ? 1.9 : 0, wide ? 0.1 : 0.6, 0);
+        // The orb sits behind the portrait, which is on the end side of the
+        // hero — the left in Arabic.
+        const side = getComputedStyle(canvas).direction === "rtl" ? -1 : 1;
+        group.position.set(wide ? 1.9 * side : 0, wide ? 0.1 : 0.6, 0);
         group.scale.setScalar(wide ? 1 : 0.72);
       };
       resize();
