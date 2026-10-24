@@ -33,7 +33,11 @@ export default function HeroCanvas() {
         alpha: true,
         antialias: true,
       });
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      // 1x, not devicePixelRatio: at 2x the canvas is the full hero times
+      // four (~5M pixels a frame) and scrolling over it dropped about half
+      // its frames, which read as flashing. The orb is soft, thin-line
+      // atmosphere; at 1x it looks the same and stops costing frames.
+      renderer.setPixelRatio(1);
 
       const group = new THREE.Group();
       scene.add(group);

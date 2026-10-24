@@ -11,10 +11,11 @@ export default function Hero({ hero }: { hero: Content["heroData"] }) {
       className="relative flex min-h-[100svh] items-center overflow-hidden pb-14 pt-[92px] md:pb-0 md:pt-[120px]"
     >
       <HeroCanvas />
-      {/* A 900px blurred radial is pure GPU cost on a phone. */}
+      {/* No blur filter: the radial gradient already fades to nothing, and a
+          blur over it repainted on every scroll frame for no visible gain. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-[20%] start-[46%] h-[520px] w-[520px] rounded-full bg-[radial-gradient(circle,rgba(76,111,255,0.22)_0%,transparent_62%)] blur-[18px] md:h-[900px] md:w-[900px] md:blur-[30px]"
+        className="pointer-events-none absolute -top-[20%] start-[46%] h-[520px] w-[520px] rounded-full bg-[radial-gradient(circle,rgba(76,111,255,0.22)_0%,transparent_62%)] md:h-[900px] md:w-[900px]"
       />
       <div
         aria-hidden
