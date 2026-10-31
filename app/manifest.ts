@@ -4,7 +4,7 @@ import type { MetadataRoute } from "next";
 // home screen, instead of a screenshot or the first letter of the title.
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Omar Derbala — Founder & CTO of Giantrex",
+    name: "Omar Derbala — CTO & Partner at Giantrex",
     short_name: "Omar Derbala",
     start_url: "/",
     display: "browser",

@@ -76,7 +76,7 @@ export function buildMetadata(locale: Locale): Metadata {
       "Omar Derbala",
       "Omar Derbala portfolio",
       "Giantrex",
-      "Giantrex founder",
+      "Giantrex partner",
       "Giantrex CTO",
       "CTO",
       "Full Stack Engineer",
@@ -180,7 +180,7 @@ const personSchema = {
   image: `${SITE_URL}/omar-derbala-headshot.webp`,
   email: "derbalajr@gmail.com",
   telephone: "+201111293179",
-  jobTitle: ["Founder & CTO", "Senior Full Stack Engineer"],
+  jobTitle: ["CTO & Partner", "Senior Full Stack Engineer"],
   hasOccupation: [
     {
       "@type": "Occupation",
@@ -253,7 +253,7 @@ const personSchema = {
   // description is filled in per language by RootShell.
 };
 
-// Ties the person to the company they founded, so search engines can connect
+// Ties the person to the company they are a partner and CTO at, so search engines can connect
 // derbalajr.com and giantrex.net.
 const giantrexSchema = {
   "@context": "https://schema.org",
@@ -262,17 +262,17 @@ const giantrexSchema = {
   name: "Giantrex",
   url: "https://giantrex.net/",
   description: "Software, AI and XR simulations.",
-  founder: { "@id": `${SITE_URL}/#person` },
+  member: { "@id": `${SITE_URL}/#person` },
 };
 
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "@id": `${SITE_URL}/#website`,
-  name: "Omar Derbala — Founder & CTO of Giantrex",
+  name: "Omar Derbala — CTO & Partner at Giantrex",
   url: SITE_URL,
   description:
-    "Portfolio of Omar Derbala, founder and CTO of Giantrex and a senior full stack engineer specializing in Laravel, PostgreSQL and Next.js.",
+    "Portfolio of Omar Derbala, CTO and partner at Giantrex and a senior software engineer.",
   author: { "@id": `${SITE_URL}/#person` },
 };
 

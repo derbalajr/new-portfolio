@@ -17,7 +17,7 @@ The CV and LinkedIn are backend-anchored. That's deliberate — don't "fix" the 
 | No Kubernetes | zero artifacts in ten repos; interview landmine |
 | No Unity, WordPress, jQuery, Bootstrap | drags a senior profile into junior searches |
 | Company is **The Address Investments** | not "Holding" |
-| Giantrex = **Founder & CTO** | your call, Oct 2026 — supersedes "Partner, Software Engineering"; linked to giantrex.net |
+| Giantrex = **CTO & Partner** | not founder (confirmed by you, 31 Oct 2026); linked to giantrex.net |
 | Akaza ranks **above** Rahwan | bigger system: 339 commits vs 224, 801 vs 489 classes |
 | The Address DB is **PostgreSQL** | not MySQL — verified in `.env` and all phpunit configs |
 
@@ -57,7 +57,7 @@ ERPs, CRMs, booking platforms, marketplaces.
 
 Most of my week goes to a multi-tenant ERP/CRM used by 6,000+ employees, where I work
 on both the Laravel backend and the Next.js front end rather than throwing an API over
-the wall. I founded Giantrex and run it as CTO; it builds software, AI and XR
+the wall. I’m a partner and the CTO at Giantrex; it builds software, AI and XR
 simulations. Superseded Oct 2026 — the live copy is in `data/index.ts`.
 
 The work I'm proudest of tends to be the unglamorous kind: money arithmetic that can't
@@ -194,7 +194,7 @@ Removed from the old site: `Django` `Python` `Kubernetes` `Anthropic API` `Gemin
 | Role | Company | Period |
 |---|---|---|
 | Senior Software Engineer | The Address Investments | Jan 2025 – Present · Full-time |
-| Founder & CTO | Giantrex | Nov 2025 – Present · Founder |
+| CTO & Partner | Giantrex | Nov 2025 – Present · Partner |
 | Freelance Software Engineer | Upwork · *Top Rated, 100% JSS* | 2022 – Present |
 | Full Stack PHP Developer | ACME IES | Jun 2022 – Jan 2025 · Full-time |
 | B.Sc. Computer Science (Dual Degree) | Arab Open University · The Open University (UK) | 2018 – 2022 |

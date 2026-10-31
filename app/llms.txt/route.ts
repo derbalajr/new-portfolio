@@ -37,7 +37,7 @@ export function GET() {
 ${hero.tagline}
 
 - Website: ${SITE_URL} (English), ${SITE_URL}/ar (Arabic)
-- Company: Giantrex — ${c.giantrex.link.href} (Founder & CTO)
+- Company: Giantrex — ${c.giantrex.link.href} (CTO & Partner)
 - Location: Cairo, Egypt (GMT+3), works remotely
 - Email: ${c.contact.email}
 - Profiles: ${c.contact.socials.map((s) => `${s.name} ${s.url}`).join(" · ")}

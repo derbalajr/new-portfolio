@@ -13,17 +13,17 @@ export const navItems: NavItem[] = [
 ];
 
 export const heroData = {
-  badge: "Omar Derbala · Founder & CTO at Giantrex",
+  badge: "Omar Derbala · CTO & Partner at Giantrex",
   headline: ["I build the", "systems companies"],
   headlineAccent: "run on.",
   tagline:
-    "Founder and CTO of Giantrex, and a senior software engineer. I design and build the platforms businesses run on, from the data model to the interface, in whatever stack the problem calls for.",
+    "CTO and partner at Giantrex, and a senior software engineer. I design and build the platforms businesses run on, from the data model to the interface, in whatever stack the problem calls for.",
   proof: ["★ Top Rated on Upwork", "100% Job Success", "4+ yrs in production"],
   portrait: {
     src: "/omar-derbala-headshot.webp",
     width: 1200,
     height: 1607,
-    alt: "Omar Derbala, founder and CTO of Giantrex",
+    alt: "Omar Derbala, CTO and partner at Giantrex",
     caption: "Omar Derbala",
     status: "online",
   },
@@ -58,7 +58,7 @@ export const about = {
   kicker: "01 / About",
   lead: "Four years building systems that businesses actually depend on — ERPs, CRMs, booking platforms, marketplaces.",
   body: [
-    "I founded Giantrex and run it as CTO. It builds software, AI and XR simulations, and I own the architecture of every software product it ships. Alongside it I'm a senior engineer on a multi-tenant ERP/CRM used by 6,000+ employees, working across the backend and the front end rather than throwing an API over the wall, and I take selected Upwork contracts.",
+    "I’m a partner and the CTO at Giantrex. It builds software, AI and XR simulations, and I own the architecture of every software product it ships. Alongside it I'm a senior engineer on a multi-tenant ERP/CRM used by 6,000+ employees, working across the backend and the front end rather than throwing an API over the wall, and I take selected Upwork contracts.",
     "The work I'm proudest of tends to be the unglamorous kind: money arithmetic that can't drift, supplier integrations that hold up when the supplier changes something, sync between two systems that disagree about the truth.",
   ],
 };
@@ -74,7 +74,7 @@ export const stats: Stat[] = [
 // `projects` by their `venture` field, so a new card shows up in both places.
 export const giantrex = {
   kicker: "02 / Venture",
-  role: "Founder & CTO",
+  role: "CTO & Partner",
   logo: {
     src: "/giantrex-lockup.png",
     width: 837,
@@ -82,7 +82,7 @@ export const giantrex = {
   },
   // The company's own line, from giantrex.net.
   tagline: "Software, AI and XR simulations.",
-  body: "I started Giantrex to build software that has to hold up in production: booking engines, logistics platforms, commerce integrations. As CTO I set the technical direction, pick the stack and design the architecture of every software product, then write the hardest parts myself.",
+  body: "Giantrex builds software that has to hold up in production: booking engines, logistics platforms, commerce integrations. As partner and CTO I set the technical direction, pick the stack and design the architecture of every software product, then write the hardest parts myself.",
   practicesHeading: "What we build",
   shippedHeading: "Shipped under Giantrex",
   visit: "Visit",
@@ -453,12 +453,12 @@ export const experience = {
 export const roles: Role[] = [
   {
     period: "Nov 2025 — Present",
-    type: "Founder · Remote",
-    title: "Founder & CTO",
+    type: "Partner · Remote",
+    title: "CTO & Partner",
     company: "Giantrex",
     url: "https://giantrex.net/",
     description:
-      "Founded Giantrex, a studio building software, AI and XR simulations. As CTO I set the technical direction and architect every software product it ships — Akaza Travel, Rahwan and the Rahwan Shipping app on the Shopify App Store.",
+      "Partner and CTO at Giantrex, a studio building software, AI and XR simulations. I set the technical direction and architect every software product it ships — Akaza Travel, Rahwan and the Rahwan Shipping app on the Shopify App Store.",
     stack: [
       "Laravel",
       "PostgreSQL",
@@ -586,7 +586,7 @@ export const contact = {
 
 export const footer = {
   left: "© 2026 Omar Derbala — derbalajr.com",
-  venture: { label: "Founder & CTO, Giantrex", url: "https://giantrex.net/" },
+  venture: { label: "CTO & Partner, Giantrex", url: "https://giantrex.net/" },
   right: "Cairo, Egypt · GMT+3",
 };
 
@@ -617,21 +617,21 @@ export const ui = {
 export const meta = {
   url: SITE_URL,
   ogLocale: "en_US",
-  title: "Omar Derbala — Founder & CTO of Giantrex | Senior Full Stack Engineer",
+  title: "Omar Derbala — CTO & Partner at Giantrex | Senior Full Stack Engineer",
   description:
-    "Founder and CTO of Giantrex. Senior software engineer building enterprise ERP, CRM, booking and commerce platforms. Top Rated on Upwork.",
-  ogTitle: "Omar Derbala — Founder & CTO of Giantrex",
+    "CTO and partner at Giantrex. Senior software engineer building enterprise ERP, CRM, booking and commerce platforms. Top Rated on Upwork.",
+  ogTitle: "Omar Derbala — CTO & Partner at Giantrex",
   ogDescription:
-    "Founder and CTO of Giantrex, and a senior software engineer. Enterprise ERP, CRM, booking and commerce platforms.",
+    "CTO and partner at Giantrex, and a senior software engineer. Enterprise ERP, CRM, booking and commerce platforms.",
   ogImage: "/og.jpg",
-  ogAlt: "Omar Derbala — Founder & CTO, Giantrex · Software Engineer",
+  ogAlt: "Omar Derbala — CTO & Partner, Giantrex · Software Engineer",
   twitterDescription:
     "I build the systems companies run on, from the data model to the interface.",
   siteName: "Omar Derbala — Portfolio",
   personDescription:
-    "Founder and CTO of Giantrex. Senior software engineer with four years of experience building enterprise ERP/CRM platforms, booking systems and national digital transformation projects.",
-  websiteName: "Omar Derbala — Founder & CTO of Giantrex",
+    "CTO and partner at Giantrex. Senior software engineer with four years of experience building enterprise ERP/CRM platforms, booking systems and national digital transformation projects.",
+  websiteName: "Omar Derbala — CTO & Partner at Giantrex",
   websiteDescription:
-    "Portfolio of Omar Derbala, founder and CTO of Giantrex and a senior software engineer.",
+    "Portfolio of Omar Derbala, CTO and partner at Giantrex and a senior software engineer.",
   profileName: "Omar Derbala Portfolio",
 };

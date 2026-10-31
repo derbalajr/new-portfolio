@@ -22,14 +22,14 @@ const cards = [
     lang: "en",
     dir: "ltr",
     name: "Omar Derbala",
-    role: "Founder &amp; CTO, <b>Giantrex</b> · Software Engineer",
+    role: "CTO &amp; Partner, <b>Giantrex</b> · Software Engineer",
   },
   {
     out: "../../../public/og-ar.jpg",
     lang: "ar",
     dir: "rtl",
     name: "عمر دربالة",
-    role: "مؤسس <b>Giantrex</b> ومديرها التقني · مهندس برمجيات",
+    role: "المدير التقني وشريك في <b>Giantrex</b> · مهندس برمجيات",
   },
 ];
 
